@@ -15,7 +15,7 @@ namespace EmployeeManagementSystem
         private void btn_save_Click(object sender, EventArgs e)
         {
             //获取三个文本框中输入的内容
-            string strMonth = tb_Month.Text;
+            string strYearMonth = tb_YearMonth.Text;
             string strDay = tb_Day.Text;
             string strHour = tb_Hour.Text;
 
@@ -26,7 +26,7 @@ namespace EmployeeManagementSystem
 
                 sqlConnection.Open();
                 //定义一个要执行的SQL语句
-                string strSQL = "insert into Calender values('" + strMonth + "','" + strDay + "','" + strHour + "')";
+                string strSQL = "insert into Calender values('" + strYearMonth + "','" + strDay + "','" + strHour + "')";
                 //创建一个sqlcommand命令的实例
                 SqlCommand sqlCommand = new SqlCommand(strSQL, sqlConnection);
 
@@ -49,7 +49,7 @@ namespace EmployeeManagementSystem
         public void ClearTextBox()
 
         {
-            tb_Month.Text = "";
+            tb_YearMonth.Text = "";
             tb_Day.Text = "";
             tb_Hour.Text = "";
 
@@ -82,7 +82,7 @@ namespace EmployeeManagementSystem
             while (sdr.Read())
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.Text = sdr["Month"].ToString();
+                lvi.Text = sdr["YearMonth"].ToString();
                 lvi.SubItems.Add(sdr["WorkDay"].ToString());
                 lvi.SubItems.Add(sdr["WorkHour"].ToString());
 
@@ -111,7 +111,7 @@ namespace EmployeeManagementSystem
                 str[i] = listView_Calender.Items[a].SubItems[i].Text;
             }
 
-            tb_Month.Text = str[0];
+            tb_YearMonth.Text = str[0];
             tb_Day.Text = str[1];
             tb_Hour.Text = str[2];
 
@@ -152,7 +152,7 @@ namespace EmployeeManagementSystem
             {
                 //创建listviewitem的实例
                 ListViewItem lvi = new ListViewItem();
-                lvi.Text = sdr["Month"].ToString();
+                lvi.Text = sdr["YearMonth"].ToString();
                 lvi.SubItems.Add(sdr["WorkDay"].ToString());
                 lvi.SubItems.Add(sdr["WorkHour"].ToString());
 
@@ -198,7 +198,7 @@ namespace EmployeeManagementSystem
 
 
             //保存月份编码
-            string strMonth = tb_Month.Text;
+            string strYearMonth = tb_YearMonth.Text;
             //保存工作时长（天）
             string strDay = tb_Day.Text;
 
@@ -208,7 +208,7 @@ namespace EmployeeManagementSystem
             string strHour = tb_Hour.Text;
 
             //声明将文本编辑框中的文本内容导入到数据库中的sql语句
-            string strSql = " update Calender set Month='" + strMonth + "',WorkDay='" + strDay + "',WorkHour='" + strHour + "'  where Month='" + strMonth + "'";
+            string strSql = " update Calender set YearMonth='" + strYearMonth + "',WorkDay='" + strDay + "',WorkHour='" + strHour + "'  where YearMonth='" + strYearMonth + "'";
 
 
             //创建数据库连接

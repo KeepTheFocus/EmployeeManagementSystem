@@ -64,6 +64,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -294,6 +294,7 @@
             this.listView_UpholdSalaryFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader11,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
@@ -301,8 +302,7 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
+            this.columnHeader10});
             this.listView_UpholdSalaryFiles.FullRowSelect = true;
             this.listView_UpholdSalaryFiles.GridLines = true;
             this.listView_UpholdSalaryFiles.Location = new System.Drawing.Point(36, 281);
@@ -323,46 +323,42 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 3;
             this.columnHeader3.Text = "基本工资";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 4;
             this.columnHeader4.Text = "全勤奖";
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 5;
             this.columnHeader5.Text = "职务津贴";
             // 
             // columnHeader6
             // 
-            this.columnHeader6.DisplayIndex = 6;
             this.columnHeader6.Text = "住宿补贴";
             // 
             // columnHeader7
             // 
-            this.columnHeader7.DisplayIndex = 7;
             this.columnHeader7.Text = "餐费补贴";
             // 
             // columnHeader8
             // 
-            this.columnHeader8.DisplayIndex = 8;
             this.columnHeader8.Text = "工作日加班费率";
             this.columnHeader8.Width = 98;
             // 
             // columnHeader9
             // 
-            this.columnHeader9.DisplayIndex = 9;
             this.columnHeader9.Text = "节假日加班费率";
             this.columnHeader9.Width = 98;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.DisplayIndex = 10;
             this.columnHeader10.Text = "法定节假日加班费率";
             this.columnHeader10.Width = 145;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "年月编号";
             // 
             // label12
             // 
@@ -459,11 +455,6 @@
             this.tb_YearMonth.Name = "tb_YearMonth";
             this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
             this.tb_YearMonth.TabIndex = 36;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.DisplayIndex = 2;
-            this.columnHeader11.Text = "年月编号";
             // 
             // UpholdSalaryForm
             // 

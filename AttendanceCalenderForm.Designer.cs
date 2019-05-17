@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_Month = new System.Windows.Forms.TextBox();
+            this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.tb_Hour = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_alter = new System.Windows.Forms.Button();
@@ -44,12 +44,12 @@
             this.btn_SaveAfterAlter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tb_Month
+            // tb_YearMonth
             // 
-            this.tb_Month.Location = new System.Drawing.Point(146, 55);
-            this.tb_Month.Name = "tb_Month";
-            this.tb_Month.Size = new System.Drawing.Size(100, 21);
-            this.tb_Month.TabIndex = 0;
+            this.tb_YearMonth.Location = new System.Drawing.Point(146, 55);
+            this.tb_YearMonth.Name = "tb_YearMonth";
+            this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth.TabIndex = 0;
             // 
             // tb_Hour
             // 
@@ -177,7 +177,7 @@
             this.Controls.Add(this.btn_alter);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.tb_Hour);
-            this.Controls.Add(this.tb_Month);
+            this.Controls.Add(this.tb_YearMonth);
             this.Name = "AttendanceCalenderForm";
             this.Text = "考勤日历";
             this.Load += new System.EventHandler(this.AttendanceCalenderForm_Load);
@@ -188,7 +188,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tb_Month;
+        private System.Windows.Forms.TextBox tb_YearMonth;
         private System.Windows.Forms.TextBox tb_Hour;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_alter;

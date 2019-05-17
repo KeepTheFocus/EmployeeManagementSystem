@@ -61,6 +61,7 @@ namespace EmployeeManagementSystem
             //获取所有文本框中已输入的值
             string Number = tb_Number.Text;
             string Name = tb_Name.Text;
+            string YearMonth = tb_YearMonth.Text;
             string BasicPay = tb_BasicPay.Text;
             string FullAttendance = tb_FullAttendance.Text;
             string DutyBonus = tb_DutyBonus.Text;
@@ -79,7 +80,7 @@ namespace EmployeeManagementSystem
                 //打开连接
                 sqlConnection.Open();
                 //创建要执行的Sql命令
-                string strSql = "insert into UpholdSalaryFiles values('" + Number + "','" + Name + "','" + BasicPay + "','" + FullAttendance + "','" + DutyBonus + "','" + OutBonus + "','" + MealBonus + "','" + NormalRate + "','" + WeekRate + "','" + FestivalRate + "')";
+                string strSql = "insert into UpholdSalaryFiles values('" + Number + "','" + Name + "','"+YearMonth+"','" + BasicPay + "','" + FullAttendance + "','" + DutyBonus + "','" + OutBonus + "','" + MealBonus + "','" + NormalRate + "','" + WeekRate + "','" + FestivalRate + "')";
                 //创建SQLCommand实例
 
                 SqlCommand sqlCommand = new SqlCommand(strSql, sqlConnection);
@@ -128,6 +129,7 @@ namespace EmployeeManagementSystem
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = sdr["EmployeeNumber"].ToString();
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                lvi.SubItems.Add(sdr["YearMonth"].ToString());
                 lvi.SubItems.Add(sdr["BasicPay"].ToString());
                 lvi.SubItems.Add(sdr["FullAttendanceBonus"].ToString());
                 lvi.SubItems.Add(sdr["DutyAllowance"].ToString());
@@ -155,6 +157,7 @@ namespace EmployeeManagementSystem
             //清空所有 输入框的内容
             tb_Number.Text = "";
             tb_Name.Text = "";
+            tb_YearMonth.Text = "";
             tb_BasicPay.Text = "";
             tb_FullAttendance.Text = "";
 
@@ -193,6 +196,7 @@ namespace EmployeeManagementSystem
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = sdr["EmployeeNumber"].ToString();
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                lvi.SubItems.Add(sdr["YearMonth"].ToString());
                 lvi.SubItems.Add(sdr["BasicPay"].ToString());
                 lvi.SubItems.Add(sdr["FullAttendanceBonus"].ToString());
                 lvi.SubItems.Add(sdr["DutyAllowance"].ToString());
@@ -210,7 +214,7 @@ namespace EmployeeManagementSystem
         }
 
         //定义一个长度为10的数组用来保存  要传递进来的字符串
-        public string[] str = new string[10];
+        public string[] str = new string[11];
 
         //给修改按钮 添加 点击事件
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -218,21 +222,22 @@ namespace EmployeeManagementSystem
             //获取当前被选中项的 索引
             int a = listView_UpholdSalaryFiles.FocusedItem.Index;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
                 str[i] = listView_UpholdSalaryFiles.Items[a].SubItems[i].Text;
             }
 
             tb_Number.Text = str[0];
             tb_Name.Text = str[1];
-            tb_BasicPay.Text = str[2];
-            tb_FullAttendance.Text = str[3];
-            tb_DutyBonus.Text = str[4];
-            tb_OutBonus.Text = str[5];
-            tb_MealBonus.Text = str[6];
-            tb_NormalRate.Text = str[7];
-            tb_WeekRate.Text = str[8];
-            tb_FestivalRate.Text = str[9];
+            tb_YearMonth.Text = str[2];
+            tb_BasicPay.Text = str[3];
+            tb_FullAttendance.Text = str[4];
+            tb_DutyBonus.Text = str[5];
+            tb_OutBonus.Text = str[6];
+            tb_MealBonus.Text = str[7];
+            tb_NormalRate.Text = str[8];
+            tb_WeekRate.Text = str[9];
+            tb_FestivalRate.Text = str[10];
 
         }
 
@@ -244,8 +249,8 @@ namespace EmployeeManagementSystem
             string strNumber = tb_Number.Text;
             //保存员工姓名
             string strName = tb_Name.Text;
-
-
+            //保存年月信息
+            string strYearMonth = tb_YearMonth.Text;
 
             //保存基本工资
             string strBasic = tb_BasicPay.Text;
@@ -264,7 +269,7 @@ namespace EmployeeManagementSystem
             //保存法定节假日加班 费率
             string strFestival = tb_FestivalRate.Text;
             //声明将文本编辑框中的文本内容导入到数据库中的sql语句
-            string strSql = " update UpholdSalaryFiles set EmployeeName='" + strName + "',BasicPay='" + strBasic + "',FullAttendanceBonus='" + strFull + "',DutyAllowance='" + strDutyBonus + "',StayOutSideAllowance='" + strOutBonus + "',MealAllowance='" + strMealBonus + "',NormalRate='" + strNormal + "',WeekRate='" + strWeek + "',FestivalRate='" + strFestival + "' where EmployeeNumber='" + strNumber + "'";
+            string strSql = " update UpholdSalaryFiles set EmployeeName='" + strName + "',YearMonth='"+strYearMonth+"',BasicPay='" + strBasic + "',FullAttendanceBonus='" + strFull + "',DutyAllowance='" + strDutyBonus + "',StayOutSideAllowance='" + strOutBonus + "',MealAllowance='" + strMealBonus + "',NormalRate='" + strNormal + "',WeekRate='" + strWeek + "',FestivalRate='" + strFestival + "' where EmployeeNumber='" + strNumber + "'";
 
 
             //创建数据库连接
@@ -323,6 +328,7 @@ namespace EmployeeManagementSystem
                     ListViewItem lvi = new ListViewItem();
                     lvi.Text = sdr["EmployeeNumber"].ToString();
                     lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                    lvi.SubItems.Add(sdr["YearMonth"].ToString());
                     lvi.SubItems.Add(sdr["BasicPay"].ToString());
                     lvi.SubItems.Add(sdr["FullAttendanceBonus"].ToString());
                     lvi.SubItems.Add(sdr["DutyAllowance"].ToString());

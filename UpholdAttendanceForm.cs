@@ -43,6 +43,7 @@ namespace EmployeeManagementSystem
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = sdr["EmployeeNumber"].ToString();
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                lvi.SubItems.Add(sdr["YearMonth"].ToString());
                 lvi.SubItems.Add(sdr["AttendanceHour"].ToString());
                 lvi.SubItems.Add(sdr["AbsenceHour"].ToString());
                 lvi.SubItems.Add(sdr["LeaveHour"].ToString());
@@ -106,6 +107,7 @@ namespace EmployeeManagementSystem
             //获取所有文本框中已输入的值
             string Number = tb_Number.Text;
             string Name = tb_Name.Text;
+            string YearMonth=tb_YearMonth.Text;
             string Attendance = tb_AttendanceHour.Text;
             string Absence = tb_AbsenceHour.Text;
             string Leave = tb_LeaveHour.Text;
@@ -123,7 +125,7 @@ namespace EmployeeManagementSystem
                 //打开连接
                 sqlConnection.Open();
                 //创建要执行的Sql命令
-                string strSql = "insert into AttendanceReport values('" + Number + "','" + Name + "','" + Attendance + "','" + Absence + "','" + Leave + "','" + Normal + "','" + Week+ "','" + Festival + "')";
+                string strSql = "insert into AttendanceReport values('" + Number + "','" + Name + "','"+YearMonth+"','" + Attendance + "','" + Absence + "','" + Leave + "','" + Normal + "','" + Week+ "','" + Festival + "')";
                 //创建SQLCommand实例
 
                 SqlCommand sqlCommand = new SqlCommand(strSql, sqlConnection);
@@ -153,7 +155,7 @@ namespace EmployeeManagementSystem
             //获取当前被选中项的 索引
             int a = listview_AttendanceReport.FocusedItem.Index;
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                //将列表中对应的第几行 第几列数据  所代表的文本值传入到数组对象中 
                 str[i] = listview_AttendanceReport.Items[a].SubItems[i].Text;
@@ -162,12 +164,13 @@ namespace EmployeeManagementSystem
             //将数组中对应索引位置的值  赋值给文本框中
             tb_Number.Text = str[0];
             tb_Name.Text = str[1];
-            tb_AttendanceHour.Text = str[2];
-           tb_AbsenceHour.Text = str[3];
-            tb_LeaveHour.Text = str[4];
-            tb_normal.Text = str[5];
-            tb_Week.Text= str[6];
-            tb_Festival.Text = str[7];
+            tb_YearMonth.Text = str[2];
+            tb_AttendanceHour.Text = str[3];
+           tb_AbsenceHour.Text = str[4];
+            tb_LeaveHour.Text = str[5];
+            tb_normal.Text = str[6];
+            tb_Week.Text= str[7];
+            tb_Festival.Text = str[8];
             
         }
 
@@ -180,7 +183,8 @@ namespace EmployeeManagementSystem
             string strNumber = tb_Number.Text;
             //保存员工姓名
             string strName = tb_Name.Text;
-
+            //保存年月编号
+            string strYearMonth = tb_YearMonth.Text;
 
 
             //保存 出勤时间
@@ -197,7 +201,7 @@ namespace EmployeeManagementSystem
             string strFestival = tb_Festival.Text;
          
             //声明将文本编辑框中的文本内容导入到数据库中的sql语句
-            string strSql = " update AttendanceReport set EmployeeName='" + strName + "',AttendanceHour='" + strAttendance + "',AbsenceHour='" + strAbsence + "',LeaveHour='" + strLeave + "',NormalOvertimeHour='" + strNormal + "',WeekOvertimeHour='" + strWeek + "',FestivalOvertimeHour='" + strFestival + "' where EmployeeNumber='" + strNumber + "'";
+            string strSql = " update AttendanceReport set EmployeeName='" + strName + "',YearMonth='"+strYearMonth+"',AttendanceHour='" + strAttendance + "',AbsenceHour='" + strAbsence + "',LeaveHour='" + strLeave + "',NormalOvertimeHour='" + strNormal + "',WeekOvertimeHour='" + strWeek + "',FestivalOvertimeHour='" + strFestival + "' where EmployeeNumber='" + strNumber + "'";
 
           
             //创建数据库连接
@@ -311,6 +315,7 @@ namespace EmployeeManagementSystem
                 //读取Sql结果集中 EmoployeeNumber列中的数据 并将其转成字符串
                 lvi.Text = sdr["EmployeeNumber"].ToString();
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                lvi.SubItems.Add(sdr["YearMonth"].ToString());
                 lvi.SubItems.Add(sdr["AttendanceHour"].ToString());
                 lvi.SubItems.Add(sdr["AbsenceHour"].ToString());
                 lvi.SubItems.Add(sdr["LeaveHour"].ToString());
@@ -335,6 +340,7 @@ namespace EmployeeManagementSystem
 
             tb_Number.Text = "";
             tb_Name.Text = "";
+            tb_YearMonth.Text = "";
             tb_AttendanceHour.Text = "";
             tb_AbsenceHour.Text = "";
             tb_LeaveHour.Text = "";

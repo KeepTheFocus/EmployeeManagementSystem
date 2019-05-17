@@ -33,9 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_EmployeeNumber = new System.Windows.Forms.TextBox();
             this.tb_EmployeeNumber2 = new System.Windows.Forms.TextBox();
-            this.tb_Month = new System.Windows.Forms.TextBox();
+            this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.tb_SectionName = new System.Windows.Forms.TextBox();
-            this.tb_Month2 = new System.Windows.Forms.TextBox();
+            this.tb_YearMonth2 = new System.Windows.Forms.TextBox();
             this.tb_SectionName2 = new System.Windows.Forms.TextBox();
             this.btn_count = new System.Windows.Forms.Button();
             this.btn_Search = new System.Windows.Forms.Button();
@@ -98,12 +98,12 @@
             this.tb_EmployeeNumber2.Size = new System.Drawing.Size(100, 21);
             this.tb_EmployeeNumber2.TabIndex = 3;
             // 
-            // tb_Month
+            // tb_YearMonth
             // 
-            this.tb_Month.Location = new System.Drawing.Point(171, 140);
-            this.tb_Month.Name = "tb_Month";
-            this.tb_Month.Size = new System.Drawing.Size(100, 21);
-            this.tb_Month.TabIndex = 1;
+            this.tb_YearMonth.Location = new System.Drawing.Point(171, 140);
+            this.tb_YearMonth.Name = "tb_YearMonth";
+            this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth.TabIndex = 1;
             // 
             // tb_SectionName
             // 
@@ -112,12 +112,12 @@
             this.tb_SectionName.Size = new System.Drawing.Size(100, 21);
             this.tb_SectionName.TabIndex = 2;
             // 
-            // tb_Month2
+            // tb_YearMonth2
             // 
-            this.tb_Month2.Location = new System.Drawing.Point(361, 140);
-            this.tb_Month2.Name = "tb_Month2";
-            this.tb_Month2.Size = new System.Drawing.Size(100, 21);
-            this.tb_Month2.TabIndex = 4;
+            this.tb_YearMonth2.Location = new System.Drawing.Point(361, 140);
+            this.tb_YearMonth2.Name = "tb_YearMonth2";
+            this.tb_YearMonth2.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth2.TabIndex = 4;
             // 
             // tb_SectionName2
             // 
@@ -271,15 +271,15 @@
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_count);
             this.Controls.Add(this.tb_SectionName2);
-            this.Controls.Add(this.tb_Month2);
+            this.Controls.Add(this.tb_YearMonth2);
             this.Controls.Add(this.tb_SectionName);
-            this.Controls.Add(this.tb_Month);
+            this.Controls.Add(this.tb_YearMonth);
             this.Controls.Add(this.tb_EmployeeNumber2);
             this.Controls.Add(this.tb_EmployeeNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "SalaryCalculatorForm";
+            this.ARName = "SalaryCalculatorForm";
             this.Text = "工资计算";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -293,9 +293,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_EmployeeNumber;
         private System.Windows.Forms.TextBox tb_EmployeeNumber2;
-        private System.Windows.Forms.TextBox tb_Month;
+        private System.Windows.Forms.TextBox tb_YearMonth;
         private System.Windows.Forms.TextBox tb_SectionName;
-        private System.Windows.Forms.TextBox tb_Month2;
+        private System.Windows.Forms.TextBox tb_YearMonth2;
         private System.Windows.Forms.TextBox tb_SectionName2;
         private System.Windows.Forms.Button btn_count;
         private System.Windows.Forms.Button btn_Search;
