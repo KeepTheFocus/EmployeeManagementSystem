@@ -60,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 67);
+            this.label1.Location = new System.Drawing.Point(58, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -69,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 149);
+            this.label2.Location = new System.Drawing.Point(58, 195);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -78,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 229);
+            this.label3.Location = new System.Drawing.Point(58, 267);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
@@ -86,51 +86,51 @@
             // 
             // tb_EmployeeNumber
             // 
-            this.tb_EmployeeNumber.Location = new System.Drawing.Point(171, 67);
+            this.tb_EmployeeNumber.Location = new System.Drawing.Point(171, 104);
             this.tb_EmployeeNumber.Name = "tb_EmployeeNumber";
-            this.tb_EmployeeNumber.Size = new System.Drawing.Size(100, 21);
+            this.tb_EmployeeNumber.Size = new System.Drawing.Size(182, 21);
             this.tb_EmployeeNumber.TabIndex = 0;
             // 
             // tb_EmployeeNumber2
             // 
-            this.tb_EmployeeNumber2.Location = new System.Drawing.Point(361, 67);
+            this.tb_EmployeeNumber2.Location = new System.Drawing.Point(498, 101);
             this.tb_EmployeeNumber2.Name = "tb_EmployeeNumber2";
-            this.tb_EmployeeNumber2.Size = new System.Drawing.Size(100, 21);
+            this.tb_EmployeeNumber2.Size = new System.Drawing.Size(235, 21);
             this.tb_EmployeeNumber2.TabIndex = 3;
             // 
             // tb_YearMonth
             // 
-            this.tb_YearMonth.Location = new System.Drawing.Point(171, 140);
+            this.tb_YearMonth.Location = new System.Drawing.Point(171, 192);
             this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth.Size = new System.Drawing.Size(182, 21);
             this.tb_YearMonth.TabIndex = 1;
             // 
             // tb_SectionName
             // 
-            this.tb_SectionName.Location = new System.Drawing.Point(171, 220);
+            this.tb_SectionName.Location = new System.Drawing.Point(171, 264);
             this.tb_SectionName.Name = "tb_SectionName";
-            this.tb_SectionName.Size = new System.Drawing.Size(100, 21);
+            this.tb_SectionName.Size = new System.Drawing.Size(182, 21);
             this.tb_SectionName.TabIndex = 2;
             // 
             // tb_YearMonth2
             // 
-            this.tb_YearMonth2.Location = new System.Drawing.Point(361, 140);
+            this.tb_YearMonth2.Location = new System.Drawing.Point(498, 192);
             this.tb_YearMonth2.Name = "tb_YearMonth2";
-            this.tb_YearMonth2.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth2.Size = new System.Drawing.Size(235, 21);
             this.tb_YearMonth2.TabIndex = 4;
             // 
             // tb_SectionName2
             // 
-            this.tb_SectionName2.Location = new System.Drawing.Point(361, 220);
+            this.tb_SectionName2.Location = new System.Drawing.Point(498, 266);
             this.tb_SectionName2.Name = "tb_SectionName2";
-            this.tb_SectionName2.Size = new System.Drawing.Size(100, 21);
+            this.tb_SectionName2.Size = new System.Drawing.Size(235, 21);
             this.tb_SectionName2.TabIndex = 5;
             // 
             // btn_count
             // 
-            this.btn_count.Location = new System.Drawing.Point(657, 33);
+            this.btn_count.Location = new System.Drawing.Point(811, 99);
             this.btn_count.Name = "btn_count";
-            this.btn_count.Size = new System.Drawing.Size(100, 23);
+            this.btn_count.Size = new System.Drawing.Size(341, 23);
             this.btn_count.TabIndex = 9;
             this.btn_count.Text = "计算";
             this.btn_count.UseVisualStyleBackColor = true;
@@ -138,9 +138,9 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(657, 88);
+            this.btn_Search.Location = new System.Drawing.Point(811, 184);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(100, 23);
+            this.btn_Search.Size = new System.Drawing.Size(341, 23);
             this.btn_Search.TabIndex = 10;
             this.btn_Search.Text = "查找";
             this.btn_Search.UseVisualStyleBackColor = true;
@@ -148,9 +148,9 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(657, 144);
+            this.btn_delete.Location = new System.Drawing.Point(811, 256);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(100, 23);
+            this.btn_delete.Size = new System.Drawing.Size(341, 23);
             this.btn_delete.TabIndex = 11;
             this.btn_delete.Text = "删除";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -158,18 +158,18 @@
             // 
             // btn_2Excel
             // 
-            this.btn_2Excel.Location = new System.Drawing.Point(657, 189);
+            this.btn_2Excel.Location = new System.Drawing.Point(811, 324);
             this.btn_2Excel.Name = "btn_2Excel";
-            this.btn_2Excel.Size = new System.Drawing.Size(100, 23);
+            this.btn_2Excel.Size = new System.Drawing.Size(341, 23);
             this.btn_2Excel.TabIndex = 12;
             this.btn_2Excel.Text = "导出";
             this.btn_2Excel.UseVisualStyleBackColor = true;
             // 
             // btn_Esc
             // 
-            this.btn_Esc.Location = new System.Drawing.Point(657, 242);
+            this.btn_Esc.Location = new System.Drawing.Point(811, 398);
             this.btn_Esc.Name = "btn_Esc";
-            this.btn_Esc.Size = new System.Drawing.Size(100, 23);
+            this.btn_Esc.Size = new System.Drawing.Size(341, 23);
             this.btn_Esc.TabIndex = 13;
             this.btn_Esc.Text = "退出";
             this.btn_Esc.UseVisualStyleBackColor = true;
@@ -190,9 +190,9 @@
             this.columnHeader10});
             this.listView_CountResult.FullRowSelect = true;
             this.listView_CountResult.GridLines = true;
-            this.listView_CountResult.Location = new System.Drawing.Point(51, 321);
+            this.listView_CountResult.Location = new System.Drawing.Point(60, 324);
             this.listView_CountResult.Name = "listView_CountResult";
-            this.listView_CountResult.Size = new System.Drawing.Size(607, 97);
+            this.listView_CountResult.Size = new System.Drawing.Size(673, 97);
             this.listView_CountResult.TabIndex = 14;
             this.listView_CountResult.UseCompatibleStateImageBehavior = false;
             this.listView_CountResult.View = System.Windows.Forms.View.Details;
@@ -251,7 +251,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(407, 44);
+            this.label5.Location = new System.Drawing.Point(589, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 12);
             this.label5.TabIndex = 16;
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listView_CountResult);
@@ -279,7 +279,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.ARName = "SalaryCalculatorForm";
+            this.Name = "SalaryCalculatorForm";
             this.Text = "工资计算";
             this.ResumeLayout(false);
             this.PerformLayout();

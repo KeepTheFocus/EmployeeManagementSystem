@@ -80,6 +80,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.btn_saveAfterAlter);
             this.groupBox1.Controls.Add(this.tb_HomeAddress);
             this.groupBox1.Controls.Add(this.label22);
@@ -117,7 +118,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(763, 414);
+            this.groupBox1.Size = new System.Drawing.Size(1220, 666);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
@@ -552,6 +553,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

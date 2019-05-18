@@ -63,7 +63,7 @@
             this.薪资计算ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1204, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,42 +83,42 @@
             // 新建入职职员ToolStripMenuItem
             // 
             this.新建入职职员ToolStripMenuItem.Name = "新建入职职员ToolStripMenuItem";
-            this.新建入职职员ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.新建入职职员ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新建入职职员ToolStripMenuItem.Text = "维护人员档案";
             this.新建入职职员ToolStripMenuItem.Click += new System.EventHandler(this.btn_AddEmployee);
             // 
             // 新建部门ToolStripMenuItem
             // 
             this.新建部门ToolStripMenuItem.Name = "新建部门ToolStripMenuItem";
-            this.新建部门ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.新建部门ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新建部门ToolStripMenuItem.Text = "维护部门数据";
             this.新建部门ToolStripMenuItem.Click += new System.EventHandler(this.新建部门ToolStripMenuItem_Click);
             // 
             // 维护职务数据ToolStripMenuItem
             // 
             this.维护职务数据ToolStripMenuItem.Name = "维护职务数据ToolStripMenuItem";
-            this.维护职务数据ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.维护职务数据ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.维护职务数据ToolStripMenuItem.Text = "维护职务数据";
             this.维护职务数据ToolStripMenuItem.Click += new System.EventHandler(this.维护职务数据ToolStripMenuItem_Click);
             // 
             // 维护薪资档案ToolStripMenuItem
             // 
             this.维护薪资档案ToolStripMenuItem.Name = "维护薪资档案ToolStripMenuItem";
-            this.维护薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.维护薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.维护薪资档案ToolStripMenuItem.Text = "维护薪资档案";
             this.维护薪资档案ToolStripMenuItem.Click += new System.EventHandler(this.维护薪资档案ToolStripMenuItem_Click);
             // 
             // 导入人员档案ToolStripMenuItem
             // 
             this.导入人员档案ToolStripMenuItem.Name = "导入人员档案ToolStripMenuItem";
-            this.导入人员档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.导入人员档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.导入人员档案ToolStripMenuItem.Text = "导入人员档案";
             this.导入人员档案ToolStripMenuItem.Click += new System.EventHandler(this.导入人员档案ToolStripMenuItem_Click);
             // 
             // 导入薪资档案ToolStripMenuItem
             // 
             this.导入薪资档案ToolStripMenuItem.Name = "导入薪资档案ToolStripMenuItem";
-            this.导入薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.导入薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.导入薪资档案ToolStripMenuItem.Text = "导入薪资档案";
             this.导入薪资档案ToolStripMenuItem.Click += new System.EventHandler(this.导入薪资档案ToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             // 工资计算ToolStripMenuItem
             // 
             this.工资计算ToolStripMenuItem.Name = "工资计算ToolStripMenuItem";
-            this.工资计算ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.工资计算ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.工资计算ToolStripMenuItem.Text = "工资计算";
             this.工资计算ToolStripMenuItem.Click += new System.EventHandler(this.工资计算ToolStripMenuItem_Click);
             // 
@@ -177,13 +177,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "人事管理系统";
             this.menuStrip1.ResumeLayout(false);

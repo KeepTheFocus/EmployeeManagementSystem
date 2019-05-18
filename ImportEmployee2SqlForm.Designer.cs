@@ -48,9 +48,9 @@
             // 
             // btn_selectExcel
             // 
-            this.btn_selectExcel.Location = new System.Drawing.Point(22, 79);
+            this.btn_selectExcel.Location = new System.Drawing.Point(279, 82);
             this.btn_selectExcel.Name = "btn_selectExcel";
-            this.btn_selectExcel.Size = new System.Drawing.Size(143, 23);
+            this.btn_selectExcel.Size = new System.Drawing.Size(489, 23);
             this.btn_selectExcel.TabIndex = 1;
             this.btn_selectExcel.Text = "选择要导入的Excel文件";
             this.btn_selectExcel.UseVisualStyleBackColor = true;
@@ -58,16 +58,16 @@
             // 
             // tb_filePath
             // 
-            this.tb_filePath.Location = new System.Drawing.Point(108, 118);
+            this.tb_filePath.Location = new System.Drawing.Point(296, 137);
             this.tb_filePath.Name = "tb_filePath";
             this.tb_filePath.Size = new System.Drawing.Size(453, 21);
             this.tb_filePath.TabIndex = 0;
             // 
             // btn_import2Sql
             // 
-            this.btn_import2Sql.Location = new System.Drawing.Point(22, 221);
+            this.btn_import2Sql.Location = new System.Drawing.Point(270, 278);
             this.btn_import2Sql.Name = "btn_import2Sql";
-            this.btn_import2Sql.Size = new System.Drawing.Size(164, 23);
+            this.btn_import2Sql.Size = new System.Drawing.Size(498, 23);
             this.btn_import2Sql.TabIndex = 3;
             this.btn_import2Sql.Text = "导入到Sql数据库中";
             this.btn_import2Sql.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 127);
+            this.label1.Location = new System.Drawing.Point(179, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 4;
@@ -85,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 159);
+            this.label2.Location = new System.Drawing.Point(203, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             // tb_fileName
             // 
-            this.tb_fileName.Location = new System.Drawing.Point(108, 149);
+            this.tb_fileName.Location = new System.Drawing.Point(296, 209);
             this.tb_fileName.Name = "tb_fileName";
             this.tb_fileName.Size = new System.Drawing.Size(453, 21);
             this.tb_fileName.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.tb_fileName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

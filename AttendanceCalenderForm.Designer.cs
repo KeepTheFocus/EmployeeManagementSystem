@@ -46,23 +46,23 @@
             // 
             // tb_YearMonth
             // 
-            this.tb_YearMonth.Location = new System.Drawing.Point(146, 55);
+            this.tb_YearMonth.Location = new System.Drawing.Point(447, 103);
             this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
+            this.tb_YearMonth.Size = new System.Drawing.Size(209, 21);
             this.tb_YearMonth.TabIndex = 0;
             // 
             // tb_Hour
             // 
-            this.tb_Hour.Location = new System.Drawing.Point(146, 131);
+            this.tb_Hour.Location = new System.Drawing.Point(447, 249);
             this.tb_Hour.Name = "tb_Hour";
-            this.tb_Hour.Size = new System.Drawing.Size(100, 21);
+            this.tb_Hour.Size = new System.Drawing.Size(209, 21);
             this.tb_Hour.TabIndex = 2;
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(382, 55);
+            this.btn_save.Location = new System.Drawing.Point(741, 101);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.Size = new System.Drawing.Size(142, 23);
             this.btn_save.TabIndex = 3;
             this.btn_save.Text = "保存";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -70,9 +70,9 @@
             // 
             // btn_alter
             // 
-            this.btn_alter.Location = new System.Drawing.Point(382, 94);
+            this.btn_alter.Location = new System.Drawing.Point(741, 180);
             this.btn_alter.Name = "btn_alter";
-            this.btn_alter.Size = new System.Drawing.Size(75, 23);
+            this.btn_alter.Size = new System.Drawing.Size(142, 23);
             this.btn_alter.TabIndex = 4;
             this.btn_alter.Text = "修改";
             this.btn_alter.UseVisualStyleBackColor = true;
@@ -80,9 +80,9 @@
             // 
             // btn_esc
             // 
-            this.btn_esc.Location = new System.Drawing.Point(382, 158);
+            this.btn_esc.Location = new System.Drawing.Point(943, 103);
             this.btn_esc.Name = "btn_esc";
-            this.btn_esc.Size = new System.Drawing.Size(75, 23);
+            this.btn_esc.Size = new System.Drawing.Size(196, 23);
             this.btn_esc.TabIndex = 6;
             this.btn_esc.Text = "退出";
             this.btn_esc.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 55);
+            this.label1.Location = new System.Drawing.Point(286, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 12);
             this.label1.TabIndex = 0;
@@ -100,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 140);
+            this.label2.Location = new System.Drawing.Point(286, 249);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 12);
             this.label2.TabIndex = 2;
@@ -113,9 +113,9 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView_Calender.FullRowSelect = true;
-            this.listView_Calender.Location = new System.Drawing.Point(37, 184);
+            this.listView_Calender.Location = new System.Drawing.Point(274, 306);
             this.listView_Calender.Name = "listView_Calender";
-            this.listView_Calender.Size = new System.Drawing.Size(345, 151);
+            this.listView_Calender.Size = new System.Drawing.Size(609, 151);
             this.listView_Calender.TabIndex = 3;
             this.listView_Calender.UseCompatibleStateImageBehavior = false;
             this.listView_Calender.View = System.Windows.Forms.View.Details;
@@ -138,7 +138,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 94);
+            this.label3.Location = new System.Drawing.Point(286, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 12);
             this.label3.TabIndex = 1;
@@ -146,17 +146,17 @@
             // 
             // tb_Day
             // 
-            this.tb_Day.Location = new System.Drawing.Point(146, 91);
+            this.tb_Day.Location = new System.Drawing.Point(447, 180);
             this.tb_Day.Name = "tb_Day";
-            this.tb_Day.Size = new System.Drawing.Size(100, 21);
+            this.tb_Day.Size = new System.Drawing.Size(209, 21);
             this.tb_Day.TabIndex = 1;
             this.tb_Day.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Day_KeyDown);
             // 
             // btn_SaveAfterAlter
             // 
-            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(382, 129);
+            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(741, 247);
             this.btn_SaveAfterAlter.Name = "btn_SaveAfterAlter";
-            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(75, 23);
+            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(142, 23);
             this.btn_SaveAfterAlter.TabIndex = 5;
             this.btn_SaveAfterAlter.Text = "修改后保存";
             this.btn_SaveAfterAlter.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.btn_SaveAfterAlter);
             this.Controls.Add(this.tb_Day);
             this.Controls.Add(this.label3);

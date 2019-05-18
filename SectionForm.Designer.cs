@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 109);
+            this.label1.Location = new System.Drawing.Point(153, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
@@ -51,14 +51,14 @@
             // 
             // textBox_SectionName
             // 
-            this.textBox_SectionName.Location = new System.Drawing.Point(145, 98);
+            this.textBox_SectionName.Location = new System.Drawing.Point(381, 111);
             this.textBox_SectionName.Name = "textBox_SectionName";
             this.textBox_SectionName.Size = new System.Drawing.Size(170, 21);
             this.textBox_SectionName.TabIndex = 1;
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(342, 52);
+            this.button_save.Location = new System.Drawing.Point(767, 57);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(227, 23);
             this.button_save.TabIndex = 2;
@@ -69,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 57);
+            this.label3.Location = new System.Drawing.Point(153, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 5;
@@ -77,14 +77,14 @@
             // 
             // textBox_SectionCode
             // 
-            this.textBox_SectionCode.Location = new System.Drawing.Point(145, 54);
+            this.textBox_SectionCode.Location = new System.Drawing.Point(381, 54);
             this.textBox_SectionCode.Name = "textBox_SectionCode";
             this.textBox_SectionCode.Size = new System.Drawing.Size(170, 21);
             this.textBox_SectionCode.TabIndex = 0;
             // 
             // button_Esc
             // 
-            this.button_Esc.Location = new System.Drawing.Point(342, 98);
+            this.button_Esc.Location = new System.Drawing.Point(767, 109);
             this.button_Esc.Name = "button_Esc";
             this.button_Esc.Size = new System.Drawing.Size(227, 23);
             this.button_Esc.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.columnHeader2});
             this.listView_section.FullRowSelect = true;
             this.listView_section.GridLines = true;
-            this.listView_section.Location = new System.Drawing.Point(43, 167);
+            this.listView_section.Location = new System.Drawing.Point(250, 210);
             this.listView_section.Name = "listView_section";
             this.listView_section.Scrollable = false;
             this.listView_section.Size = new System.Drawing.Size(526, 241);
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.listView_section);
             this.Controls.Add(this.button_Esc);
             this.Controls.Add(this.textBox_SectionCode);

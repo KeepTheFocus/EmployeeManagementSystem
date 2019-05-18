@@ -51,6 +51,7 @@
             this.listview_AttendanceReport = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -61,7 +62,6 @@
             this.btn_SaveAfterAlter = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -196,9 +196,9 @@
             // 
             // btn_Alter
             // 
-            this.btn_Alter.Location = new System.Drawing.Point(594, 94);
+            this.btn_Alter.Location = new System.Drawing.Point(947, 108);
             this.btn_Alter.Name = "btn_Alter";
-            this.btn_Alter.Size = new System.Drawing.Size(75, 23);
+            this.btn_Alter.Size = new System.Drawing.Size(128, 23);
             this.btn_Alter.TabIndex = 8;
             this.btn_Alter.Text = "修   改";
             this.btn_Alter.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(594, 48);
+            this.btn_Save.Location = new System.Drawing.Point(947, 54);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.Size = new System.Drawing.Size(128, 23);
             this.btn_Save.TabIndex = 7;
             this.btn_Save.Text = "保   存";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -216,9 +216,9 @@
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(594, 188);
+            this.btn_Delete.Location = new System.Drawing.Point(947, 201);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_Delete.Size = new System.Drawing.Size(128, 23);
             this.btn_Delete.TabIndex = 10;
             this.btn_Delete.Text = "删   除";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -226,9 +226,9 @@
             // 
             // btn_Esc
             // 
-            this.btn_Esc.Location = new System.Drawing.Point(594, 232);
+            this.btn_Esc.Location = new System.Drawing.Point(947, 243);
             this.btn_Esc.Name = "btn_Esc";
-            this.btn_Esc.Size = new System.Drawing.Size(75, 23);
+            this.btn_Esc.Size = new System.Drawing.Size(128, 23);
             this.btn_Esc.TabIndex = 11;
             this.btn_Esc.Text = "退   出";
             this.btn_Esc.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@
             this.columnHeader8});
             this.listview_AttendanceReport.FullRowSelect = true;
             this.listview_AttendanceReport.GridLines = true;
-            this.listview_AttendanceReport.Location = new System.Drawing.Point(12, 282);
+            this.listview_AttendanceReport.Location = new System.Drawing.Point(222, 280);
             this.listview_AttendanceReport.Name = "listview_AttendanceReport";
             this.listview_AttendanceReport.Size = new System.Drawing.Size(668, 97);
             this.listview_AttendanceReport.TabIndex = 20;
@@ -262,6 +262,10 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "员工姓名";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "年月编号";
             // 
             // columnHeader3
             // 
@@ -301,9 +305,9 @@
             // 
             // btn_SaveAfterAlter
             // 
-            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(594, 140);
+            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(947, 154);
             this.btn_SaveAfterAlter.Name = "btn_SaveAfterAlter";
-            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(75, 23);
+            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(128, 23);
             this.btn_SaveAfterAlter.TabIndex = 9;
             this.btn_SaveAfterAlter.Text = "修改后保存";
             this.btn_SaveAfterAlter.UseVisualStyleBackColor = true;
@@ -325,15 +329,11 @@
             this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
             this.tb_YearMonth.TabIndex = 23;
             // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "年月编号";
-            // 
             // UpholdAttendanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.tb_YearMonth);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_SaveAfterAlter);

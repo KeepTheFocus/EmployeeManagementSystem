@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 65);
+            this.label1.Location = new System.Drawing.Point(123, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 148);
+            this.label2.Location = new System.Drawing.Point(123, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -59,23 +59,23 @@
             // 
             // textBox_dutyCode
             // 
-            this.textBox_dutyCode.Location = new System.Drawing.Point(192, 65);
+            this.textBox_dutyCode.Location = new System.Drawing.Point(221, 62);
             this.textBox_dutyCode.Name = "textBox_dutyCode";
-            this.textBox_dutyCode.Size = new System.Drawing.Size(100, 21);
+            this.textBox_dutyCode.Size = new System.Drawing.Size(342, 21);
             this.textBox_dutyCode.TabIndex = 0;
             // 
             // textBox_dutyName
             // 
-            this.textBox_dutyName.Location = new System.Drawing.Point(192, 145);
+            this.textBox_dutyName.Location = new System.Drawing.Point(221, 150);
             this.textBox_dutyName.Name = "textBox_dutyName";
-            this.textBox_dutyName.Size = new System.Drawing.Size(100, 21);
+            this.textBox_dutyName.Size = new System.Drawing.Size(342, 21);
             this.textBox_dutyName.TabIndex = 1;
             // 
             // button_saveDuty
             // 
-            this.button_saveDuty.Location = new System.Drawing.Point(376, 65);
+            this.button_saveDuty.Location = new System.Drawing.Point(646, 54);
             this.button_saveDuty.Name = "button_saveDuty";
-            this.button_saveDuty.Size = new System.Drawing.Size(75, 23);
+            this.button_saveDuty.Size = new System.Drawing.Size(373, 23);
             this.button_saveDuty.TabIndex = 2;
             this.button_saveDuty.Text = "保存";
             this.button_saveDuty.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             // button_escDuty
             // 
-            this.button_escDuty.Location = new System.Drawing.Point(376, 143);
+            this.button_escDuty.Location = new System.Drawing.Point(646, 148);
             this.button_escDuty.Name = "button_escDuty";
-            this.button_escDuty.Size = new System.Drawing.Size(75, 23);
+            this.button_escDuty.Size = new System.Drawing.Size(373, 23);
             this.button_escDuty.TabIndex = 3;
             this.button_escDuty.Text = "退出";
             this.button_escDuty.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.columnHeader2});
             this.listView_Duty.FullRowSelect = true;
             this.listView_Duty.GridLines = true;
-            this.listView_Duty.Location = new System.Drawing.Point(88, 185);
+            this.listView_Duty.Location = new System.Drawing.Point(221, 246);
             this.listView_Duty.Name = "listView_Duty";
             this.listView_Duty.Scrollable = false;
             this.listView_Duty.Size = new System.Drawing.Size(363, 242);
@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 450);
+            this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.listView_Duty);
             this.Controls.Add(this.button_escDuty);
             this.Controls.Add(this.button_saveDuty);
