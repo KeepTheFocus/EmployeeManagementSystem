@@ -66,10 +66,7 @@ namespace EmployeeManagementSystem
 
         private void 导入人员档案ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ////弹出一个  打开文件对话框
-            //OpenFileDialog dialogEmployee = new OpenFileDialog();
-            ////使对话框显示出来
-            //dialogEmployee.ShowDialog();
+          
             //创建 导入人员档案 窗体实例
             ImportEmployee2SqlForm employee2SqlForm = new ImportEmployee2SqlForm();
             employee2SqlForm.MdiParent = this;
@@ -80,10 +77,7 @@ namespace EmployeeManagementSystem
 
         private void 导入薪资档案ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ////弹出一个 打开文件对话框
-            //OpenFileDialog dialogSalary = new OpenFileDialog();
-            ////使对话框显示出来
-            //dialogSalary.ShowDialog();
+       
             //创建 导入薪资档案 窗体实例
             ImportSalary2SqlForm salary2SqlForm = new ImportSalary2SqlForm();
             salary2SqlForm.MdiParent = this;
@@ -104,11 +98,11 @@ namespace EmployeeManagementSystem
 
         private void 导入考勤汇总ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //弹出一个 打开文件对话框
-            OpenFileDialog dialogAttendance = new OpenFileDialog();
-            
-            //使对话框显示出来
-            dialogAttendance.ShowDialog();
+            //打开 考勤汇总的窗体
+            ImportAttendanceReport2SqlForm i2m = new ImportAttendanceReport2SqlForm();
+            i2m.MdiParent = this;
+            i2m.Show();
+            i2m.Dock = DockStyle.Fill;
         }
 
         private void 维护考勤汇总ToolStripMenuItem_Click(object sender, EventArgs e)

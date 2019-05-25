@@ -41,7 +41,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.tb_Day = new System.Windows.Forms.TextBox();
-            this.btn_SaveAfterAlter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_YearMonth
@@ -62,7 +61,7 @@
             // 
             this.btn_save.Location = new System.Drawing.Point(741, 101);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(142, 23);
+            this.btn_save.Size = new System.Drawing.Size(196, 23);
             this.btn_save.TabIndex = 3;
             this.btn_save.Text = "保存";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -72,7 +71,7 @@
             // 
             this.btn_alter.Location = new System.Drawing.Point(741, 180);
             this.btn_alter.Name = "btn_alter";
-            this.btn_alter.Size = new System.Drawing.Size(142, 23);
+            this.btn_alter.Size = new System.Drawing.Size(196, 23);
             this.btn_alter.TabIndex = 4;
             this.btn_alter.Text = "修改";
             this.btn_alter.UseVisualStyleBackColor = true;
@@ -80,7 +79,7 @@
             // 
             // btn_esc
             // 
-            this.btn_esc.Location = new System.Drawing.Point(943, 103);
+            this.btn_esc.Location = new System.Drawing.Point(741, 261);
             this.btn_esc.Name = "btn_esc";
             this.btn_esc.Size = new System.Drawing.Size(196, 23);
             this.btn_esc.TabIndex = 6;
@@ -123,17 +122,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "年月编码";
-            this.columnHeader1.Width = 96;
+            this.columnHeader1.Width = 105;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "工作时长（天）";
-            this.columnHeader4.Width = 100;
+            this.columnHeader4.Width = 227;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "工作时长（小时）";
-            this.columnHeader5.Width = 144;
+            this.columnHeader5.Width = 271;
             // 
             // label3
             // 
@@ -152,22 +151,11 @@
             this.tb_Day.TabIndex = 1;
             this.tb_Day.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Day_KeyDown);
             // 
-            // btn_SaveAfterAlter
-            // 
-            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(741, 247);
-            this.btn_SaveAfterAlter.Name = "btn_SaveAfterAlter";
-            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(142, 23);
-            this.btn_SaveAfterAlter.TabIndex = 5;
-            this.btn_SaveAfterAlter.Text = "修改后保存";
-            this.btn_SaveAfterAlter.UseVisualStyleBackColor = true;
-            this.btn_SaveAfterAlter.Click += new System.EventHandler(this.btn_SaveAfterAlter_Click);
-            // 
             // AttendanceCalenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
-            this.Controls.Add(this.btn_SaveAfterAlter);
             this.Controls.Add(this.tb_Day);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listView_Calender);
@@ -201,6 +189,5 @@
         private System.Windows.Forms.TextBox tb_Day;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Button btn_SaveAfterAlter;
     }
 }

@@ -21,9 +21,9 @@ namespace EmployeeManagementSystem
         private void button_save_Click(object sender, EventArgs e)
         {
             //获取在textBox中输入的部门名称
-            string StrSectionName = textBox_SectionName.Text;
+            string StrSectionName = textBox_SectionName.Text,
             //获取在textBox中输入的部门代码
-            string StrSectionCode =textBox_SectionCode.Text;
+             StrSectionCode =textBox_SectionCode.Text;
 
             //声明将textBox中内容导入到数据库中的SQL语句          sql语句中 文本内容用''包裹
             string strSql = "insert into Section values"+"('"+StrSectionCode+"','"+StrSectionName+"')";

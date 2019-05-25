@@ -18,20 +18,17 @@ namespace EmployeeManagementSystem
             InitializeComponent();
         }
 
+
+
         //当窗体加载时 执行的函数
         private void UpholdAttendanceForm_Load(object sender, EventArgs e)
         {
-            //将数据库中所有的字段显示到  窗体的listview控件中
-            SqlConnection connection;
-            SqlCommand cmd;
-          
-
             //创建数据库连接的实例
-            connection = new SqlConnection(UtilitySql.SetConnectionString());
+           SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
             connection.Open();
             //创建数据库命令的实例
-            cmd = connection.CreateCommand();
+           SqlCommand cmd = connection.CreateCommand();
             //把要执行的sql语句 传递给cmd实例
             cmd.CommandText = "select * from AttendanceReport";
             //创建一个数据读取器
@@ -40,6 +37,7 @@ namespace EmployeeManagementSystem
             while (sdr.Read())
             {
                 //创建listviewitem实例
+                //将数据库中所有的字段显示到  窗体的listview控件中
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = sdr["EmployeeNumber"].ToString();
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
@@ -57,18 +55,7 @@ namespace EmployeeManagementSystem
             }
             //关闭流
             connection.Close();
-
-
         }
-        //当工号输入框的内容发生改变时  执行的函数
-        private void tb_Number_TextChanged(object sender, EventArgs e)
-        {
-            
-           
-            //声明查询语句
-           // select employeename from employee where employeenumber = 'strnumber'
-        }
-
         //给回车键添加点击事件
         private void tb_Number_KeyDown(object sender, KeyEventArgs e)
         {
@@ -105,49 +92,86 @@ namespace EmployeeManagementSystem
         private void btn_Save_Click(object sender, EventArgs e)
         {
             //获取所有文本框中已输入的值
-            string Number = tb_Number.Text;
-            string Name = tb_Name.Text;
-            string YearMonth=tb_YearMonth.Text;
-            string Attendance = tb_AttendanceHour.Text;
-            string Absence = tb_AbsenceHour.Text;
-            string Leave = tb_LeaveHour.Text;
-            string Normal = tb_normal.Text;
-            string Week = tb_Week.Text;
-            string Festival = tb_Festival.Text;
-            
+            string Number = tb_Number.Text,
+             Name = tb_Name.Text,
+             YearMonth=tb_YearMonth.Text,
+             Attendance = tb_AttendanceHour.Text,
+             Absence = tb_AbsenceHour.Text,
+             Leave = tb_LeaveHour.Text,
+             Normal = tb_normal.Text,
+             Week = tb_Week.Text,
+             Festival = tb_Festival.Text;
+            //先判断输入框中的内容是否存在于数据表中
+            //如果存在 执行Update函数
+            //如果不存在 则执行Insert函数
+            //创建数据库连接的对象
 
-            using (SqlConnection sqlConnection = new SqlConnection())
+
+            using (SqlConnection sqlConnectionDR=new SqlConnection())
             {
-
-                //建立与数据库的连接
-
-                sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
+                sqlConnectionDR.ConnectionString = UtilitySql.SetConnectionString();
                 //打开连接
-                sqlConnection.Open();
-                //创建要执行的Sql命令
-                string strSql = "insert into AttendanceReport values('" + Number + "','" + Name + "','"+YearMonth+"','" + Attendance + "','" + Absence + "','" + Leave + "','" + Normal + "','" + Week+ "','" + Festival + "')";
-                //创建SQLCommand实例
+                sqlConnectionDR.Open();
+                //创建要执行的sql命令语句
+                string strSQL = "select * from AttendanceReport where YearMonth='"+tb_YearMonth.Text+"'";
+                //创建SqlCommand类的实例
+                SqlCommand sqlCommandDR = new SqlCommand(strSQL,sqlConnectionDR);
+                //创建数据读取器类的实例
+                SqlDataReader sqlDataReader = sqlCommandDR.ExecuteReader();
 
-                SqlCommand sqlCommand = new SqlCommand(strSql, sqlConnection);
-
-                //返回数据库中受影响的行数
-                int count = sqlCommand.ExecuteNonQuery();
-                if (count > 0)
+                //如果数据表中存在记录
+                if (sqlDataReader.Read())
                 {
-                    MessageBox.Show("数据添加成功");
+                    //关闭sqlDataReader对象
+                    sqlDataReader.Close();
+                    //那么执行Update语句
+
+                    //创建要执行的sqlUpdate语句
+                    string strUpdate = " update AttendanceReport set EmployeeNumber = '" + tb_Number.Text + "',EmployeeName= '" +tb_Name.Text+ "', AttendanceHour = '" +tb_AttendanceHour.Text+ "', AbsenceHour = '" +tb_AbsenceHour.Text+ "', LeaveHour = '" +tb_LeaveHour.Text+ "', NormalOvertimeHour = '" +tb_normal.Text+ "', WeekOvertimeHour = '" +tb_Week.Text+ "', FestivalOvertimeHour = '" +tb_Festival.Text+ "' where YearMonth = '" +tb_YearMonth.Text+ "'";
+                    //创建SqlCommand命令的实例
+                    SqlCommand sqlCommandUE = new SqlCommand(strUpdate, sqlConnectionDR);
+                    //如果被SqlCommand命令影响的行数 大于零的话 则弹出消息记录更新成功
+                    if (sqlCommandUE.ExecuteNonQuery()>0)
+                    {
+                        MessageBox.Show("记录更新成功");
+                    }
+                  
+
                 }
+                else
+                {
+                    //关闭数据读取器对象
+                    sqlDataReader.Close();
+                    //如果数据表中不存在记录
+                    //那么执行Insert语句
+                    //创建要执行的Insert语句
+                    string strInsert = "insert into AttendanceReport values('" + Number + "','" + Name + "','" + YearMonth + "','" + Attendance + "','" + Absence + "','" + Leave + "','" + Normal + "','" + Week + "','" + Festival + "')";
+                    //创建sqlCommand命令的实例
+                    SqlCommand sqlCommandIT = new SqlCommand(strInsert,sqlConnectionDR);
+                    //如果受命令影响的行数大于零 则提示用户记录插入成功
+                    if (sqlCommandIT.ExecuteNonQuery()>0)
+
+                    {
+                        MessageBox.Show("记录插入成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("记录插入失败");
+                    }
+                }
+
                 //关闭连接
-                sqlConnection.Close();
+                sqlConnectionDR.Close();
                 //调用刷新列表的 函数
                 UpdateListview();
+
             }
 
-       
 
     }
 
         //定义一个长度为8的数组用来保存  要传递进来的字符串
-        public string[] str = new string[8];
+        public string[] str = new string[9];
 
         //给修改按钮 添加点击事件
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -171,82 +195,21 @@ namespace EmployeeManagementSystem
             tb_normal.Text = str[6];
             tb_Week.Text= str[7];
             tb_Festival.Text = str[8];
-            
         }
 
-       
-
-        //给修改后保存按钮 添加点击事件
-        private void btn_SaveAfterAlter_Click(object sender, EventArgs e)
-        {
-            //保存员工编号
-            string strNumber = tb_Number.Text;
-            //保存员工姓名
-            string strName = tb_Name.Text;
-            //保存年月编号
-            string strYearMonth = tb_YearMonth.Text;
-
-
-            //保存 出勤时间
-            string strAttendance = tb_AttendanceHour.Text;
-            //保存 缺勤时间
-            string strAbsence = tb_AbsenceHour.Text;
-            //保存 请假时间
-            string strLeave = tb_LeaveHour.Text;
-            //保存 正常加班时间
-            string strNormal = tb_normal.Text;
-            //保存 周末加班时间
-            string strWeek = tb_Week.Text;
-            //保存 法定节假日加班时间
-            string strFestival = tb_Festival.Text;
-         
-            //声明将文本编辑框中的文本内容导入到数据库中的sql语句
-            string strSql = " update AttendanceReport set EmployeeName='" + strName + "',YearMonth='"+strYearMonth+"',AttendanceHour='" + strAttendance + "',AbsenceHour='" + strAbsence + "',LeaveHour='" + strLeave + "',NormalOvertimeHour='" + strNormal + "',WeekOvertimeHour='" + strWeek + "',FestivalOvertimeHour='" + strFestival + "' where EmployeeNumber='" + strNumber + "'";
-
-          
-            //创建数据库连接
-            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
-
-            //创建数据库命令
-            SqlCommand command = new SqlCommand(strSql, connection);
-            //打开连接
-            connection.Open();
-          
-
-
-            //返回受Sql命令影响的行数
-            int count = command.ExecuteNonQuery();
-            //如果受影响的行数大于零 说明有记录被成功添加
-            if (count > 0)
-            {
-                MessageBox.Show("职员信息添加成功");
-            }
-
-            //关闭连接
-            connection.Close();
-            //调用刷新Listview的函数
-            UpdateListview();
-            //调用清空TextBox的函数
-            ClearTextBox();
-        }
         //给删除按钮 添加点击事件
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             //从listview中删除  获取 捕获焦点的条目
             int a=listview_AttendanceReport.FocusedItem.Index;
-          
-
             //  获取到被选中项的工号
            string strNumber= listview_AttendanceReport.Items[a].SubItems[0].Text;
-
             //与数据库建立连接
             using (SqlConnection sqlConnection=new SqlConnection())
             {
-
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 //打开连接
                 sqlConnection.Open();
-
                 //创建要执行的数据库命令                                     SQL中 文本用 ' ' 号包裹
                 string strSQL = "delete from AttendanceReport where EmployeeNumber='"+strNumber+"'";
                 //创建SQLcommand实例
@@ -257,15 +220,11 @@ namespace EmployeeManagementSystem
                 {
                     MessageBox.Show("记录删除成功");
                 }
-
                 //从列表中删除指定的条目
                 listview_AttendanceReport.Items.RemoveAt(a);
-
                 //关闭连接
                 sqlConnection.Close();
-               
             }
-
         }
 
 
@@ -274,16 +233,7 @@ namespace EmployeeManagementSystem
         {
             //退出窗体
             Close();
-
         }
-
-
-
-
-
-
-
-
 
         //点击保存按钮后 刷新listview实时显示数据表中最新的信息
         public void UpdateListview()
@@ -292,16 +242,13 @@ namespace EmployeeManagementSystem
             listview_AttendanceReport.Items.Clear();
 
             //将数据库中所有的字段显示到  窗体的listview控件中
-            SqlConnection connection;
-            SqlCommand cmd;
-            
 
             //创建数据库连接的实例
-            connection = new SqlConnection(UtilitySql.SetConnectionString());
+           SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
             connection.Open();
             //创建数据库命令的实例
-            cmd = connection.CreateCommand();
+          SqlCommand  cmd = connection.CreateCommand();
             //把要执行的sql语句 传递给cmd实例
             cmd.CommandText = "select * from AttendanceReport";
             //创建一个数据读取器
@@ -329,15 +276,10 @@ namespace EmployeeManagementSystem
             }
             //关闭流
             connection.Close();
-
-
-
         }
         //清空所有 输入框的内容
         public void ClearTextBox()
         {
-
-
             tb_Number.Text = "";
             tb_Name.Text = "";
             tb_YearMonth.Text = "";

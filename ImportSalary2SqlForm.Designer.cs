@@ -69,21 +69,21 @@
             this.tb_filePath.Location = new System.Drawing.Point(425, 126);
             this.tb_filePath.Name = "tb_filePath";
             this.tb_filePath.Size = new System.Drawing.Size(337, 21);
-            this.tb_filePath.TabIndex = 0;
+            this.tb_filePath.TabIndex = 1;
             // 
             // tb_fileName
             // 
             this.tb_fileName.Location = new System.Drawing.Point(425, 204);
             this.tb_fileName.Name = "tb_fileName";
             this.tb_fileName.Size = new System.Drawing.Size(337, 21);
-            this.tb_fileName.TabIndex = 1;
+            this.tb_fileName.TabIndex = 2;
             // 
             // btn_Excel2SQL
             // 
             this.btn_Excel2SQL.Location = new System.Drawing.Point(425, 245);
             this.btn_Excel2SQL.Name = "btn_Excel2SQL";
             this.btn_Excel2SQL.Size = new System.Drawing.Size(337, 23);
-            this.btn_Excel2SQL.TabIndex = 5;
+            this.btn_Excel2SQL.TabIndex = 3;
             this.btn_Excel2SQL.Text = "将薪资档案Excel文件导入进SQL中";
             this.btn_Excel2SQL.UseVisualStyleBackColor = true;
             this.btn_Excel2SQL.Click += new System.EventHandler(this.btn_Excel2SQL_Click);

@@ -14,9 +14,9 @@ D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.ResolveCom
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SectionForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.DutyForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.UpholdAttendanceForm.resources
-D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.AlterEmployeeForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportEmployee2SqlForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportSalary2SqlForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.AttendanceCalenderForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.UpholdSalaryForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SalaryCalculatorForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportAttendanceReport2SqlForm.resources

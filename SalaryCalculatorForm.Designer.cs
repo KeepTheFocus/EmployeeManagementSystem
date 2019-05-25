@@ -96,28 +96,28 @@
             this.tb_EmployeeNumber2.Location = new System.Drawing.Point(498, 101);
             this.tb_EmployeeNumber2.Name = "tb_EmployeeNumber2";
             this.tb_EmployeeNumber2.Size = new System.Drawing.Size(235, 21);
-            this.tb_EmployeeNumber2.TabIndex = 3;
+            this.tb_EmployeeNumber2.TabIndex = 1;
             // 
             // tb_YearMonth
             // 
             this.tb_YearMonth.Location = new System.Drawing.Point(171, 192);
             this.tb_YearMonth.Name = "tb_YearMonth";
             this.tb_YearMonth.Size = new System.Drawing.Size(182, 21);
-            this.tb_YearMonth.TabIndex = 1;
+            this.tb_YearMonth.TabIndex = 2;
             // 
             // tb_SectionName
             // 
             this.tb_SectionName.Location = new System.Drawing.Point(171, 264);
             this.tb_SectionName.Name = "tb_SectionName";
             this.tb_SectionName.Size = new System.Drawing.Size(182, 21);
-            this.tb_SectionName.TabIndex = 2;
+            this.tb_SectionName.TabIndex = 4;
             // 
             // tb_YearMonth2
             // 
             this.tb_YearMonth2.Location = new System.Drawing.Point(498, 192);
             this.tb_YearMonth2.Name = "tb_YearMonth2";
             this.tb_YearMonth2.Size = new System.Drawing.Size(235, 21);
-            this.tb_YearMonth2.TabIndex = 4;
+            this.tb_YearMonth2.TabIndex = 3;
             // 
             // tb_SectionName2
             // 
@@ -131,7 +131,7 @@
             this.btn_count.Location = new System.Drawing.Point(811, 99);
             this.btn_count.Name = "btn_count";
             this.btn_count.Size = new System.Drawing.Size(341, 23);
-            this.btn_count.TabIndex = 9;
+            this.btn_count.TabIndex = 6;
             this.btn_count.Text = "计算";
             this.btn_count.UseVisualStyleBackColor = true;
             this.btn_count.Click += new System.EventHandler(this.btn_count_Click);
@@ -141,7 +141,7 @@
             this.btn_Search.Location = new System.Drawing.Point(811, 184);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(341, 23);
-            this.btn_Search.TabIndex = 10;
+            this.btn_Search.TabIndex = 7;
             this.btn_Search.Text = "查找";
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
@@ -151,7 +151,7 @@
             this.btn_delete.Location = new System.Drawing.Point(811, 256);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(341, 23);
-            this.btn_delete.TabIndex = 11;
+            this.btn_delete.TabIndex = 8;
             this.btn_delete.Text = "删除";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
@@ -161,16 +161,17 @@
             this.btn_2Excel.Location = new System.Drawing.Point(811, 324);
             this.btn_2Excel.Name = "btn_2Excel";
             this.btn_2Excel.Size = new System.Drawing.Size(341, 23);
-            this.btn_2Excel.TabIndex = 12;
+            this.btn_2Excel.TabIndex = 9;
             this.btn_2Excel.Text = "导出";
             this.btn_2Excel.UseVisualStyleBackColor = true;
+            this.btn_2Excel.Click += new System.EventHandler(this.btn_2Excel_Click);
             // 
             // btn_Esc
             // 
             this.btn_Esc.Location = new System.Drawing.Point(811, 398);
             this.btn_Esc.Name = "btn_Esc";
             this.btn_Esc.Size = new System.Drawing.Size(341, 23);
-            this.btn_Esc.TabIndex = 13;
+            this.btn_Esc.TabIndex = 10;
             this.btn_Esc.Text = "退出";
             this.btn_Esc.UseVisualStyleBackColor = true;
             this.btn_Esc.Click += new System.EventHandler(this.button5_Click);

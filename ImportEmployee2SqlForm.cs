@@ -20,8 +20,9 @@ namespace EmployeeManagementSystem
         //给选择Excel文件按钮 添加点击事件
         private void btn_selectExcel_Click(object sender, EventArgs e)
         {
-            //新建一个打开文件对话框 并调用showDialog函数显示出来
+            //新建一个打开文件对话框 
             OpenFileDialog fileDialog = new OpenFileDialog();
+            //并调用showDialog函数显示出来
             fileDialog.ShowDialog();
 
 
@@ -37,8 +38,8 @@ namespace EmployeeManagementSystem
         private void btn_import2Sql_Click(object sender, EventArgs e)
         {
             //将获取到的路径名和文件名分别赋值给filePath和fileName
-            string filePath =tb_filePath.Text;
-            string fileName =tb_fileName.Text;
+            string filePath =tb_filePath.Text,
+                   fileName =tb_fileName.Text;
 
             //新建一个将Excel文件导入到数据库  类的实例
             ImportEmployeeExcel2DataBase excel2DataBase=new ImportEmployeeExcel2DataBase();

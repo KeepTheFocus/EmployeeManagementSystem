@@ -14,47 +14,83 @@ namespace EmployeeManagementSystem
         //给保存按钮 添加点击事件
         private void btn_save_Click(object sender, EventArgs e)
         {
-            //获取三个文本框中输入的内容
-            string strYearMonth = tb_YearMonth.Text;
-            string strDay = tb_Day.Text;
-            string strHour = tb_Hour.Text;
-
-            using (SqlConnection sqlConnection = new SqlConnection())
+            //创建一个数据库连接实例
+            using (SqlConnection sqlConnectionDecide = new SqlConnection())
             {
-                //给连接数据库实例的字符串赋值
-                sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
+                sqlConnectionDecide.ConnectionString = UtilitySql.SetConnectionString();
+                sqlConnectionDecide.Open();
+                //创建要执行的SQL语句
+                string strSQLDecide = "select * from Calender where YearMonth='" + tb_YearMonth.Text + "'";
+                //创建SQLCommand实例
+                SqlCommand sqlCommandDecide = new SqlCommand(strSQLDecide, sqlConnectionDecide);
+                //创建SqlDataReader实例
+                SqlDataReader sqlDataReader = sqlCommandDecide.ExecuteReader();
 
-                sqlConnection.Open();
-                //定义一个要执行的SQL语句
-                string strSQL = "insert into Calender values('" + strYearMonth + "','" + strDay + "','" + strHour + "')";
-                //创建一个sqlcommand命令的实例
-                SqlCommand sqlCommand = new SqlCommand(strSQL, sqlConnection);
 
-                //如果受命令执行影响的行数 大于零
-                if (sqlCommand.ExecuteNonQuery() > 0)
+                //获取三个文本框中输入的内容
+                string strYearMonth = tb_YearMonth.Text,
+                       strDay = tb_Day.Text,
+                       strHour = tb_Hour.Text;
+
+
+                if (sqlDataReader.HasRows)
                 {
-                    MessageBox.Show("考勤日历信息添加成功");
+                    //关闭数据读取器 实例
+                    sqlDataReader.Close();
+                    //如果在数据表中能查到 文本框中的数据
+                    //那么执行update语句 进行更新操作
+                    string strSQLUpdate = "update Calender set WorkDay='" + strDay + "',WorkHour='" + strHour + "'where YearMonth='" + strYearMonth + "'";
+                    //创建要执行的SqlCommand实例
+                    SqlCommand sqlCommandUpdate = new SqlCommand(strSQLUpdate, sqlConnectionDecide);
+                    //如果数据表中受命令影响的行数大于零 说明数据更新成功 反则失败
+                    if (sqlCommandUpdate.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("数据更新成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("数据更新失败");
+                    }
+                    //关闭数据读取器 实例
+                    sqlDataReader.Close();
                 }
-                //关闭连接
-                sqlConnection.Close();
+                else
+                {
+                    //关闭 数据读取器的实例
+                    sqlDataReader.Close();
+                    //如果在数据库中查不到 文本框中国的数据
+                    //那么执行insert语句 进行添加操作
+                    string strSQLInsert = "insert into Calender values('" + strYearMonth + "','" + strDay + "','" + strHour + "')";
+                    //创建要执行的SqlCommand实例
+                    SqlCommand sqlCommandInsert = new SqlCommand(strSQLInsert, sqlConnectionDecide);
+                    //如果数据表中受命令影响的行数大于零 说明数据更新成功 反则失败
+                    if (sqlCommandInsert.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("数据添加成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("数据添加失败");
+                    }
+
+                }
+
+                //调用刷新列表的函数
+                UpdateListview();
+                //清空所有文本框的信息
+                ClearTextBox();
+                //关闭数据库的连接
+                sqlConnectionDecide.Close();
             }
-            //调用刷新列表的函数
-            UpdateListview();
-            //清空所有文本框的信息
-            ClearTextBox();
-
         }
+
+
         //清空文本框中消息的  函数
-
         public void ClearTextBox()
-
         {
             tb_YearMonth.Text = "";
             tb_Day.Text = "";
             tb_Hour.Text = "";
-
-
-
         }
 
         //点击保存按钮后 刷新listview实时显示数据表中最新的信息
@@ -62,18 +98,12 @@ namespace EmployeeManagementSystem
         {
             //移除listview中所有的已显示的信息
             listView_Calender.Items.Clear();
-
-            //将数据库中所有的字段显示到  窗体的listview控件中
-            SqlConnection connection;
-            SqlCommand cmd;
-
-
             //创建数据库连接的实例
-            connection = new SqlConnection(UtilitySql.SetConnectionString());
+           SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
             connection.Open();
             //创建数据库命令的实例
-            cmd = connection.CreateCommand();
+           SqlCommand cmd = connection.CreateCommand();
             //把要执行的sql语句 传递给cmd实例
             cmd.CommandText = "select * from Calender";
             //创建一个数据读取器
@@ -81,11 +111,14 @@ namespace EmployeeManagementSystem
 
             while (sdr.Read())
             {
+                /*创建一个ListViewItem实例 
+                 从数据读取器中取出对应列名的数据  并将其赋值给ListviewItem实例的属性
+                 */
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = sdr["YearMonth"].ToString();
                 lvi.SubItems.Add(sdr["WorkDay"].ToString());
                 lvi.SubItems.Add(sdr["WorkHour"].ToString());
-
+                //将数据库中所有的字段显示到  窗体的listview控件中
                 //将数据添加进listview控件中
                 listView_Calender.Items.Add(lvi);
 
@@ -130,18 +163,12 @@ namespace EmployeeManagementSystem
         //窗体加载的时候做的事情
         private void AttendanceCalenderForm_Load(object sender, EventArgs e)
         {
-
-            //将数据库中所有的字段显示到  窗体的listview控件中
-            SqlConnection connection;
-            SqlCommand cmd;
-
-
             //创建数据库连接的实例
-            connection = new SqlConnection(UtilitySql.SetConnectionString());
+           SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
             connection.Open();
             //创建数据库命令的实例
-            cmd = connection.CreateCommand();
+           SqlCommand cmd = connection.CreateCommand();
             //把要执行的sql语句 传递给cmd实例
             cmd.CommandText = "select * from Calender";
             //创建一个数据读取器
@@ -155,7 +182,7 @@ namespace EmployeeManagementSystem
                 lvi.Text = sdr["YearMonth"].ToString();
                 lvi.SubItems.Add(sdr["WorkDay"].ToString());
                 lvi.SubItems.Add(sdr["WorkHour"].ToString());
-
+                //将数据库中所有的字段显示到  窗体的listview控件中
                 //将数据添加进listview控件中
                 listView_Calender.Items.Add(lvi);
 
@@ -182,58 +209,15 @@ namespace EmployeeManagementSystem
         //新建一个工作时长（小时） 的计算函数
         private int DayConvert2Hour(int dayValue)
         {
-
-            int endValue = 0;
+            //初始化工作时长 变量值为零 
+            int hourValue = 0;
             //工作时长 等于 工作天数* 8
-            endValue = 8 * dayValue;
-
-            return endValue;
+            hourValue = 8 * dayValue;
+            //返回工作时长
+            return hourValue;
         }
 
 
-        //修改后保存  按钮的点击事件
-        private void btn_SaveAfterAlter_Click(object sender, EventArgs e)
-        {
 
-
-
-            //保存月份编码
-            string strYearMonth = tb_YearMonth.Text;
-            //保存工作时长（天）
-            string strDay = tb_Day.Text;
-
-
-
-            //保存工作时长（小时）
-            string strHour = tb_Hour.Text;
-
-            //声明将文本编辑框中的文本内容导入到数据库中的sql语句
-            string strSql = " update Calender set YearMonth='" + strYearMonth + "',WorkDay='" + strDay + "',WorkHour='" + strHour + "'  where YearMonth='" + strYearMonth + "'";
-
-
-            //创建数据库连接
-            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
-
-            //创建数据库命令
-            SqlCommand command = new SqlCommand(strSql, connection);
-            //打开连接
-            connection.Open();
-
-
-
-            //返回受Sql命令影响的行数
-            int count = command.ExecuteNonQuery();
-            //如果受影响的行数大于零 说明有记录被成功添加
-            if (count > 0)
-            {
-                MessageBox.Show("职员信息添加成功");
-            }
-
-            //关闭连接
-            connection.Close();
-            //调用刷新Listview的函数
-            UpdateListview();
-           
-        }
     }
 }

@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -31,7 +31,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -69,25 +69,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlterEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AlterEmployeeForm.Designer.cs">
-      <DependentUpon>AlterEmployeeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AttendanceCalenderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AttendanceCalenderForm.Designer.cs">
       <DependentUpon>AttendanceCalenderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportAttendanceReport2SqlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportAttendanceReport2SqlForm.Designer.cs">
+      <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportAttendanceReportExcel2DataBase.cs" />
     <Compile Include="SalaryCalculatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalaryCalculatorForm.Designer.cs">
       <DependentUpon>SalaryCalculatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnumSalary.cs" />
     <Compile Include="DutyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,11 +149,11 @@
     </Compile>
     <Compile Include="UtilitySalary.cs" />
     <Compile Include="UtilitySql.cs" />
-    <EmbeddedResource Include="AlterEmployeeForm.resx">
-      <DependentUpon>AlterEmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AttendanceCalenderForm.resx">
       <DependentUpon>AttendanceCalenderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportAttendanceReport2SqlForm.resx">
+      <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryCalculatorForm.resx">
       <DependentUpon>SalaryCalculatorForm.cs</DependentUpon>
@@ -194,6 +194,8 @@
     <EmbeddedResource Include="UpholdAttendanceForm.resx">
       <DependentUpon>UpholdAttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

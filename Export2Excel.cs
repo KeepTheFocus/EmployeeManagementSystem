@@ -7,6 +7,7 @@ using Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 namespace EmployeeManagementSystem
 {
+    //将数据输出到Excel表格中
     class Export2Excel
     {
         //声明一个导出excel函数
@@ -68,6 +69,7 @@ namespace EmployeeManagementSystem
                         xlApp.Cells[rowIndex, columIndex] = listView.Items[rowIndex - 2].SubItems[columIndex-1].Text;
                     }
                 }
+
 
                 xlbook.SaveAs(FileName);
                 //保存好Excel文件后 弹出消息提示用户 数据导出成功 

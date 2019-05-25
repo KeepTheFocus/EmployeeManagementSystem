@@ -42,7 +42,7 @@
             this.button1.Location = new System.Drawing.Point(296, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(8, 8);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -51,7 +51,7 @@
             this.btn_selectExcel.Location = new System.Drawing.Point(279, 82);
             this.btn_selectExcel.Name = "btn_selectExcel";
             this.btn_selectExcel.Size = new System.Drawing.Size(489, 23);
-            this.btn_selectExcel.TabIndex = 1;
+            this.btn_selectExcel.TabIndex = 0;
             this.btn_selectExcel.Text = "选择要导入的Excel文件";
             this.btn_selectExcel.UseVisualStyleBackColor = true;
             this.btn_selectExcel.Click += new System.EventHandler(this.btn_selectExcel_Click);
@@ -61,7 +61,7 @@
             this.tb_filePath.Location = new System.Drawing.Point(296, 137);
             this.tb_filePath.Name = "tb_filePath";
             this.tb_filePath.Size = new System.Drawing.Size(453, 21);
-            this.tb_filePath.TabIndex = 0;
+            this.tb_filePath.TabIndex = 1;
             // 
             // btn_import2Sql
             // 
@@ -96,7 +96,7 @@
             this.tb_fileName.Location = new System.Drawing.Point(296, 209);
             this.tb_fileName.Name = "tb_fileName";
             this.tb_fileName.Size = new System.Drawing.Size(453, 21);
-            this.tb_fileName.TabIndex = 1;
+            this.tb_fileName.TabIndex = 2;
             // 
             // ImportEmployee2SqlForm
             // 

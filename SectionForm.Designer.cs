@@ -102,7 +102,7 @@
             this.listView_section.Location = new System.Drawing.Point(250, 210);
             this.listView_section.Name = "listView_section";
             this.listView_section.Scrollable = false;
-            this.listView_section.Size = new System.Drawing.Size(526, 241);
+            this.listView_section.Size = new System.Drawing.Size(526, 346);
             this.listView_section.TabIndex = 8;
             this.listView_section.UseCompatibleStateImageBehavior = false;
             this.listView_section.View = System.Windows.Forms.View.Details;

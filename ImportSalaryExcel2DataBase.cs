@@ -13,10 +13,6 @@ namespace EmployeeManagementSystem
 {
     class ImportSalaryExcel2DataBase
     {
-
-
-
-
         //声明一个返回DataTable数据表的函数          文件路径           文件名
         public DataTable getExcelData(string filePath, string fileName)
         {
@@ -39,10 +35,10 @@ namespace EmployeeManagementSystem
 
 
                 //获取Excel中第一个sheet的名称
-                string sheetName = schemaTable.Rows[0]["TABLE_NAME"].ToString();
+                string sheetName = schemaTable.Rows[0]["TABLE_NAME"].ToString(),
 
                 //查询sheet中的数据
-                string strSql = "select * from [" + sheetName + "]";
+                 strSql = "select * from [" + sheetName + "]";
                 //实例化OleDbDataAdapter类的实例
                 OleDbDataAdapter dbDataAdapter = new OleDbDataAdapter(strSql, connection);
 
@@ -68,70 +64,72 @@ namespace EmployeeManagementSystem
                 connection.Close();
 
             }
-
-
-
-
         }
 
 
         //将数据从dataTable中导入到SQL数据库中 
         public int InsertInToDatabase(DataTable dataTable)
         {
+            //声明变量Count 用来记录被添加进数据库中 记录的条数
+            int Count = 0;
+      string EmployeeNumber = "",
+             EmployeeName = "",
+             YearMonth="",
+             BasicPay = "",
+             FullAttendanceBonus = "",
+             DutyAllowance = "",
+             StayOutSideAllowance = "",
+             MealAllowance = "",
+             NormalOverTimeRate = "",
+             WeekOverTimeRate = "",
+             FestivalOverTimeRate = "";
 
-            int i = 0;
-            string EmployeeNumber = "";
-            string EmployeeName = "";
-            string BasicPay = "";
-            string FullAttendanceBonus = "";
-            string DutyAllowance = "";
-            string StayOutSideAllowance = "";
-            string MealAllowance = "";
-            string NormalOverTime = "";
-            string WeekOverTime = "";
-            string FestivalOverTime = "";
-
-            foreach (DataRow dataRow in dataTable.Rows)
+          loop: foreach (DataRow dataRow in dataTable.Rows)
             {
                 //Excel表格中的列名  如员工编号 员工姓名
 
                 EmployeeNumber = dataRow["员工编号"].ToString();
                 EmployeeName = dataRow["员工姓名"].ToString();
+                YearMonth = dataRow["年月编号"].ToString();
                 BasicPay = dataRow["基本工资"].ToString();
                 FullAttendanceBonus = dataRow["全勤奖"].ToString();
                 DutyAllowance = dataRow["职务津贴"].ToString();
                 StayOutSideAllowance = dataRow["住宿补贴"].ToString();
                 MealAllowance = dataRow["餐费补贴"].ToString();
-                NormalOverTime = dataRow["工作日加班费率"].ToString();
-                WeekOverTime = dataRow["节假日加班费率"].ToString();
-                FestivalOverTime = dataRow["法定节假日加班费率"].ToString();
+                NormalOverTimeRate = dataRow["工作日加班费率"].ToString();
+                WeekOverTimeRate = dataRow["节假日加班费率"].ToString();
+                FestivalOverTimeRate = dataRow["法定节假日加班费率"].ToString();
 
-
-                string strSql = "insert into SalaryFiles values('" + EmployeeNumber + "','" + EmployeeName + "','" + BasicPay + "','" + FullAttendanceBonus + "','" + DutyAllowance + "','" + StayOutSideAllowance + "','" + MealAllowance + "','" + NormalOverTime + "','" + WeekOverTime + "','" + FestivalOverTime + "')";
+                while (EmployeeNumber.Length!=5||YearMonth.Length!=6)
+                {
+                    MessageBox.Show("员工编号或年月编号格式有误,请核实后再进行导入");
+                    break;
+                }
+                
 
 
                 //创建SqlConnection类的实例  此类是密封类 不能被继承
 
                 SqlConnection sqlConnection = new SqlConnection(UtilitySql.SetConnectionString());
-                i++;
+                Count++;
                 try
                 {
                     //打开连接
                     sqlConnection.Open();
+                    //创建要执行的SQL语句
+                    string strSQLInsert = "insert into UpholdSalaryFiles values('" + EmployeeNumber + "','"+EmployeeName+"','" + YearMonth + "','" + BasicPay + "','" + FullAttendanceBonus + "','" + DutyAllowance + "','" + StayOutSideAllowance + "','" + MealAllowance + "','" + NormalOverTimeRate + "','" + WeekOverTimeRate + "','" + FestivalOverTimeRate + "')";
                     //创建SQLcommand实例 
                     //使用带接受string类型参数 和SqlConnection类型参数的构造函数
-                    SqlCommand command = new SqlCommand(strSql, sqlConnection);
+                    SqlCommand command = new SqlCommand(strSQLInsert, sqlConnection);
                     //创建SQLdataReader实例
                     SqlDataReader dataReader = command.ExecuteReader();
-
-
                     //关闭dataReader对象
                     dataReader.Close();
-                    MessageBox.Show("数据已经到成功");
+                   
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("数据已存在数据库中，请勿重复插入");
+                    MessageBox.Show(ex.Message);
                     throw ex;
                 }
                 finally
@@ -141,13 +139,10 @@ namespace EmployeeManagementSystem
                 }
             }
 
-
-            return i;
+            MessageBox.Show("已成功导入" + Count + "条数据");
+            return Count;
 
         }
-
-
-
     }
 }
 

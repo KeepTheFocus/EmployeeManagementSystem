@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_saveAfterAlter = new System.Windows.Forms.Button();
             this.tb_HomeAddress = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -81,7 +80,6 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.btn_saveAfterAlter);
             this.groupBox1.Controls.Add(this.tb_HomeAddress);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label21);
@@ -123,22 +121,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
             // 
-            // btn_saveAfterAlter
-            // 
-            this.btn_saveAfterAlter.Location = new System.Drawing.Point(624, 95);
-            this.btn_saveAfterAlter.Name = "btn_saveAfterAlter";
-            this.btn_saveAfterAlter.Size = new System.Drawing.Size(129, 23);
-            this.btn_saveAfterAlter.TabIndex = 46;
-            this.btn_saveAfterAlter.Text = "修改后保存";
-            this.btn_saveAfterAlter.UseVisualStyleBackColor = true;
-            this.btn_saveAfterAlter.Click += new System.EventHandler(this.btn_saveAfterAlter_Click);
-            // 
             // tb_HomeAddress
             // 
             this.tb_HomeAddress.Location = new System.Drawing.Point(66, 132);
             this.tb_HomeAddress.Name = "tb_HomeAddress";
             this.tb_HomeAddress.Size = new System.Drawing.Size(523, 21);
-            this.tb_HomeAddress.TabIndex = 8;
+            this.tb_HomeAddress.TabIndex = 9;
             // 
             // label22
             // 
@@ -206,7 +194,7 @@
             this.label17.Location = new System.Drawing.Point(416, 21);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(11, 12);
-            this.label17.TabIndex = 38;
+            this.label17.TabIndex = 2;
             this.label17.Text = "*";
             // 
             // label15
@@ -294,7 +282,7 @@
             this.cb_DutyName.Location = new System.Drawing.Point(468, 97);
             this.cb_DutyName.Name = "cb_DutyName";
             this.cb_DutyName.Size = new System.Drawing.Size(121, 20);
-            this.cb_DutyName.TabIndex = 7;
+            this.cb_DutyName.TabIndex = 8;
             // 
             // label14
             // 
@@ -327,7 +315,7 @@
             this.cb_Nation.Location = new System.Drawing.Point(468, 54);
             this.cb_Nation.Name = "cb_Nation";
             this.cb_Nation.Size = new System.Drawing.Size(121, 20);
-            this.cb_Nation.TabIndex = 4;
+            this.cb_Nation.TabIndex = 5;
             // 
             // label13
             // 
@@ -352,7 +340,7 @@
             this.tb_IdentityCardNumber.Location = new System.Drawing.Point(66, 45);
             this.tb_IdentityCardNumber.Name = "tb_IdentityCardNumber";
             this.tb_IdentityCardNumber.Size = new System.Drawing.Size(141, 21);
-            this.tb_IdentityCardNumber.TabIndex = 2;
+            this.tb_IdentityCardNumber.TabIndex = 3;
             // 
             // tb_EmployeeNumber
             // 
@@ -372,29 +360,30 @@
             // 
             // btn_esc
             // 
-            this.btn_esc.Location = new System.Drawing.Point(621, 215);
+            this.btn_esc.Location = new System.Drawing.Point(622, 199);
             this.btn_esc.Name = "btn_esc";
             this.btn_esc.Size = new System.Drawing.Size(132, 23);
-            this.btn_esc.TabIndex = 26;
+            this.btn_esc.TabIndex = 14;
             this.btn_esc.Text = "退出";
             this.btn_esc.UseVisualStyleBackColor = true;
+            this.btn_esc.Click += new System.EventHandler(this.btn_esc_Click);
             // 
             // btn_export
             // 
-            this.btn_export.Location = new System.Drawing.Point(622, 175);
+            this.btn_export.Location = new System.Drawing.Point(622, 153);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(135, 23);
-            this.btn_export.TabIndex = 25;
+            this.btn_export.TabIndex = 13;
             this.btn_export.Text = "导出";
             this.btn_export.UseVisualStyleBackColor = true;
             this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
             // 
             // btn_seek
             // 
-            this.btn_seek.Location = new System.Drawing.Point(621, 135);
+            this.btn_seek.Location = new System.Drawing.Point(625, 101);
             this.btn_seek.Name = "btn_seek";
             this.btn_seek.Size = new System.Drawing.Size(132, 23);
-            this.btn_seek.TabIndex = 24;
+            this.btn_seek.TabIndex = 12;
             this.btn_seek.Text = "查找";
             this.btn_seek.UseVisualStyleBackColor = true;
             this.btn_seek.Click += new System.EventHandler(this.btn_seek_Click);
@@ -404,7 +393,7 @@
             this.btn_alter.Location = new System.Drawing.Point(625, 57);
             this.btn_alter.Name = "btn_alter";
             this.btn_alter.Size = new System.Drawing.Size(132, 23);
-            this.btn_alter.TabIndex = 23;
+            this.btn_alter.TabIndex = 11;
             this.btn_alter.Text = "修改";
             this.btn_alter.UseVisualStyleBackColor = true;
             this.btn_alter.Click += new System.EventHandler(this.btn_alter_Click);
@@ -414,7 +403,7 @@
             this.btn_Save.Location = new System.Drawing.Point(625, 21);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(132, 23);
-            this.btn_Save.TabIndex = 21;
+            this.btn_Save.TabIndex = 10;
             this.btn_Save.Text = "保存";
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
@@ -434,7 +423,7 @@
             this.dtp_BirthDate.Location = new System.Drawing.Point(289, 51);
             this.dtp_BirthDate.Name = "dtp_BirthDate";
             this.dtp_BirthDate.Size = new System.Drawing.Size(121, 21);
-            this.dtp_BirthDate.TabIndex = 3;
+            this.dtp_BirthDate.TabIndex = 4;
             // 
             // rb_female
             // 
@@ -453,7 +442,7 @@
             this.rb_male.Location = new System.Drawing.Point(468, 17);
             this.rb_male.Name = "rb_male";
             this.rb_male.Size = new System.Drawing.Size(35, 16);
-            this.rb_male.TabIndex = 17;
+            this.rb_male.TabIndex = 2;
             this.rb_male.TabStop = true;
             this.rb_male.Text = "男";
             this.rb_male.UseVisualStyleBackColor = true;
@@ -480,7 +469,7 @@
             this.cb_Academic.Location = new System.Drawing.Point(66, 85);
             this.cb_Academic.Name = "cb_Academic";
             this.cb_Academic.Size = new System.Drawing.Size(141, 20);
-            this.cb_Academic.TabIndex = 5;
+            this.cb_Academic.TabIndex = 6;
             // 
             // cb_SectionName
             // 
@@ -495,7 +484,7 @@
             this.cb_SectionName.Location = new System.Drawing.Point(289, 92);
             this.cb_SectionName.Name = "cb_SectionName";
             this.cb_SectionName.Size = new System.Drawing.Size(121, 20);
-            this.cb_SectionName.TabIndex = 6;
+            this.cb_SectionName.TabIndex = 7;
             // 
             // label7
             // 
@@ -604,6 +593,5 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tb_HomeAddress;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button btn_saveAfterAlter;
     }
 }

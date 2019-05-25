@@ -59,7 +59,6 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label9 = new System.Windows.Forms.Label();
-            this.btn_SaveAfterAlter = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -141,7 +140,6 @@
             this.tb_Number.Name = "tb_Number";
             this.tb_Number.Size = new System.Drawing.Size(100, 21);
             this.tb_Number.TabIndex = 0;
-            this.tb_Number.TextChanged += new System.EventHandler(this.tb_Number_TextChanged);
             this.tb_Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Number_KeyDown);
             // 
             // tb_AttendanceHour
@@ -149,21 +147,21 @@
             this.tb_AttendanceHour.Location = new System.Drawing.Point(89, 151);
             this.tb_AttendanceHour.Name = "tb_AttendanceHour";
             this.tb_AttendanceHour.Size = new System.Drawing.Size(100, 21);
-            this.tb_AttendanceHour.TabIndex = 1;
+            this.tb_AttendanceHour.TabIndex = 3;
             // 
             // tb_AbsenceHour
             // 
             this.tb_AbsenceHour.Location = new System.Drawing.Point(89, 199);
             this.tb_AbsenceHour.Name = "tb_AbsenceHour";
             this.tb_AbsenceHour.Size = new System.Drawing.Size(100, 21);
-            this.tb_AbsenceHour.TabIndex = 2;
+            this.tb_AbsenceHour.TabIndex = 4;
             // 
             // tb_LeaveHour
             // 
             this.tb_LeaveHour.Location = new System.Drawing.Point(89, 240);
             this.tb_LeaveHour.Name = "tb_LeaveHour";
             this.tb_LeaveHour.Size = new System.Drawing.Size(100, 21);
-            this.tb_LeaveHour.TabIndex = 3;
+            this.tb_LeaveHour.TabIndex = 5;
             // 
             // tb_Name
             // 
@@ -171,35 +169,35 @@
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.ReadOnly = true;
             this.tb_Name.Size = new System.Drawing.Size(100, 21);
-            this.tb_Name.TabIndex = 4;
+            this.tb_Name.TabIndex = 1;
             // 
             // tb_normal
             // 
             this.tb_normal.Location = new System.Drawing.Point(470, 101);
             this.tb_normal.Name = "tb_normal";
             this.tb_normal.Size = new System.Drawing.Size(100, 21);
-            this.tb_normal.TabIndex = 5;
+            this.tb_normal.TabIndex = 6;
             // 
             // tb_Week
             // 
             this.tb_Week.Location = new System.Drawing.Point(470, 142);
             this.tb_Week.Name = "tb_Week";
             this.tb_Week.Size = new System.Drawing.Size(100, 21);
-            this.tb_Week.TabIndex = 6;
+            this.tb_Week.TabIndex = 7;
             // 
             // tb_Festival
             // 
             this.tb_Festival.Location = new System.Drawing.Point(470, 196);
             this.tb_Festival.Name = "tb_Festival";
             this.tb_Festival.Size = new System.Drawing.Size(100, 21);
-            this.tb_Festival.TabIndex = 7;
+            this.tb_Festival.TabIndex = 8;
             // 
             // btn_Alter
             // 
             this.btn_Alter.Location = new System.Drawing.Point(947, 108);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(128, 23);
-            this.btn_Alter.TabIndex = 8;
+            this.btn_Alter.TabIndex = 10;
             this.btn_Alter.Text = "修   改";
             this.btn_Alter.UseVisualStyleBackColor = true;
             this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
@@ -209,27 +207,27 @@
             this.btn_Save.Location = new System.Drawing.Point(947, 54);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(128, 23);
-            this.btn_Save.TabIndex = 7;
+            this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "保   存";
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(947, 201);
+            this.btn_Delete.Location = new System.Drawing.Point(947, 173);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(128, 23);
-            this.btn_Delete.TabIndex = 10;
+            this.btn_Delete.TabIndex = 11;
             this.btn_Delete.Text = "删   除";
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Esc
             // 
-            this.btn_Esc.Location = new System.Drawing.Point(947, 243);
+            this.btn_Esc.Location = new System.Drawing.Point(947, 240);
             this.btn_Esc.Name = "btn_Esc";
             this.btn_Esc.Size = new System.Drawing.Size(128, 23);
-            this.btn_Esc.TabIndex = 11;
+            this.btn_Esc.TabIndex = 12;
             this.btn_Esc.Text = "退   出";
             this.btn_Esc.UseVisualStyleBackColor = true;
             this.btn_Esc.Click += new System.EventHandler(this.btn_Esc_Click);
@@ -303,16 +301,6 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "出勤(H)";
             // 
-            // btn_SaveAfterAlter
-            // 
-            this.btn_SaveAfterAlter.Location = new System.Drawing.Point(947, 154);
-            this.btn_SaveAfterAlter.Name = "btn_SaveAfterAlter";
-            this.btn_SaveAfterAlter.Size = new System.Drawing.Size(128, 23);
-            this.btn_SaveAfterAlter.TabIndex = 9;
-            this.btn_SaveAfterAlter.Text = "修改后保存";
-            this.btn_SaveAfterAlter.UseVisualStyleBackColor = true;
-            this.btn_SaveAfterAlter.Click += new System.EventHandler(this.btn_SaveAfterAlter_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -327,7 +315,7 @@
             this.tb_YearMonth.Location = new System.Drawing.Point(89, 108);
             this.tb_YearMonth.Name = "tb_YearMonth";
             this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
-            this.tb_YearMonth.TabIndex = 23;
+            this.tb_YearMonth.TabIndex = 2;
             // 
             // UpholdAttendanceForm
             // 
@@ -336,7 +324,6 @@
             this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.tb_YearMonth);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.btn_SaveAfterAlter);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listview_AttendanceReport);
             this.Controls.Add(this.btn_Esc);
@@ -399,7 +386,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btn_SaveAfterAlter;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_YearMonth;
