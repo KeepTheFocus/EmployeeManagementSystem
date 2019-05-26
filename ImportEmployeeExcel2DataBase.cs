@@ -68,10 +68,11 @@ namespace EmployeeManagementSystem
         //声明两个集合 用来存储表格中的员工编号和身份证号码
         List<string> eeNumber = new List<string>();
         List<string> eeIDCard = new List<string>();
-        List<int > eeDE = new List<int>();
+        List<DateTime > eeDE = new List<DateTime>();
         //声明两个布尔类型的变量 booleanNumber,booleanIDCard;
         Boolean booleanNumber =false;
         Boolean booleanIDCard=false;
+        Boolean booleanBirth = false;
 
         //将数据从dataTable中导入到SQL数据库中 
         public int InsertInToDatabase(DataTable dataTable)
@@ -82,12 +83,13 @@ namespace EmployeeManagementSystem
                  EmployeeName = "",
                   Sex = "",
                  IndentityCardNumber = "",
-                 DateOfBirth = "",
+                
                  Nation = "",
                  Academic = "",
                 SectionName = "",
                  DutyName = "",
                  HomeAddress = "";
+            DateTime DateOfBirth = default(DateTime);
 
             //1.通过循环 取出 员工编号列、 身份证号列 和出生日期列的所有信息的集合
 
@@ -99,13 +101,34 @@ namespace EmployeeManagementSystem
                 //取出Excel表格中第四列的数据    身份证号
                 eeIDCard.Add(dataTable.Rows[i][3].ToString());
                 MessageBox.Show(dataTable.Rows[i][3].ToString());
-             
 
+                //取出Excel表格中第五列的数据   出生日期
+                // MessageBox.Show(dataTable.Rows[i][4].GetType());
+                eeDE.Add(DateTime.Parse(dataTable.Rows[i][4].ToString()));
+               
+              MessageBox.Show(DateTime.Parse(dataTable.Rows[i][4].ToString()).ToString());
+                MessageBox.Show(DateTime.Parse((dataTable.Rows[i][4]).ToString()).GetType().Name);
+            }
+
+            //判断出生日期集合中是否 有条目的类型不是dateTime类型
+            foreach (DateTime item in eeDE)
+            {
+                if (item.GetType().Name!="DateTime")
+                {
+                    MessageBox.Show("出生日期格式不对");
+                    booleanBirth = true;
+                    break;
+                }
 
             }
 
+
+
+
+
+
             //判断员工编号集合中是否有 条目的长度不等于5
-           foreach (string item in eeNumber)
+            foreach (string item in eeNumber)
             {
                 if (item.Length != 5)
                 {
@@ -133,7 +156,7 @@ namespace EmployeeManagementSystem
 
             //如果员工编号和身份证号都正确是才执行下面的foeach循环
 
-            if (booleanNumber!=true&&booleanIDCard!=true)
+            if (booleanNumber!=true&booleanIDCard!=true&booleanBirth!=true)
             {
                 foreach (DataRow dataRow in dataTable.Rows)
                 {
@@ -143,7 +166,7 @@ namespace EmployeeManagementSystem
                     EmployeeName = dataRow["员工姓名"].ToString();
                     Sex = dataRow["性别"].ToString();
                     IndentityCardNumber = dataRow["身份证号"].ToString();
-                    DateOfBirth = dataRow["出生日期"].ToString();
+                    DateOfBirth =DateTime.Parse(dataRow["出生日期"].ToString()) ;
                     Nation = dataRow["民族"].ToString();
                     Academic = dataRow["学历"].ToString();
                     SectionName = dataRow["部门"].ToString();

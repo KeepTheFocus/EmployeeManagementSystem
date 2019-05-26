@@ -25,7 +25,7 @@ namespace EmployeeManagementSystem
             //并调用showDialog函数显示出来
             fileDialog.ShowDialog();
 
-
+            
             if (fileDialog.ShowDialog()==DialogResult.OK)
             {
                 //获取被选中文件的  绝对路径
