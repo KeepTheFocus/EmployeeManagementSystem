@@ -11,6 +11,8 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
+        //从数据职员信息数据表中取出来的部门名称
+        string DESectionName;
 
         //转化成字符串的形式进行存储
         string StrResultSumSalary,
@@ -130,7 +132,7 @@ namespace EmployeeManagementSystem
             //获取 在输入框中的 月份编码
             strYearMonth = tb_YearMonth.Text;
             //获取 在输入框中的 部门名称
-            //strSN = tb_SectionName.Text;
+            strSN = tb_SectionName.Text;
 
             //进行工资计算前 
             //应该判断员工编号 存在于职员表中
@@ -143,7 +145,7 @@ namespace EmployeeManagementSystem
                 //打开数据库连接
                 sqlConnection.Open();
                 //创建要执行的sql语句
-                string SQLQueryER = "select EmployeeNumber from EmployeeFiles where EmployeeNumber='" + strEN + "'";
+                string SQLQueryER = "select * from EmployeeFiles where EmployeeNumber='" + strEN + "'";
                 //创建SqlCommand命令的实例
                 SqlCommand CommandER = new SqlCommand(SQLQueryER,sqlConnection);
                 //创建数据读取器的实例
@@ -151,8 +153,16 @@ namespace EmployeeManagementSystem
                 if (sqlDataReaderER.HasRows)
                 {
                     MessageBox.Show("工号存在");
+
                     //将true赋值给booleanEM变量
                     booleanEM = true;
+                    //读取该职员所属的部门信息 并存储起来
+                    while (sqlDataReaderER.Read())
+                    {
+                        DESectionName = sqlDataReaderER.GetString(7);
+                    }
+              
+                  
                 }
                 else
                 {
@@ -287,6 +297,8 @@ namespace EmployeeManagementSystem
                   弹出消息框提示用户 “本月出勤小时数超出额定范围 请联系财务修正
                   出勤详情”
                    */
+
+                //如果计算工资所必需的参数都存在 ，才开始执行计算工资的操作
                 if (ARAbsencedHour!=null&CRHour!=null&ARAttendancedHour!=null
                     &ARNormaledHour!=null&ARWeekedHour!=null&ARFestivaledHour!=null
                     &UhNormalRate!=null&UhWeekRate!=null&UhFestivalRate!=null
@@ -337,7 +349,7 @@ namespace EmployeeManagementSystem
 
                             //将值写入对应的数据库表中  SalaryCalculator
                             string sqlInsertSC = "insert into SalaryCalculator values ('" + strEN + "','" + ARName + "','" + strYearMonth + "'," +
-                                "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "')";
+                                "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "','"+DESectionName+"')";
 
                             //创建SQLCommand命令的实例
                             SqlCommand sqlCommand = new SqlCommand(sqlInsertSC, sqlConnection);
@@ -408,11 +420,6 @@ namespace EmployeeManagementSystem
                 {
                     MessageBox.Show("计算失败 请核实对应的表中的参数是否存在");
                 }
-
-
-
-
-              
                 //关闭数据库的连接
                 sqlConnection.Close();
             }
@@ -424,7 +431,6 @@ namespace EmployeeManagementSystem
         {
             //移除listview中所有的已显示的信息
             listView_CountResult.Items.Clear();
-            
           
             //创建数据库连接的实例
         SqlConnection    connection = new SqlConnection(UtilitySql.SetConnectionString());
@@ -450,6 +456,7 @@ namespace EmployeeManagementSystem
                 lvi.SubItems.Add(sdr["MealAllowance"].ToString());
                 lvi.SubItems.Add(sdr["OvertimePay"].ToString());
                 lvi.SubItems.Add(sdr["FinalPay"].ToString());
+                lvi.SubItems.Add(sdr["SectionName"].ToString());
                 //将数据添加进listview控件中
                 listView_CountResult.Items.Add(lvi);
             }
@@ -471,10 +478,12 @@ namespace EmployeeManagementSystem
             //清空列表中显示的内容
             listView_CountResult.Items.Clear();
             //如果输入框中没有输入工号 则弹出消息框提示用户
-            if (tb_EmployeeNumber.Text == "" || tb_YearMonth.Text == "")
+            if (tb_YearMonth.Text==""|(tb_SectionName.Text==""&tb_EmployeeNumber.Text==""))
             {
-                MessageBox.Show("请输入要查询的工号和月份");
+                MessageBox.Show("请输入要查询的工号和月份或部门和月份");
             }
+            //如果工号和月份存在且部门名称为空时  执行查询单个员工的工资
+            else if (tb_EmployeeNumber.Text!=""&tb_YearMonth.Text!=""&tb_SectionName.Text=="")
             {
                 //创建sql查询语句
                 string sqlString = "select * from SalaryCalculator where EmployeeNumber='" + tb_EmployeeNumber.Text + "' and YearMonth='" + tb_YearMonth.Text + "'";
@@ -504,6 +513,7 @@ namespace EmployeeManagementSystem
                         listViewItem.SubItems.Add(sqlDataReader["MealAllowance"].ToString());
                         listViewItem.SubItems.Add(sqlDataReader["OverTimePay"].ToString());
                         listViewItem.SubItems.Add(sqlDataReader["FinalPay"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["SectionName"].ToString());
                         //把新建的行 添加到列表中
                         listView_CountResult.Items.Add(listViewItem);
 
@@ -511,7 +521,7 @@ namespace EmployeeManagementSystem
 
                     if (!sqlDataReader.HasRows)
                     {
-                        MessageBox.Show("不好意思 ，查询不到您要找的工资记录 请核实工号和月份 谢谢！！");
+                        MessageBox.Show("不好意思，查询不到您要找的工资记录。请核实工号和月份或部门名称和月份，谢谢！！");
                     }
                     //释放资源
                     sqlDataReader.Close();
@@ -521,8 +531,50 @@ namespace EmployeeManagementSystem
                     ClearTextBox();
                 }
 
+
+            }
+            //如果部门名称和月份存在且工号为空时  执行查询整个部门所有员工的工资
+            else if (tb_SectionName.Text!=""&tb_YearMonth.Text!=""&tb_EmployeeNumber.Text=="")
+            {
+                //创建要执行的sql查询语句
+                string SqlQuerySection = "select* from SalaryCalculator where YearMonth='"+tb_YearMonth.Text+"'and SectionName='"+tb_SectionName.Text+"'";
+                //创建数据库连接的实例
+                using (SqlConnection sqlConnection=new SqlConnection())
+                {
+                    //配置数据库的连接字符串
+                    sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
+                    //打开连接
+                    sqlConnection.Open();
+                    //创建sqlCommand命令的实例
+                    SqlCommand sqlCommand = new SqlCommand(SqlQuerySection,sqlConnection);
+                    //创建数据读取器
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    //使用while循环去结果集中读取数据
+                    while (sqlDataReader.Read())
+                    {
+                        //创建一个listviewitem的实例
+                        ListViewItem listViewItem = new ListViewItem();
+                        listViewItem.Text = sqlDataReader["EmployeeNumber"].ToString();
+                        listViewItem.SubItems.Add(sqlDataReader["EmployeeName"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["YearMonth"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["BasicPay"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["FullAttendanceBonus"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["DutyAllowance"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["StayOutSideAllowance"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["MealAllowance"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["OverTimePay"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["FinalPay"].ToString());
+                        listViewItem.SubItems.Add(sqlDataReader["SectionName"].ToString());
+                        //把新建的行 添加到列表中
+                        listView_CountResult.Items.Add(listViewItem);
+                    }
+                }
+
             }
         }
+
+
+
         //给删除按钮添加点击事件
         private void btn_delete_Click(object sender, EventArgs e)
         {
@@ -552,7 +604,6 @@ namespace EmployeeManagementSystem
                 sqlConnection.Close();
                 //刷新列表
                 UpdateListview();
-
             }
         }
     }

@@ -20,7 +20,7 @@ namespace EmployeeManagementSystem
             //先判断一下工号和身份证号码是否不等于5位和18位
             //如果不等于工号不等于5位或者身份不等于18位
             //提醒用户核查输入的工号或身份证号是否有误
-            if (tb_EmployeeNumber.TextLength!=5||tb_IdentityCardNumber.TextLength!=18)
+            if (tb_EmployeeNumber.TextLength!=5|tb_IdentityCardNumber.TextLength!=18)
             {
                 MessageBox.Show("请核实输入的工号或身份证号");
             }
@@ -63,7 +63,7 @@ namespace EmployeeManagementSystem
                         //如果返回值大于零 说明数据表中已经存在你要保存的数据
 
                         //创建要执行的sql语句
-                        string strSqlUpdate = "update EmployeeFiles set EmployeeName='"+tb_EmployeeName.Text+"',Sex='"+strSex+"',IndentityCardNumber='"+tb_IdentityCardNumber.Text+"',DateOfBirth='"+dtp_BirthDate.Text+"',Nation='"+cb_Nation.SelectedItem.ToString()+"',Academic='"+cb_Academic.SelectedItem.ToString()+"',SectionName='"+cb_SectionName.Text+"',DutyName='"+cb_DutyName.Text+"',HomeAddress='"+tb_HomeAddress.Text+"'where EmployeeNumber='"+tb_EmployeeNumber.Text+"'";
+                        string strSqlUpdate = "update EmployeeFiles set EmployeeName='"+tb_EmployeeName.Text+"',Sex='"+strSex+"',IndentityCardNumber='"+tb_IdentityCardNumber.Text+"',DateOfBirth='"+ DateTime.Parse(dtp_BirthDate.Text) +"',Nation='"+cb_Nation.SelectedItem.ToString()+"',Academic='"+cb_Academic.SelectedItem.ToString()+"',SectionName='"+cb_SectionName.Text+"',DutyName='"+cb_DutyName.Text+"',HomeAddress='"+tb_HomeAddress.Text+"'where EmployeeNumber='"+tb_EmployeeNumber.Text+"'";
                    
 
                         //创建SqlCommand实例
@@ -92,8 +92,8 @@ namespace EmployeeManagementSystem
                         string strSqlInsert ="insert into EmployeeFiles values" +
                      "('" +tb_EmployeeNumber.Text+ "','" +tb_EmployeeName.Text + "'," +
                      "'" + strSex + "','" +tb_IdentityCardNumber.Text + "'," +
-                     "'" +dtp_BirthDate.Text + "','" +cb_Nation.SelectedItem.ToString() + "'," +
-                     "'" +cb_Academic.SelectedItem.ToString() + "','" + cb_DutyName.Text + "'," +
+                     "'" +DateTime.Parse(dtp_BirthDate.Text) + "','" +cb_Nation.SelectedItem.ToString() + "'," +
+                     "'" +cb_Academic.SelectedItem.ToString() + "','" + cb_SectionName.Text + "'," +
                      "'" +cb_DutyName.Text + "','" +tb_HomeAddress.Text+ "')";
                         //创建sqlcommand命令对象
                         SqlCommand sqlCommandIT = new SqlCommand(strSqlInsert,sqlConnectionDR);
@@ -325,7 +325,7 @@ namespace EmployeeManagementSystem
             //获取到输入框中的 工号
             string StrEmployeeNumber = tb_EmployeeNumber.Text;
             //如果输入的工号 不等于""且长度等于5时  执行if包含的语句块
-            if (StrEmployeeNumber != ""&&StrEmployeeNumber.Length==5)
+            if (StrEmployeeNumber != ""&StrEmployeeNumber.Length==5)
             {
                 //创建数据库连接的实例
               SqlConnection  connection = new SqlConnection(UtilitySql.SetConnectionString());

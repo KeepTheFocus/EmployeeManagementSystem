@@ -16,6 +16,7 @@ namespace EmployeeManagementSystem
         {
             //是风格显示在 应用程序上 
             Application.EnableVisualStyles();
+            //设置是否启用兼容性文本渲染
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
             //  Application.Run(new MainForm());
@@ -35,10 +36,6 @@ namespace EmployeeManagementSystem
                 //否则就退出
                 return;
             }
-
-
-
-
         }
     }
 }

@@ -32,11 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_EmployeeNumber = new System.Windows.Forms.TextBox();
-            this.tb_EmployeeNumber2 = new System.Windows.Forms.TextBox();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.tb_SectionName = new System.Windows.Forms.TextBox();
-            this.tb_YearMonth2 = new System.Windows.Forms.TextBox();
-            this.tb_SectionName2 = new System.Windows.Forms.TextBox();
             this.btn_count = new System.Windows.Forms.Button();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -53,14 +50,13 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 104);
+            this.label1.Location = new System.Drawing.Point(112, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -69,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 195);
+            this.label2.Location = new System.Drawing.Point(103, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -78,53 +74,32 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 267);
+            this.label3.Location = new System.Drawing.Point(103, 267);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "部    门";
+            this.label3.Text = "部门名称";
             // 
             // tb_EmployeeNumber
             // 
             this.tb_EmployeeNumber.Location = new System.Drawing.Point(171, 104);
             this.tb_EmployeeNumber.Name = "tb_EmployeeNumber";
-            this.tb_EmployeeNumber.Size = new System.Drawing.Size(182, 21);
+            this.tb_EmployeeNumber.Size = new System.Drawing.Size(540, 21);
             this.tb_EmployeeNumber.TabIndex = 0;
-            // 
-            // tb_EmployeeNumber2
-            // 
-            this.tb_EmployeeNumber2.Location = new System.Drawing.Point(498, 101);
-            this.tb_EmployeeNumber2.Name = "tb_EmployeeNumber2";
-            this.tb_EmployeeNumber2.Size = new System.Drawing.Size(235, 21);
-            this.tb_EmployeeNumber2.TabIndex = 1;
             // 
             // tb_YearMonth
             // 
             this.tb_YearMonth.Location = new System.Drawing.Point(171, 192);
             this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(182, 21);
+            this.tb_YearMonth.Size = new System.Drawing.Size(540, 21);
             this.tb_YearMonth.TabIndex = 2;
             // 
             // tb_SectionName
             // 
             this.tb_SectionName.Location = new System.Drawing.Point(171, 264);
             this.tb_SectionName.Name = "tb_SectionName";
-            this.tb_SectionName.Size = new System.Drawing.Size(182, 21);
+            this.tb_SectionName.Size = new System.Drawing.Size(540, 21);
             this.tb_SectionName.TabIndex = 4;
-            // 
-            // tb_YearMonth2
-            // 
-            this.tb_YearMonth2.Location = new System.Drawing.Point(498, 192);
-            this.tb_YearMonth2.Name = "tb_YearMonth2";
-            this.tb_YearMonth2.Size = new System.Drawing.Size(235, 21);
-            this.tb_YearMonth2.TabIndex = 3;
-            // 
-            // tb_SectionName2
-            // 
-            this.tb_SectionName2.Location = new System.Drawing.Point(498, 266);
-            this.tb_SectionName2.Name = "tb_SectionName2";
-            this.tb_SectionName2.Size = new System.Drawing.Size(235, 21);
-            this.tb_SectionName2.TabIndex = 5;
             // 
             // btn_count
             // 
@@ -188,12 +163,13 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
-            this.columnHeader10});
+            this.columnHeader10,
+            this.columnHeader11});
             this.listView_CountResult.FullRowSelect = true;
             this.listView_CountResult.GridLines = true;
-            this.listView_CountResult.Location = new System.Drawing.Point(60, 324);
+            this.listView_CountResult.Location = new System.Drawing.Point(84, 324);
             this.listView_CountResult.Name = "listView_CountResult";
-            this.listView_CountResult.Size = new System.Drawing.Size(673, 97);
+            this.listView_CountResult.Size = new System.Drawing.Size(666, 97);
             this.listView_CountResult.TabIndex = 14;
             this.listView_CountResult.UseCompatibleStateImageBehavior = false;
             this.listView_CountResult.View = System.Windows.Forms.View.Details;
@@ -238,44 +214,23 @@
             // 
             this.columnHeader10.Text = "应发工资";
             // 
-            // label4
+            // columnHeader11
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(205, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "From";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(589, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 12);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "To";
+            this.columnHeader11.Text = "部门名称";
             // 
             // SalaryCalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.listView_CountResult);
             this.Controls.Add(this.btn_Esc);
             this.Controls.Add(this.btn_2Excel);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_count);
-            this.Controls.Add(this.tb_SectionName2);
-            this.Controls.Add(this.tb_YearMonth2);
             this.Controls.Add(this.tb_SectionName);
             this.Controls.Add(this.tb_YearMonth);
-            this.Controls.Add(this.tb_EmployeeNumber2);
             this.Controls.Add(this.tb_EmployeeNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -293,11 +248,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_EmployeeNumber;
-        private System.Windows.Forms.TextBox tb_EmployeeNumber2;
         private System.Windows.Forms.TextBox tb_YearMonth;
         private System.Windows.Forms.TextBox tb_SectionName;
-        private System.Windows.Forms.TextBox tb_YearMonth2;
-        private System.Windows.Forms.TextBox tb_SectionName2;
         private System.Windows.Forms.Button btn_count;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_delete;
@@ -314,7 +266,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
     }
 }

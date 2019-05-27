@@ -84,7 +84,7 @@ namespace EmployeeManagementSystem
              WeekOverTimeRate = "",
              FestivalOverTimeRate = "";
 
-          loop: foreach (DataRow dataRow in dataTable.Rows)
+           foreach (DataRow dataRow in dataTable.Rows)
             {
                 //Excel表格中的列名  如员工编号 员工姓名
 
@@ -100,7 +100,7 @@ namespace EmployeeManagementSystem
                 WeekOverTimeRate = dataRow["节假日加班费率"].ToString();
                 FestivalOverTimeRate = dataRow["法定节假日加班费率"].ToString();
 
-                while (EmployeeNumber.Length!=5||YearMonth.Length!=6)
+                while (EmployeeNumber.Length!=5|YearMonth.Length!=6)
                 {
                     MessageBox.Show("员工编号或年月编号格式有误,请核实后再进行导入");
                     break;
