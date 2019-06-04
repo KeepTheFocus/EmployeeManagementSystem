@@ -34,7 +34,6 @@
             this.button_save = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_SectionCode = new System.Windows.Forms.TextBox();
-            this.button_Esc = new System.Windows.Forms.Button();
             this.listView_section = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -82,16 +81,6 @@
             this.textBox_SectionCode.Size = new System.Drawing.Size(170, 21);
             this.textBox_SectionCode.TabIndex = 0;
             // 
-            // button_Esc
-            // 
-            this.button_Esc.Location = new System.Drawing.Point(767, 109);
-            this.button_Esc.Name = "button_Esc";
-            this.button_Esc.Size = new System.Drawing.Size(227, 23);
-            this.button_Esc.TabIndex = 3;
-            this.button_Esc.Text = "退出";
-            this.button_Esc.UseVisualStyleBackColor = true;
-            this.button_Esc.Click += new System.EventHandler(this.button_Esc_Click);
-            // 
             // listView_section
             // 
             this.listView_section.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -123,7 +112,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.listView_section);
-            this.Controls.Add(this.button_Esc);
             this.Controls.Add(this.textBox_SectionCode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button_save);
@@ -145,7 +133,6 @@
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_SectionCode;
-        private System.Windows.Forms.Button button_Esc;
         private System.Windows.Forms.ListView listView_section;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

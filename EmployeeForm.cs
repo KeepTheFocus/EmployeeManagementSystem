@@ -10,10 +10,13 @@ namespace EmployeeManagementSystem
         public EmployeeForm()
         {
             InitializeComponent();
+
+         
         }
+        
+       
 
-
-
+      
         //保存输入的信息
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -181,6 +184,8 @@ namespace EmployeeManagementSystem
 
             //创建数据库连接
             SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
+            //打开连接
+            connection.Open();
 
             //创建sql语句
             string strSql = "select * from Section";
@@ -188,8 +193,7 @@ namespace EmployeeManagementSystem
             SqlCommand command = new SqlCommand(strSql, connection);
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
-            //打开连接
-            connection.Open();
+         
             //创建数据表
             DataTable table = new DataTable();
             

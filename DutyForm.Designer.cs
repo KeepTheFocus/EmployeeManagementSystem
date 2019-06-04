@@ -33,7 +33,6 @@
             this.textBox_dutyCode = new System.Windows.Forms.TextBox();
             this.textBox_dutyName = new System.Windows.Forms.TextBox();
             this.button_saveDuty = new System.Windows.Forms.Button();
-            this.button_escDuty = new System.Windows.Forms.Button();
             this.listView_Duty = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -81,16 +80,6 @@
             this.button_saveDuty.UseVisualStyleBackColor = true;
             this.button_saveDuty.Click += new System.EventHandler(this.button_saveDuty_Click);
             // 
-            // button_escDuty
-            // 
-            this.button_escDuty.Location = new System.Drawing.Point(646, 148);
-            this.button_escDuty.Name = "button_escDuty";
-            this.button_escDuty.Size = new System.Drawing.Size(373, 23);
-            this.button_escDuty.TabIndex = 3;
-            this.button_escDuty.Text = "退出";
-            this.button_escDuty.UseVisualStyleBackColor = true;
-            this.button_escDuty.Click += new System.EventHandler(this.button_escDuty_Click);
-            // 
             // listView_Duty
             // 
             this.listView_Duty.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -122,7 +111,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.listView_Duty);
-            this.Controls.Add(this.button_escDuty);
             this.Controls.Add(this.button_saveDuty);
             this.Controls.Add(this.textBox_dutyName);
             this.Controls.Add(this.textBox_dutyCode);
@@ -143,7 +131,6 @@
         private System.Windows.Forms.TextBox textBox_dutyCode;
         private System.Windows.Forms.TextBox textBox_dutyName;
         private System.Windows.Forms.Button button_saveDuty;
-        private System.Windows.Forms.Button button_escDuty;
         private System.Windows.Forms.ListView listView_Duty;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

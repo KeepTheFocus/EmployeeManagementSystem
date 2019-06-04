@@ -47,7 +47,6 @@
             this.btn_Alter = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Esc = new System.Windows.Forms.Button();
             this.listview_AttendanceReport = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -222,16 +221,6 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
-            // btn_Esc
-            // 
-            this.btn_Esc.Location = new System.Drawing.Point(947, 240);
-            this.btn_Esc.Name = "btn_Esc";
-            this.btn_Esc.Size = new System.Drawing.Size(128, 23);
-            this.btn_Esc.TabIndex = 12;
-            this.btn_Esc.Text = "退   出";
-            this.btn_Esc.UseVisualStyleBackColor = true;
-            this.btn_Esc.Click += new System.EventHandler(this.btn_Esc_Click);
-            // 
             // listview_AttendanceReport
             // 
             this.listview_AttendanceReport.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -326,7 +315,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listview_AttendanceReport);
-            this.Controls.Add(this.btn_Esc);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Alter);
@@ -375,7 +363,6 @@
         private System.Windows.Forms.Button btn_Alter;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Delete;
-        private System.Windows.Forms.Button btn_Esc;
         private System.Windows.Forms.ListView listview_AttendanceReport;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

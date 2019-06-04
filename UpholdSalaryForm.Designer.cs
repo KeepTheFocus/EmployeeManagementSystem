@@ -52,7 +52,6 @@
             this.btn_Alter = new System.Windows.Forms.Button();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_Export = new System.Windows.Forms.Button();
-            this.btn_Esc = new System.Windows.Forms.Button();
             this.listView_UpholdSalaryFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -278,16 +277,6 @@
             this.btn_Export.UseVisualStyleBackColor = true;
             this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
             // 
-            // btn_Esc
-            // 
-            this.btn_Esc.Location = new System.Drawing.Point(998, 22);
-            this.btn_Esc.Name = "btn_Esc";
-            this.btn_Esc.Size = new System.Drawing.Size(201, 23);
-            this.btn_Esc.TabIndex = 11;
-            this.btn_Esc.Text = "退出";
-            this.btn_Esc.UseVisualStyleBackColor = true;
-            this.btn_Esc.Click += new System.EventHandler(this.btn_Esc_Click);
-            // 
             // listView_UpholdSalaryFiles
             // 
             this.listView_UpholdSalaryFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -460,7 +449,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.listView_UpholdSalaryFiles);
-            this.Controls.Add(this.btn_Esc);
             this.Controls.Add(this.btn_Export);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Alter);
@@ -519,7 +507,6 @@
         private System.Windows.Forms.Button btn_Alter;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_Export;
-        private System.Windows.Forms.Button btn_Esc;
         private System.Windows.Forms.ListView listView_UpholdSalaryFiles;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

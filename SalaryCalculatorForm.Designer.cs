@@ -38,7 +38,6 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_2Excel = new System.Windows.Forms.Button();
-            this.btn_Esc = new System.Windows.Forms.Button();
             this.listView_CountResult = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -141,16 +140,6 @@
             this.btn_2Excel.UseVisualStyleBackColor = true;
             this.btn_2Excel.Click += new System.EventHandler(this.btn_2Excel_Click);
             // 
-            // btn_Esc
-            // 
-            this.btn_Esc.Location = new System.Drawing.Point(811, 398);
-            this.btn_Esc.Name = "btn_Esc";
-            this.btn_Esc.Size = new System.Drawing.Size(341, 23);
-            this.btn_Esc.TabIndex = 10;
-            this.btn_Esc.Text = "退出";
-            this.btn_Esc.UseVisualStyleBackColor = true;
-            this.btn_Esc.Click += new System.EventHandler(this.button5_Click);
-            // 
             // listView_CountResult
             // 
             this.listView_CountResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -224,7 +213,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
             this.Controls.Add(this.listView_CountResult);
-            this.Controls.Add(this.btn_Esc);
             this.Controls.Add(this.btn_2Excel);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_Search);
@@ -254,7 +242,6 @@
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_2Excel;
-        private System.Windows.Forms.Button btn_Esc;
         private System.Windows.Forms.ListView listView_CountResult;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

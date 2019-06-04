@@ -32,7 +32,6 @@
             this.tb_Hour = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_alter = new System.Windows.Forms.Button();
-            this.btn_esc = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listView_Calender = new System.Windows.Forms.ListView();
@@ -76,16 +75,6 @@
             this.btn_alter.Text = "修改";
             this.btn_alter.UseVisualStyleBackColor = true;
             this.btn_alter.Click += new System.EventHandler(this.btn_alter_Click);
-            // 
-            // btn_esc
-            // 
-            this.btn_esc.Location = new System.Drawing.Point(741, 261);
-            this.btn_esc.Name = "btn_esc";
-            this.btn_esc.Size = new System.Drawing.Size(196, 23);
-            this.btn_esc.TabIndex = 6;
-            this.btn_esc.Text = "退出";
-            this.btn_esc.UseVisualStyleBackColor = true;
-            this.btn_esc.Click += new System.EventHandler(this.btn_esc_Click);
             // 
             // label1
             // 
@@ -161,7 +150,6 @@
             this.Controls.Add(this.listView_Calender);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_esc);
             this.Controls.Add(this.btn_alter);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.tb_Hour);
@@ -180,7 +168,6 @@
         private System.Windows.Forms.TextBox tb_Hour;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_alter;
-        private System.Windows.Forms.Button btn_esc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listView_Calender;

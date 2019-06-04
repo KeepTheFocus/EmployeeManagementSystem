@@ -124,5 +124,20 @@ namespace EmployeeManagementSystem
             //设置子窗体会随着父窗体的最大化而最大化
             calculatorForm.Dock = DockStyle.Fill;
         }
+
+
+
+        private void 员工分组ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //创建员工分组的窗体
+            EmployeeGroupForm employeeGroupForm = new EmployeeGroupForm();
+
+            employeeGroupForm.MdiParent = this;
+
+            employeeGroupForm.Show();
+
+            employeeGroupForm.Dock = DockStyle.Fill;
+
+        }
     }
 }

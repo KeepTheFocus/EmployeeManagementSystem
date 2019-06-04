@@ -58,7 +58,6 @@
             this.tb_IdentityCardNumber = new System.Windows.Forms.TextBox();
             this.tb_EmployeeNumber = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_esc = new System.Windows.Forms.Button();
             this.btn_export = new System.Windows.Forms.Button();
             this.btn_seek = new System.Windows.Forms.Button();
             this.btn_alter = new System.Windows.Forms.Button();
@@ -98,7 +97,6 @@
             this.groupBox1.Controls.Add(this.tb_IdentityCardNumber);
             this.groupBox1.Controls.Add(this.tb_EmployeeNumber);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.btn_esc);
             this.groupBox1.Controls.Add(this.btn_export);
             this.groupBox1.Controls.Add(this.btn_seek);
             this.groupBox1.Controls.Add(this.btn_alter);
@@ -209,6 +207,7 @@
             // 
             // listView_employee
             // 
+            this.listView_employee.CheckBoxes = true;
             this.listView_employee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -220,6 +219,8 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10});
+            this.listView_employee.Font = new System.Drawing.Font("KaiTi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView_employee.ForeColor = System.Drawing.Color.YellowGreen;
             this.listView_employee.FullRowSelect = true;
             this.listView_employee.GridLines = true;
             this.listView_employee.Location = new System.Drawing.Point(9, 249);
@@ -232,44 +233,47 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "员工编号";
+            this.columnHeader1.Width = 97;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "员工姓名";
+            this.columnHeader2.Width = 94;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "性别";
-            this.columnHeader3.Width = 38;
+            this.columnHeader3.Width = 66;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "身份证号";
-            this.columnHeader4.Width = 87;
+            this.columnHeader4.Width = 114;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "出生日期";
+            this.columnHeader5.Width = 103;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "民族";
-            this.columnHeader6.Width = 38;
+            this.columnHeader6.Width = 68;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "学历";
-            this.columnHeader7.Width = 43;
+            this.columnHeader7.Width = 68;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "部门";
-            this.columnHeader8.Width = 43;
+            this.columnHeader8.Width = 70;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "职务";
-            this.columnHeader9.Width = 46;
+            this.columnHeader9.Width = 76;
             // 
             // columnHeader10
             // 
@@ -357,16 +361,6 @@
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 27;
             this.label11.Text = "员工编号";
-            // 
-            // btn_esc
-            // 
-            this.btn_esc.Location = new System.Drawing.Point(622, 199);
-            this.btn_esc.Name = "btn_esc";
-            this.btn_esc.Size = new System.Drawing.Size(132, 23);
-            this.btn_esc.TabIndex = 14;
-            this.btn_esc.Text = "退出";
-            this.btn_esc.UseVisualStyleBackColor = true;
-            this.btn_esc.Click += new System.EventHandler(this.btn_esc_Click);
             // 
             // btn_export
             // 
@@ -561,7 +555,6 @@
         private System.Windows.Forms.ComboBox cb_Academic;
         private System.Windows.Forms.ComboBox cb_SectionName;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.Button btn_esc;
         private System.Windows.Forms.Button btn_export;
         private System.Windows.Forms.Button btn_seek;
         private System.Windows.Forms.Button btn_alter;

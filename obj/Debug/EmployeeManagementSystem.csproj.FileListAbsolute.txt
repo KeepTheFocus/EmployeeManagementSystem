@@ -20,3 +20,5 @@ D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.AttendanceCalende
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.UpholdSalaryForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SalaryCalculatorForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportAttendanceReport2SqlForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.EmployeeGroupForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.QueryInGroupForm.resources
