@@ -185,8 +185,6 @@ namespace EmployeeManagementSystem
             }
         }
 
-     
-
         //当敲击了回车键后要做的事情
         private void tb_EmployeeName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -228,10 +226,6 @@ namespace EmployeeManagementSystem
         }
 
 
-
-
-
-
         //给查看部门人员按钮  设置点击事件
         private void btn_peek_Click(object sender, EventArgs e)
         {
@@ -271,8 +265,6 @@ namespace EmployeeManagementSystem
                 sqlConnection.Close();
             }
         }
-
-
 
 
         //给全选按钮框添加 事件
@@ -545,7 +537,6 @@ namespace EmployeeManagementSystem
                             }
                         }
                     }
-                   
                 }
             }
         }
@@ -916,48 +907,72 @@ namespace EmployeeManagementSystem
             }
             else
             {
-                ///将添加进组里的员工 显示在列表lv_Group中
-                //创建listviewItem类的实例
-                ListViewItem listViewItem = new ListViewItem();
-                //将工号设置为列表的第一列
-                listViewItem.Text = strEmployeeNumber;
-                //姓名设置为第二列
-                listViewItem.SubItems.Add(strEmployeeName);
-                //部门设置为第三列
-                listViewItem.SubItems.Add(strSectionName);
-
-
-                //将listviewItem添加进listview中
-                lv_Group.Items.Add(listViewItem);
-
-                //清空工号文本框中的内容
-                tb_EmployeeNumber.Text = "";
-                //清空姓名框中的内容
-                tb_EmployeeName.Text = "";
-
-
-                ///将列表 lv_Group中的数据添加进数据表CommunityFiles中
-                //创建要连接的数据库的实例
-                using (SqlConnection sqlConnection = new SqlConnection())
+                //判断当前的组的数据表中是否包含即将要添加的员工工号
+                using (SqlConnection sqlConnection=new SqlConnection())
                 {
-                    //设置要连接的目标数据库字符串
                     sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
+                    //打开连接
                     sqlConnection.Open();
-                    //创建要执行的SQL语句
-                    string strSQL = "insert into CommunityFiles values" + "('" + tb_GruopName.Text + "','" + strEmployeeNumber + "','" + strEmployeeName + "','" + strSectionName + "')";
-                    //创建SqlCommand类的实例
-                    SqlCommand sqlCommand = new SqlCommand(strSQL, sqlConnection);
-                    if (sqlCommand.ExecuteNonQuery() > 0)
+                    //创建要执行的sql语句
+                    string sqlstringfirst = "select * from CommunityFiles where GroupName='"+tb_GruopName.Text+"' and  EmployeeName='"+tb_EmployeeName.Text+"'";
+                    //创建sqlcommand命令的实例
+                    SqlCommand command = new SqlCommand(sqlstringfirst,sqlConnection);
+                    //创建数据读取器的实例
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        MessageBox.Show("数据已成功添加进数据表中");
+                        MessageBox.Show("员工已经存在组中，请勿重复添加");
+                        //关闭数据读取器
+                        reader.Close();
                     }
                     else
                     {
-                        MessageBox.Show("数据添加失败");
+                        //关闭数据读取器
+                        reader.Close();
+
+                        ///将添加进组里的员工 显示在列表lv_Group中
+                        //创建listviewItem类的实例
+                        ListViewItem listViewItem = new ListViewItem();
+                        //将工号设置为列表的第一列
+                        listViewItem.Text = strEmployeeNumber;
+                        //姓名设置为第二列
+                        listViewItem.SubItems.Add(strEmployeeName);
+                        //部门设置为第三列
+                        listViewItem.SubItems.Add(strSectionName);
+
+
+                        //将listviewItem添加进listview中
+                        lv_Group.Items.Add(listViewItem);
+                        //创建要执行的sql语句
+                        string strSQL = "insert into CommunityFiles values" + "('" + tb_GruopName.Text + "','" + strEmployeeNumber + "','" + strEmployeeName + "','" + strSectionName + "')";
+                        //    创建SqlCommand类的实例
+                        SqlCommand sqlCommand = new SqlCommand(strSQL,sqlConnection);
+                        if (sqlCommand.ExecuteNonQuery()>0)
+                        {
+                            MessageBox.Show("数据已成功保存进数据库中");
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("数据保存失败");
+                        }
+
+
+
+
+                        
+
+                        //清空工号文本框中的内容
+                        tb_EmployeeNumber.Text = "";
+                        //清空姓名框中的内容
+                        tb_EmployeeName.Text = "";
                     }
-                    //关闭数据库的连接
+
+                    //关闭数据库
                     sqlConnection.Close();
                 }
+
             }
         }
 
