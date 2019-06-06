@@ -10,8 +10,6 @@ namespace EmployeeManagementSystem
         public EmployeeForm()
         {
             InitializeComponent();
-
-         
         }
         
        

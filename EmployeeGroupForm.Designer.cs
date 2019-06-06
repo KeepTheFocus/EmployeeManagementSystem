@@ -70,32 +70,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(463, 25);
+            this.label1.Location = new System.Drawing.Point(487, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "分组名称";
+            this.label1.Text = "小组名称";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(487, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "说明";
+            this.label2.Text = "小组说明";
             // 
             // tb_GruopName
             // 
             this.tb_GruopName.Location = new System.Drawing.Point(555, 22);
             this.tb_GruopName.Name = "tb_GruopName";
-            this.tb_GruopName.Size = new System.Drawing.Size(121, 21);
-            this.tb_GruopName.TabIndex = 2;
+            this.tb_GruopName.Size = new System.Drawing.Size(171, 21);
+            this.tb_GruopName.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 52);
+            this.label3.Location = new System.Drawing.Point(10, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 4;
@@ -119,13 +119,14 @@
             this.columnHeader6});
             this.lv_Section.FullRowSelect = true;
             this.lv_Section.GridLines = true;
-            this.lv_Section.Location = new System.Drawing.Point(176, 83);
+            this.lv_Section.Location = new System.Drawing.Point(210, 83);
             this.lv_Section.Name = "lv_Section";
             this.lv_Section.Scrollable = false;
             this.lv_Section.Size = new System.Drawing.Size(235, 244);
             this.lv_Section.TabIndex = 7;
             this.lv_Section.UseCompatibleStateImageBehavior = false;
             this.lv_Section.View = System.Windows.Forms.View.Details;
+            this.lv_Section.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lv_Section_ItemChecked);
             // 
             // columnHeader1
             // 
@@ -145,7 +146,7 @@
             // cb_All
             // 
             this.cb_All.AutoSize = true;
-            this.cb_All.Location = new System.Drawing.Point(176, 354);
+            this.cb_All.Location = new System.Drawing.Point(210, 354);
             this.cb_All.Name = "cb_All";
             this.cb_All.Size = new System.Drawing.Size(48, 16);
             this.cb_All.TabIndex = 8;
@@ -155,22 +156,22 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(255, 350);
+            this.btn_Add.Location = new System.Drawing.Point(271, 354);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(156, 23);
+            this.btn_Add.Size = new System.Drawing.Size(174, 23);
             this.btn_Add.TabIndex = 9;
-            this.btn_Add.Text = "向组人员列表中添加成员";
+            this.btn_Add.Text = "向小组人员列表中添加成员";
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(451, 153);
+            this.label5.Location = new System.Drawing.Point(553, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 10;
-            this.label5.Text = "组人员列表";
+            this.label5.Text = "小组人员列表";
             // 
             // lv_Group
             // 
@@ -180,9 +181,9 @@
             this.columnHeader5});
             this.lv_Group.FullRowSelect = true;
             this.lv_Group.GridLines = true;
-            this.lv_Group.Location = new System.Drawing.Point(535, 102);
+            this.lv_Group.Location = new System.Drawing.Point(553, 138);
             this.lv_Group.Name = "lv_Group";
-            this.lv_Group.Size = new System.Drawing.Size(168, 256);
+            this.lv_Group.Size = new System.Drawing.Size(180, 256);
             this.lv_Group.TabIndex = 11;
             this.lv_Group.UseCompatibleStateImageBehavior = false;
             this.lv_Group.View = System.Windows.Forms.View.Details;
@@ -245,21 +246,21 @@
             // 
             // btn_AddManually
             // 
-            this.btn_AddManually.Location = new System.Drawing.Point(739, 204);
+            this.btn_AddManually.Location = new System.Drawing.Point(751, 204);
             this.btn_AddManually.Name = "btn_AddManually";
             this.btn_AddManually.Size = new System.Drawing.Size(170, 23);
             this.btn_AddManually.TabIndex = 17;
-            this.btn_AddManually.Text = "手动添加人员进组人员列表中";
+            this.btn_AddManually.Text = "手动添加人员进小组人员列表中";
             this.btn_AddManually.UseVisualStyleBackColor = true;
             this.btn_AddManually.Click += new System.EventHandler(this.btn_AddManually_Click);
             // 
             // btn_Remove
             // 
-            this.btn_Remove.Location = new System.Drawing.Point(535, 378);
+            this.btn_Remove.Location = new System.Drawing.Point(553, 432);
             this.btn_Remove.Name = "btn_Remove";
-            this.btn_Remove.Size = new System.Drawing.Size(168, 23);
+            this.btn_Remove.Size = new System.Drawing.Size(180, 23);
             this.btn_Remove.TabIndex = 18;
-            this.btn_Remove.Text = "删除组人员列表中的成员";
+            this.btn_Remove.Text = "删除小组人员列表中的成员";
             this.btn_Remove.UseVisualStyleBackColor = true;
             this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
             // 
@@ -267,19 +268,19 @@
             // 
             this.lbx_SectionName.FormattingEnabled = true;
             this.lbx_SectionName.ItemHeight = 12;
-            this.lbx_SectionName.Location = new System.Drawing.Point(23, 83);
+            this.lbx_SectionName.Location = new System.Drawing.Point(12, 83);
             this.lbx_SectionName.Name = "lbx_SectionName";
-            this.lbx_SectionName.Size = new System.Drawing.Size(120, 244);
+            this.lbx_SectionName.Size = new System.Drawing.Size(181, 244);
             this.lbx_SectionName.TabIndex = 19;
             this.lbx_SectionName.SelectedIndexChanged += new System.EventHandler(this.lbx_SectionName_SelectedIndexChanged);
             // 
             // btn_peek
             // 
-            this.btn_peek.Location = new System.Drawing.Point(59, 47);
+            this.btn_peek.Location = new System.Drawing.Point(45, 47);
             this.btn_peek.Name = "btn_peek";
-            this.btn_peek.Size = new System.Drawing.Size(88, 23);
+            this.btn_peek.Size = new System.Drawing.Size(148, 23);
             this.btn_peek.TabIndex = 20;
-            this.btn_peek.Text = "查看部门人员";
+            this.btn_peek.Text = "查看当前选中部门的人员";
             this.btn_peek.UseVisualStyleBackColor = true;
             this.btn_peek.Click += new System.EventHandler(this.btn_peek_Click);
             // 
@@ -304,29 +305,30 @@
             // tsl_Create
             // 
             this.tsl_Create.Name = "tsl_Create";
-            this.tsl_Create.Size = new System.Drawing.Size(32, 22);
-            this.tsl_Create.Text = "新建";
+            this.tsl_Create.Size = new System.Drawing.Size(56, 22);
+            this.tsl_Create.Text = "新建小组";
             this.tsl_Create.Click += new System.EventHandler(this.tsl_Create_Click);
             // 
             // tsl_store
             // 
             this.tsl_store.Name = "tsl_store";
-            this.tsl_store.Size = new System.Drawing.Size(32, 22);
-            this.tsl_store.Text = "保存";
+            this.tsl_store.Size = new System.Drawing.Size(56, 22);
+            this.tsl_store.Text = "保存小组";
             this.tsl_store.Click += new System.EventHandler(this.tsl_store_Click);
             // 
             // tsl_Query
             // 
             this.tsl_Query.Name = "tsl_Query";
-            this.tsl_Query.Size = new System.Drawing.Size(32, 22);
-            this.tsl_Query.Text = "查找";
+            this.tsl_Query.Size = new System.Drawing.Size(80, 22);
+            this.tsl_Query.Text = "查找小组员工";
             this.tsl_Query.Click += new System.EventHandler(this.tsl_Query_Click);
             // 
             // tsl_remove
             // 
             this.tsl_remove.Name = "tsl_remove";
-            this.tsl_remove.Size = new System.Drawing.Size(44, 22);
-            this.tsl_remove.Text = "删除组";
+            this.tsl_remove.Size = new System.Drawing.Size(56, 22);
+            this.tsl_remove.Text = "删除小组";
+            this.tsl_remove.Click += new System.EventHandler(this.tsl_remove_Click);
             // 
             // tsl_Cancel
             // 
@@ -338,36 +340,36 @@
             // 
             this.tsl_FirstRecord.Name = "tsl_FirstRecord";
             this.tsl_FirstRecord.Size = new System.Drawing.Size(68, 22);
-            this.tsl_FirstRecord.Text = "第一条记录";
+            this.tsl_FirstRecord.Text = "第一个小组";
             this.tsl_FirstRecord.Click += new System.EventHandler(this.tsl_FirstRecord_Click);
             // 
             // tsl_previousRecord
             // 
             this.tsl_previousRecord.Name = "tsl_previousRecord";
             this.tsl_previousRecord.Size = new System.Drawing.Size(68, 22);
-            this.tsl_previousRecord.Text = "上一条记录";
+            this.tsl_previousRecord.Text = "上一个小组";
             this.tsl_previousRecord.Click += new System.EventHandler(this.tsl_previousRecord_Click);
             // 
             // tsl_NextRecord
             // 
             this.tsl_NextRecord.Name = "tsl_NextRecord";
             this.tsl_NextRecord.Size = new System.Drawing.Size(68, 22);
-            this.tsl_NextRecord.Text = "下一条记录";
+            this.tsl_NextRecord.Text = "下一个小组";
             this.tsl_NextRecord.Click += new System.EventHandler(this.tsl_NextRecord_Click);
             // 
             // tsl_EndRecord
             // 
             this.tsl_EndRecord.Name = "tsl_EndRecord";
             this.tsl_EndRecord.Size = new System.Drawing.Size(80, 22);
-            this.tsl_EndRecord.Text = "最后一条记录";
+            this.tsl_EndRecord.Text = "最后一个小组";
             this.tsl_EndRecord.Click += new System.EventHandler(this.tsl_EndRecord_Click);
             // 
             // rtb_description
             // 
             this.rtb_description.Location = new System.Drawing.Point(553, 58);
             this.rtb_description.Name = "rtb_description";
-            this.rtb_description.Size = new System.Drawing.Size(123, 38);
-            this.rtb_description.TabIndex = 33;
+            this.rtb_description.Size = new System.Drawing.Size(173, 38);
+            this.rtb_description.TabIndex = 1;
             this.rtb_description.Text = "";
             // 
             // EmployeeGroupForm

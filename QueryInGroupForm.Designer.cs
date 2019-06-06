@@ -50,6 +50,7 @@
             this.btn_queryInGroup.TabIndex = 1;
             this.btn_queryInGroup.Text = "查询";
             this.btn_queryInGroup.UseVisualStyleBackColor = true;
+            this.btn_queryInGroup.Click += new System.EventHandler(this.btn_queryInGroup_Click);
             // 
             // tb_EmployeeNumber2query
             // 
