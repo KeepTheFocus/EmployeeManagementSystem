@@ -22,3 +22,5 @@ D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SalaryCalculatorF
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportAttendanceReport2SqlForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.EmployeeGroupForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.QueryInGroupForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.OverTimeCauseForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.PreviewOtpInputForm.resources

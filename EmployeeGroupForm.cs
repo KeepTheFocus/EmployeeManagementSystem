@@ -17,6 +17,7 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
+
         //创建一个名为dataRowView的 实例
         DataRowView dataRowView;
         //被选中的部门
@@ -841,8 +842,9 @@ namespace EmployeeManagementSystem
         //给删除组功能 设置点击事件
         private void tsl_remove_Click(object sender, EventArgs e)
         {
+            CompareID();
             //=MessageBoxButtons.YesNo;
-           var result =MessageBox.Show("你确定要删除吗","",MessageBoxButtons.YesNo);
+           var result =MessageBox.Show("你确定要删除小组"+tb_GruopName.Text+"吗" ,"",MessageBoxButtons.YesNo);
             if (DialogResult.Yes==result)
             {
                 //执行从数据表中删除该组的操作
@@ -868,23 +870,61 @@ namespace EmployeeManagementSystem
                     {
                         MessageBox.Show("组"+tb_GruopName.Text+"中所有的成员已经从数据表中删除成功");
                     }
+                    //清空组名称
+                    tb_GruopName.Text = "";
+                    //清空组说明
+                    rtb_description.Text = "";
+                    //清空组人员列表
+                    lv_Group.Items.Clear();
+                    //激活文本框
+                    tb_GruopName.ReadOnly = false;
+                    //激活富文本框
+                    rtb_description.ReadOnly = false;
+
+                    //获取刷新后的ID
+                    CompareID();
+                    //创建要执行的SQL语句
+                    string sqlStringZero = "select * from community where id='"+MaxID+"'";
+                    SqlCommand sqlCommandZero = new SqlCommand(sqlStringZero,sqlConnection);
+                    SqlDataReader sqlDataReaderZero = sqlCommandZero.ExecuteReader();
+                    while (sqlDataReaderZero.Read())
+                    {
+                        tb_GruopName.Text = sqlDataReaderZero["GroupName"].ToString();
+                        rtb_description.Text = sqlDataReaderZero["GroupScription"].ToString();
+                    }
+                    //关闭数据读取器的实例
+                    sqlDataReaderZero.Close();
+                    //创建要执行的sql语句
+                    string sqlStringFirst = "select * from communityFiles where GroupName='"+tb_GruopName.Text+"'";
+                    SqlCommand sqlCommandFirst = new SqlCommand(sqlStringFirst,sqlConnection);
+                    SqlDataReader sqlDataReaderFirst = sqlCommandFirst.ExecuteReader();
+                    while (sqlDataReaderFirst.Read())
+                    {
+                        ListViewItem viewItem = new ListViewItem();
+                        viewItem.Text = sqlDataReaderFirst["EmployeeNumber"].ToString();
+                        viewItem.SubItems.Add(sqlDataReaderFirst["EmployeeName"].ToString());
+                        viewItem.SubItems.Add(sqlDataReaderFirst["SectionName"].ToString());
+                        //将新建的单个条目添加进组列表的条目容器中
+                        lv_Group.Items.Add(viewItem);
+                    }
+                    //关闭数据读取器的实例
+                    sqlDataReaderFirst.Close();
+
+                    
                     //关闭连接
                     sqlConnection.Close();
                 }
-                //清空部门列表
-                lv_Section.Items.Clear();
-                //清空组名称
-                tb_GruopName.Text = "";
-                //清空组说明
-                rtb_description.Text = "";
-                //清空组人员列表
-                lv_Group.Items.Clear();
+             
+              
+
             }
+            //刷新 获取最新的ID 
+            CompareID();
         }
 
-        //定义变量用来保存输入的组名称
+        //定义变量GroupName       用来保存输入的组名称
         string GroupName,
-        //定义变量用来保存输入的组说明
+        //定义变量GroupScription  用来保存输入的组说明
                GroupScription;
 
         //实现当勾选中了 listview中第一列的单选框时，当前条目也会被选中
@@ -892,8 +932,6 @@ namespace EmployeeManagementSystem
         {
             e.Item.Selected=e.Item.Checked;
         }
-
-
 
         //给窗体中手动添加人员  按钮设置点击事件
         private void btn_AddManually_Click(object sender, EventArgs e)
@@ -976,7 +1014,6 @@ namespace EmployeeManagementSystem
             }
         }
 
-
         //给工具栏上的保存功能  设置点击事件
         private void tsl_store_Click(object sender, EventArgs e)
         {
@@ -1055,103 +1092,121 @@ namespace EmployeeManagementSystem
         //辅助函数 用来判断当前组的ID是不是ID的最大值，或ID的最小值
         private void CompareID()
         {
-
+            //做个判断 如果数据表中存在数据 则执行if语句块内的逻辑代码
             //获取当前记录的ID值 如果ID值在数据表中为最小。说明是第一条记录
             using (SqlConnection sqlConnection = new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 //打开数据库的连接
                 sqlConnection.Open();
-                //创建要执行的sql语句
-                string sqlString = "select ID from Community where GroupName='" + tb_GruopName.Text + "'";
-                //创建sqlCommand类的实例
-                SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-                //创建数据库读取器
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {      //将返回的结果集中的ID列中的的值取出，然后将其转化成int类型的值
-                    CurrentID = int.Parse(reader["ID"].ToString());
-
-                }
-                //弹出消息框输出   当前组名在数据表Community中的对应ID值
-                //MessageBox.Show(CurrentID.ToString());
-
-                //关闭数据读取器
-                reader.Close();
-                //创建要执行的sql语句  取出当前数据表中最小的ID值
-                string getMinString = "select min(ID) from community";
-                SqlCommand sqlCommand = new SqlCommand(getMinString, sqlConnection);
+                //创建要执行的语句
+                string sqlStringzero = "select * from Community";
+                SqlCommand sqlCommandZero = new SqlCommand(sqlStringzero,sqlConnection);
                 //创建数据读取器的实例
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
+                SqlDataReader sqlDataReaderZero=sqlCommandZero.ExecuteReader();
+                //如果数据读取器中存在数据 ,那么执行if语句块中的代码
+                if (sqlDataReaderZero.HasRows)
                 {
-                    //将返回结果集中的第一列的值取出来，并将其转化成int类型的值
-                    MiniID = int.Parse(sqlDataReader[0].ToString());
+
+                    //创建要执行的sql语句
+                    string sqlString = "select ID from Community where GroupName='" + tb_GruopName.Text + "'";
+                    //创建sqlCommand类的实例
+                    SqlCommand command = new SqlCommand(sqlString, sqlConnection);
+                    //关闭数据读取器的实例
+                    sqlDataReaderZero.Close();
+                    //创建数据库读取器
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {      //将返回的结果集中的ID列中的的值取出，然后将其转化成int类型的值
+                        CurrentID = int.Parse(reader["ID"].ToString());
+
+                    }
+                    //弹出消息框输出   当前组名在数据表Community中的对应ID值
+                    //MessageBox.Show(CurrentID.ToString());
+
+                    //关闭数据读取器
+                    reader.Close();
+                    //创建要执行的sql语句  取出当前数据表中最小的ID值
+                    string getMinString = "select min(ID) from community";
+                    SqlCommand sqlCommand = new SqlCommand(getMinString, sqlConnection);
+                    //创建数据读取器的实例
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    while (sqlDataReader.Read())
+                    {
+                        //将返回结果集中的第一列的值取出来，并将其转化成int类型的值
+                        MiniID = int.Parse(sqlDataReader[0].ToString());
+                    }
+                    //消息提示框弹出 Community表中最小的ID值
+                    // MessageBox.Show("数据表中最小的id值为"+MiniID.ToString());
+                    //关闭数据读取器
+                    sqlDataReader.Close();
+
+                    //创建要执行的sql语句  取出当前数据表中最大的ID值
+                    string getMaxString = "select max(ID) from community";
+
+                    SqlCommand sqlCommandMax = new SqlCommand(getMaxString, sqlConnection);
+                    //创建数据读取器的实例
+                    SqlDataReader readerMax = sqlCommandMax.ExecuteReader();
+                    while (readerMax.Read())
+                    {
+                        MaxID = int.Parse(readerMax[0].ToString());
+                    }
+
+                    //弹出消息框提示 community表中最大的值
+                    //MessageBox.Show("数据表中最大的id值为"+MaxID.ToString());
+
+                    if (CurrentID == MiniID)
+                    {
+                        //MessageBox.Show("我是第一个小组");
+                        //禁用第一个小组
+                        tsl_FirstRecord.Enabled = false;
+                        //禁用上一个小组
+                        tsl_previousRecord.Enabled = false;
+
+                        //激活下一一个小组
+                        tsl_NextRecord.Enabled = true;
+                        //激活最后一个小组
+                        tsl_EndRecord.Enabled = true;
+                    }
+                    else if (CurrentID == MaxID)
+                    {
+                        //MessageBox.Show("我是最后一个小组");
+                        //禁用下一个小组
+                        tsl_NextRecord.Enabled = false;
+                        //禁用最后一个小组
+                        tsl_EndRecord.Enabled = false;
+
+                        //激活第一个小组
+                        tsl_FirstRecord.Enabled = true;
+                        //激活上一个小组
+                        tsl_previousRecord.Enabled = true;
+                    }
+                    else if (CurrentID != MaxID & CurrentID != MiniID)
+                    {
+                        //激活下一个小组
+                        tsl_NextRecord.Enabled = true;
+                        //激活最后一个小组
+                        tsl_EndRecord.Enabled = true;
+
+                        //激活第一个小组
+                        tsl_FirstRecord.Enabled = true;
+                        //激活上一个小组
+                        tsl_previousRecord.Enabled = true;
+
+                    }
                 }
-                //消息提示框弹出 Community表中最小的ID值
-               // MessageBox.Show("数据表中最小的id值为"+MiniID.ToString());
-                //关闭数据读取器
-                sqlDataReader.Close();
-
-                //创建要执行的sql语句  取出当前数据表中最大的ID值
-                string getMaxString = "select max(ID) from community";
-
-                SqlCommand sqlCommandMax = new SqlCommand(getMaxString,sqlConnection);
-                //创建数据读取器的实例
-                SqlDataReader readerMax = sqlCommandMax.ExecuteReader();
-                while (readerMax.Read())
+                else
                 {
-                    MaxID = int.Parse(readerMax[0].ToString());
+                    MessageBox.Show("数据表中已经没有数据了");
+                    //清空文本框和富文本框
+                    tb_GruopName.Text = "";
+                    rtb_description.Text = "";
+                    //清空组列表
+                    lv_Group.Items.Clear();
                 }
-
-                //弹出消息框提示 community表中最大的值
-                //MessageBox.Show("数据表中最大的id值为"+MaxID.ToString());
-
-                if (CurrentID == MiniID)
-                {
-                    //MessageBox.Show("我是第一个小组");
-                    //禁用第一个小组
-                    tsl_FirstRecord.Enabled = false;
-                    //禁用上一个小组
-                    tsl_previousRecord.Enabled = false;
-
-                    //激活下一一个小组
-                    tsl_NextRecord.Enabled = true;
-                    //激活最后一个小组
-                    tsl_EndRecord.Enabled = true;
-                }
-                else if (CurrentID == MaxID)
-                {
-                    //MessageBox.Show("我是最后一个小组");
-                    //禁用下一个小组
-                    tsl_NextRecord.Enabled = false;
-                    //禁用最后一个小组
-                    tsl_EndRecord.Enabled = false;
-
-                    //激活第一个小组
-                    tsl_FirstRecord.Enabled =true;
-                    //激活上一个小组
-                    tsl_previousRecord.Enabled =true;
-                }
-                else if (CurrentID!=MaxID&CurrentID!=MiniID)
-                {
-                    //激活下一个小组
-                    tsl_NextRecord.Enabled = true;
-                    //激活最后一个小组
-                    tsl_EndRecord.Enabled = true;
-
-                    //激活第一个小组
-                    tsl_FirstRecord.Enabled = true;
-                    //激活上一个小组
-                    tsl_previousRecord.Enabled = true;
-
-                }
-               
-
             }
-
         }
     }
 }

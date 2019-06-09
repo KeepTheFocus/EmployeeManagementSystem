@@ -139,5 +139,30 @@ namespace EmployeeManagementSystem
             employeeGroupForm.Dock = DockStyle.Fill;
 
         }
+
+        private void 加班内容ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //创建加班原因的窗体
+            OverTimeCauseForm overTimeCauseForm = new OverTimeCauseForm();
+
+            overTimeCauseForm.MdiParent = this;
+
+            overTimeCauseForm.Show();
+
+            overTimeCauseForm.Dock = DockStyle.Fill;
+            
+        }
+
+        private void 预计加班单录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //创建预计加班单录入窗体
+            PreviewOtpInputForm previewOtpInputForm = new PreviewOtpInputForm();
+
+            previewOtpInputForm.MdiParent = this;
+
+            previewOtpInputForm.Show();
+
+            previewOtpInputForm.Dock = DockStyle.Fill;
+        }
     }
 }

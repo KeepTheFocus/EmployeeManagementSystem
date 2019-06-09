@@ -88,6 +88,18 @@
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportAttendanceReportExcel2DataBase.cs" />
+    <Compile Include="OverTimeCauseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverTimeCauseForm.Designer.cs">
+      <DependentUpon>OverTimeCauseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewOtpInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewOtpInputForm.Designer.cs">
+      <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryInGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImportAttendanceReport2SqlForm.resx">
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverTimeCauseForm.resx">
+      <DependentUpon>OverTimeCauseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewOtpInputForm.resx">
+      <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryInGroupForm.resx">
       <DependentUpon>QueryInGroupForm.cs</DependentUpon>

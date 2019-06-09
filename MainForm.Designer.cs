@@ -48,7 +48,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.加班管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.员工分组ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.加班内容ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.加班原因ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.预计加班单录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.实际加班单录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加班后加班单补录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,42 +87,42 @@
             // 新建入职职员ToolStripMenuItem
             // 
             this.新建入职职员ToolStripMenuItem.Name = "新建入职职员ToolStripMenuItem";
-            this.新建入职职员ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新建入职职员ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.新建入职职员ToolStripMenuItem.Text = "维护人员档案";
             this.新建入职职员ToolStripMenuItem.Click += new System.EventHandler(this.btn_AddEmployee);
             // 
             // 新建部门ToolStripMenuItem
             // 
             this.新建部门ToolStripMenuItem.Name = "新建部门ToolStripMenuItem";
-            this.新建部门ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新建部门ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.新建部门ToolStripMenuItem.Text = "维护部门数据";
             this.新建部门ToolStripMenuItem.Click += new System.EventHandler(this.新建部门ToolStripMenuItem_Click);
             // 
             // 维护职务数据ToolStripMenuItem
             // 
             this.维护职务数据ToolStripMenuItem.Name = "维护职务数据ToolStripMenuItem";
-            this.维护职务数据ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.维护职务数据ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.维护职务数据ToolStripMenuItem.Text = "维护职务数据";
             this.维护职务数据ToolStripMenuItem.Click += new System.EventHandler(this.维护职务数据ToolStripMenuItem_Click);
             // 
             // 维护薪资档案ToolStripMenuItem
             // 
             this.维护薪资档案ToolStripMenuItem.Name = "维护薪资档案ToolStripMenuItem";
-            this.维护薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.维护薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.维护薪资档案ToolStripMenuItem.Text = "维护薪资档案";
             this.维护薪资档案ToolStripMenuItem.Click += new System.EventHandler(this.维护薪资档案ToolStripMenuItem_Click);
             // 
             // 导入人员档案ToolStripMenuItem
             // 
             this.导入人员档案ToolStripMenuItem.Name = "导入人员档案ToolStripMenuItem";
-            this.导入人员档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导入人员档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.导入人员档案ToolStripMenuItem.Text = "导入人员档案";
             this.导入人员档案ToolStripMenuItem.Click += new System.EventHandler(this.导入人员档案ToolStripMenuItem_Click);
             // 
             // 导入薪资档案ToolStripMenuItem
             // 
             this.导入薪资档案ToolStripMenuItem.Name = "导入薪资档案ToolStripMenuItem";
-            this.导入薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导入薪资档案ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.导入薪资档案ToolStripMenuItem.Text = "导入薪资档案";
             this.导入薪资档案ToolStripMenuItem.Click += new System.EventHandler(this.导入薪资档案ToolStripMenuItem_Click);
             // 
@@ -139,21 +139,21 @@
             // 维护考勤日历ToolStripMenuItem
             // 
             this.维护考勤日历ToolStripMenuItem.Name = "维护考勤日历ToolStripMenuItem";
-            this.维护考勤日历ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.维护考勤日历ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.维护考勤日历ToolStripMenuItem.Text = "维护考勤日历";
             this.维护考勤日历ToolStripMenuItem.Click += new System.EventHandler(this.维护考勤日历ToolStripMenuItem_Click);
             // 
             // 导入考勤汇总ToolStripMenuItem
             // 
             this.导入考勤汇总ToolStripMenuItem.Name = "导入考勤汇总ToolStripMenuItem";
-            this.导入考勤汇总ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导入考勤汇总ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.导入考勤汇总ToolStripMenuItem.Text = "导入考勤汇总";
             this.导入考勤汇总ToolStripMenuItem.Click += new System.EventHandler(this.导入考勤汇总ToolStripMenuItem_Click);
             // 
             // 维护考勤汇总ToolStripMenuItem
             // 
             this.维护考勤汇总ToolStripMenuItem.Name = "维护考勤汇总ToolStripMenuItem";
-            this.维护考勤汇总ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.维护考勤汇总ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.维护考勤汇总ToolStripMenuItem.Text = "维护考勤汇总";
             this.维护考勤汇总ToolStripMenuItem.Click += new System.EventHandler(this.维护考勤汇总ToolStripMenuItem_Click);
             // 
@@ -168,7 +168,7 @@
             // 工资计算ToolStripMenuItem
             // 
             this.工资计算ToolStripMenuItem.Name = "工资计算ToolStripMenuItem";
-            this.工资计算ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.工资计算ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工资计算ToolStripMenuItem.Text = "工资计算";
             this.工资计算ToolStripMenuItem.Click += new System.EventHandler(this.工资计算ToolStripMenuItem_Click);
             // 
@@ -190,7 +190,7 @@
             // 
             this.加班管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.员工分组ToolStripMenuItem,
-            this.加班内容ToolStripMenuItem,
+            this.加班原因ToolStripMenuItem,
             this.预计加班单录入ToolStripMenuItem,
             this.实际加班单录入ToolStripMenuItem,
             this.加班后加班单补录ToolStripMenuItem,
@@ -206,17 +206,19 @@
             this.员工分组ToolStripMenuItem.Text = "员工分组";
             this.员工分组ToolStripMenuItem.Click += new System.EventHandler(this.员工分组ToolStripMenuItem_Click);
             // 
-            // 加班内容ToolStripMenuItem
+            // 加班原因ToolStripMenuItem
             // 
-            this.加班内容ToolStripMenuItem.Name = "加班内容ToolStripMenuItem";
-            this.加班内容ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.加班内容ToolStripMenuItem.Text = "加班内容";
+            this.加班原因ToolStripMenuItem.Name = "加班原因ToolStripMenuItem";
+            this.加班原因ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.加班原因ToolStripMenuItem.Text = "加班原因";
+            this.加班原因ToolStripMenuItem.Click += new System.EventHandler(this.加班内容ToolStripMenuItem_Click);
             // 
             // 预计加班单录入ToolStripMenuItem
             // 
             this.预计加班单录入ToolStripMenuItem.Name = "预计加班单录入ToolStripMenuItem";
             this.预计加班单录入ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.预计加班单录入ToolStripMenuItem.Text = "预计加班单录入";
+            this.预计加班单录入ToolStripMenuItem.Click += new System.EventHandler(this.预计加班单录入ToolStripMenuItem_Click);
             // 
             // 实际加班单录入ToolStripMenuItem
             // 
@@ -304,7 +306,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 加班管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 员工分组ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 加班内容ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 加班原因ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 预计加班单录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 实际加班单录入ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 加班后加班单补录ToolStripMenuItem;
