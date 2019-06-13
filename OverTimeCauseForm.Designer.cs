@@ -84,6 +84,7 @@
             this.tsl_search.Name = "tsl_search";
             this.tsl_search.Size = new System.Drawing.Size(32, 22);
             this.tsl_search.Text = "查找";
+            this.tsl_search.Click += new System.EventHandler(this.tsl_search_Click);
             // 
             // tsl_remove
             // 
@@ -203,9 +204,9 @@
         private System.Windows.Forms.ToolStripLabel tsl_nextCause;
         private System.Windows.Forms.ToolStripLabel tsl_EndCause;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox rtb_CauseScription;
-        private System.Windows.Forms.TextBox tb_CauseNumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.RichTextBox rtb_CauseScription;
+        public System.Windows.Forms.TextBox tb_CauseNumber;
     }
 }

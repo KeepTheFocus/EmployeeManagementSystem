@@ -164,5 +164,18 @@ namespace EmployeeManagementSystem
 
             previewOtpInputForm.Dock = DockStyle.Fill;
         }
+
+        private void 预定加班部门批准ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //创建部门确认窗体
+            SectionAcknowledgeForm sectionAcknowledgeForm = new SectionAcknowledgeForm();
+
+            sectionAcknowledgeForm.MdiParent = this;
+
+            sectionAcknowledgeForm.Show();
+
+            sectionAcknowledgeForm.Dock = DockStyle.Fill;
+
+        }
     }
 }

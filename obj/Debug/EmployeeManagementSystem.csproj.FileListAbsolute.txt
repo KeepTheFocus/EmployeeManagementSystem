@@ -21,6 +21,9 @@ D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.UpholdSalaryForm.
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SalaryCalculatorForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ImportAttendanceReport2SqlForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.EmployeeGroupForm.resources
-D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.QueryInGroupForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.OverTimeCauseForm.resources
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.PreviewOtpInputForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.LookUpPreviewOTForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SectionAcknowledgeForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.LookupOTCauseCodeForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.QueryInWholePreviewOTForm.resources

@@ -88,6 +88,18 @@
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportAttendanceReportExcel2DataBase.cs" />
+    <Compile Include="LookupOTCauseCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupOTCauseCodeForm.Designer.cs">
+      <DependentUpon>LookupOTCauseCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookUpPreviewOTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookUpPreviewOTForm.Designer.cs">
+      <DependentUpon>LookUpPreviewOTForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OverTimeCauseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +112,11 @@
     <Compile Include="PreviewOtpInputForm.Designer.cs">
       <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QueryInGroupForm.cs">
+    <Compile Include="QueryInWholePreviewOTForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QueryInGroupForm.Designer.cs">
-      <DependentUpon>QueryInGroupForm.cs</DependentUpon>
+    <Compile Include="QueryInWholePreviewOTForm.Designer.cs">
+      <DependentUpon>QueryInWholePreviewOTForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SalaryCalculatorForm.cs">
       <SubType>Form</SubType>
@@ -153,6 +165,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionAcknowledgeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SectionAcknowledgeForm.Designer.cs">
+      <DependentUpon>SectionAcknowledgeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpholdSalaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,14 +200,20 @@
     <EmbeddedResource Include="ImportAttendanceReport2SqlForm.resx">
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LookupOTCauseCodeForm.resx">
+      <DependentUpon>LookupOTCauseCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookUpPreviewOTForm.resx">
+      <DependentUpon>LookUpPreviewOTForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OverTimeCauseForm.resx">
       <DependentUpon>OverTimeCauseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewOtpInputForm.resx">
       <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QueryInGroupForm.resx">
-      <DependentUpon>QueryInGroupForm.cs</DependentUpon>
+    <EmbeddedResource Include="QueryInWholePreviewOTForm.resx">
+      <DependentUpon>QueryInWholePreviewOTForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryCalculatorForm.resx">
       <DependentUpon>SalaryCalculatorForm.cs</DependentUpon>
@@ -221,6 +245,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SectionAcknowledgeForm.resx">
+      <DependentUpon>SectionAcknowledgeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpholdSalaryForm.resx">
       <DependentUpon>UpholdSalaryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +257,7 @@
     <EmbeddedResource Include="UpholdAttendanceForm.resx">
       <DependentUpon>UpholdAttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

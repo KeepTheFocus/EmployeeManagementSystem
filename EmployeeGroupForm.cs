@@ -23,11 +23,11 @@ namespace EmployeeManagementSystem
         //被选中的部门
         string strSection;
 
-        string 
-            strGroupName,//组名
-            strEmployeeNumber,//员工工号
-            strEmployeeName,//员工姓名
-            strSectionName;//部门名称
+
+        string strGroupName,//组名
+                strEmployeeNumber,//员工工号
+                strEmployeeName,//员工姓名
+                strSectionName;//部门名称
                 
 
         //窗体加载过程中调用的函数
@@ -174,13 +174,14 @@ namespace EmployeeManagementSystem
                 string strSql = "select * from Section";
                 //创建一个SqlCommand类的实例
                 SqlCommand command = new SqlCommand(strSql, sqlConnection);
-                //创建数据读取器的实例
+                //创建数据适配器的实例
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 //创建数据表
                 DataTable table = new DataTable();
 
                 adapter.Fill(table);
+                //关闭数据库的连接
                 sqlConnection.Close();
                 return table;
             }
@@ -241,7 +242,7 @@ namespace EmployeeManagementSystem
             using (SqlConnection sqlConnection=new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
-
+                //打开数据库的连接
                 sqlConnection.Open();
                 //创建查询的Sql语句
                 string strSQLQuery = "select EmployeeNumber,EmployeeName from EmployeeFiles where SectionName='"+strSection+"'";
@@ -346,7 +347,7 @@ namespace EmployeeManagementSystem
         private void tsl_Query_Click(object sender, EventArgs e)
         {
             //弹出一个查找功能的窗体窗体
-            QueryInGroupForm queryInGroupForm = new QueryInGroupForm();
+            QueryInWholePreviewOTForm queryInGroupForm = new QueryInWholePreviewOTForm();
             ////给该窗体设置父窗体
             //queryInGroupForm.MdiParent = this;
             queryInGroupForm.ShowDialog();
@@ -1084,11 +1085,6 @@ namespace EmployeeManagementSystem
            
         }
 
-        //刷新当前组的函数 
-        private void RefreshRecord()
-        {
-        }
-
         //辅助函数 用来判断当前组的ID是不是ID的最大值，或ID的最小值
         private void CompareID()
         {
@@ -1107,7 +1103,6 @@ namespace EmployeeManagementSystem
                 //如果数据读取器中存在数据 ,那么执行if语句块中的代码
                 if (sqlDataReaderZero.HasRows)
                 {
-
                     //创建要执行的sql语句
                     string sqlString = "select ID from Community where GroupName='" + tb_GruopName.Text + "'";
                     //创建sqlCommand类的实例
@@ -1153,10 +1148,8 @@ namespace EmployeeManagementSystem
                     {
                         MaxID = int.Parse(readerMax[0].ToString());
                     }
-
                     //弹出消息框提示 community表中最大的值
                     //MessageBox.Show("数据表中最大的id值为"+MaxID.ToString());
-
                     if (CurrentID == MiniID)
                     {
                         //MessageBox.Show("我是第一个小组");
@@ -1164,7 +1157,6 @@ namespace EmployeeManagementSystem
                         tsl_FirstRecord.Enabled = false;
                         //禁用上一个小组
                         tsl_previousRecord.Enabled = false;
-
                         //激活下一一个小组
                         tsl_NextRecord.Enabled = true;
                         //激活最后一个小组
@@ -1194,7 +1186,6 @@ namespace EmployeeManagementSystem
                         tsl_FirstRecord.Enabled = true;
                         //激活上一个小组
                         tsl_previousRecord.Enabled = true;
-
                     }
                 }
                 else

@@ -253,6 +253,7 @@
             this.预定加班部门批准ToolStripMenuItem.Name = "预定加班部门批准ToolStripMenuItem";
             this.预定加班部门批准ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.预定加班部门批准ToolStripMenuItem.Text = "预定加班部门批准";
+            this.预定加班部门批准ToolStripMenuItem.Click += new System.EventHandler(this.预定加班部门批准ToolStripMenuItem_Click);
             // 
             // 实际加班部门批准ToolStripMenuItem
             // 

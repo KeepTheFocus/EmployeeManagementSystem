@@ -14,10 +14,13 @@ namespace EmployeeManagementSystem
 {
     public partial class OverTimeCauseForm : Form
     {
+       
+
         public OverTimeCauseForm()
         {
             InitializeComponent();
         }
+
         //创建字符串变量用来保存文本框中输入的原因编号
         string strCauseNumber;
 
@@ -391,6 +394,30 @@ namespace EmployeeManagementSystem
 
             }
             CompareID();
+        }
+
+        //给工具栏上的查找 设置点击事件
+        private void tsl_search_Click(object sender, EventArgs e)
+        {
+
+            
+            //激活文本框
+            // tb_CauseNumber.ReadOnly = false;
+            //激活富文本框
+            //rtb_CauseScription.ReadOnly = false;
+
+            //创建查询加班原因的 窗体
+            LookupOTCauseCodeForm causeCodeForm = new LookupOTCauseCodeForm();
+            //使窗体显示出来
+           // causeCodeForm.ShowDialog();
+
+            if (causeCodeForm.ShowDialog()==DialogResult.OK)
+            {
+                tb_CauseNumber.Text = causeCodeForm.tb_code.Text;
+                rtb_CauseScription.Text = causeCodeForm.tb_scription.Text;
+            }
+
+            causeCodeForm.Dispose();
         }
 
         //给第一个原因  设置点击事件
