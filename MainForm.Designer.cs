@@ -57,6 +57,7 @@
             this.预定加班部门批准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.实际加班部门批准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加班后加班ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.预定加班总经理批准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,40 +203,40 @@
             // 员工分组ToolStripMenuItem
             // 
             this.员工分组ToolStripMenuItem.Name = "员工分组ToolStripMenuItem";
-            this.员工分组ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.员工分组ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.员工分组ToolStripMenuItem.Text = "员工分组";
             this.员工分组ToolStripMenuItem.Click += new System.EventHandler(this.员工分组ToolStripMenuItem_Click);
             // 
             // 加班原因ToolStripMenuItem
             // 
             this.加班原因ToolStripMenuItem.Name = "加班原因ToolStripMenuItem";
-            this.加班原因ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.加班原因ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.加班原因ToolStripMenuItem.Text = "加班原因";
             this.加班原因ToolStripMenuItem.Click += new System.EventHandler(this.加班内容ToolStripMenuItem_Click);
             // 
             // 预计加班单录入ToolStripMenuItem
             // 
             this.预计加班单录入ToolStripMenuItem.Name = "预计加班单录入ToolStripMenuItem";
-            this.预计加班单录入ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.预计加班单录入ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.预计加班单录入ToolStripMenuItem.Text = "预计加班单录入";
             this.预计加班单录入ToolStripMenuItem.Click += new System.EventHandler(this.预计加班单录入ToolStripMenuItem_Click);
             // 
             // 实际加班单录入ToolStripMenuItem
             // 
             this.实际加班单录入ToolStripMenuItem.Name = "实际加班单录入ToolStripMenuItem";
-            this.实际加班单录入ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.实际加班单录入ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.实际加班单录入ToolStripMenuItem.Text = "实际加班单录入";
             // 
             // 加班后加班单补录ToolStripMenuItem
             // 
             this.加班后加班单补录ToolStripMenuItem.Name = "加班后加班单补录ToolStripMenuItem";
-            this.加班后加班单补录ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.加班后加班单补录ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.加班后加班单补录ToolStripMenuItem.Text = "加班后加班单补录";
             // 
             // 部门加班单导出ToolStripMenuItem
             // 
             this.部门加班单导出ToolStripMenuItem.Name = "部门加班单导出ToolStripMenuItem";
-            this.部门加班单导出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.部门加班单导出ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.部门加班单导出ToolStripMenuItem.Text = "部门加班单导出";
             // 
             // 加班确认ToolStripMenuItem
@@ -243,7 +244,8 @@
             this.加班确认ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.预定加班部门批准ToolStripMenuItem,
             this.实际加班部门批准ToolStripMenuItem,
-            this.加班后加班ToolStripMenuItem});
+            this.加班后加班ToolStripMenuItem,
+            this.预定加班总经理批准ToolStripMenuItem});
             this.加班确认ToolStripMenuItem.Name = "加班确认ToolStripMenuItem";
             this.加班确认ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.加班确认ToolStripMenuItem.Text = "加班批准";
@@ -266,6 +268,13 @@
             this.加班后加班ToolStripMenuItem.Name = "加班后加班ToolStripMenuItem";
             this.加班后加班ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.加班后加班ToolStripMenuItem.Text = "加班后加班单补录批准";
+            // 
+            // 预定加班总经理批准ToolStripMenuItem
+            // 
+            this.预定加班总经理批准ToolStripMenuItem.Name = "预定加班总经理批准ToolStripMenuItem";
+            this.预定加班总经理批准ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.预定加班总经理批准ToolStripMenuItem.Text = "预定加班总经理批准";
+            this.预定加班总经理批准ToolStripMenuItem.Click += new System.EventHandler(this.预定加班总经理批准ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -316,6 +325,7 @@
         private System.Windows.Forms.ToolStripMenuItem 预定加班部门批准ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 实际加班部门批准ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 加班后加班ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 预定加班总经理批准ToolStripMenuItem;
     }
 }
 

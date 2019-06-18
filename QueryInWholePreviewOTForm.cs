@@ -16,20 +16,9 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
-
-        OverTimeCauseForm causeForm;
-
-
         //给查询按钮设置 点击事件
         private void btn_queryInGroup_Click(object sender, EventArgs e)
         {
-            //先判断是否存在组
-            //if (true)
-            //{
-
-            //}
-            //如果存在组就获取输入框中的工号进行查询
-
             //判断是否有输入工号
             //如果是否有输入工号 判断是否存在于预计加班数据表中
             //如果存在 则弹出消息框显示工号信息
@@ -40,7 +29,6 @@ namespace EmployeeManagementSystem
                 using (SqlConnection sqlConnection=new SqlConnection())
                 {
                     sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
-
                     sqlConnection.Open();
 
                     //创建要执行的sql语句
@@ -48,18 +36,14 @@ namespace EmployeeManagementSystem
                     SqlCommand sqlCommandZero = new SqlCommand(stringZero, sqlConnection);
                     //创建数据读取器
                     SqlDataReader sqlDataReaderZero = sqlCommandZero.ExecuteReader();
-                    if (sqlDataReaderZero.Read())
+                    if (sqlDataReaderZero.Read())//当数据读取器中能够取出对应的数据时，说明能够查询到职员
                     {
                         DialogResult = DialogResult.OK;
-
-
-
                     }
                     else
                     {
-                        MessageBox.Show("在预计加班人员列表中查询工号为"+tb_EmployeeNumber2query.Text+"的员工");
+                        MessageBox.Show("在预计加班人员列表中查询不到工号为"+tb_EmployeeNumber2query.Text+"的员工");
                     }
-
                 }
             }
             else

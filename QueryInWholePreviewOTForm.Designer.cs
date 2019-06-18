@@ -59,7 +59,7 @@
             this.tb_EmployeeNumber2query.Size = new System.Drawing.Size(133, 21);
             this.tb_EmployeeNumber2query.TabIndex = 2;
             // 
-            // QueryInGroupForm
+            // QueryInWholePreviewOTForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,7 +69,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "QueryInGroupForm";
+            this.Name = "QueryInWholePreviewOTForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -80,6 +80,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_queryInLv_wholeOTEmployee;
-        private System.Windows.Forms.TextBox tb_EmployeeNumber2query;
+        public System.Windows.Forms.TextBox tb_EmployeeNumber2query;
     }
 }

@@ -156,7 +156,7 @@ namespace EmployeeManagementSystem
         private void 预计加班单录入ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //创建预计加班单录入窗体
-            PreviewOtpInputForm previewOtpInputForm = new PreviewOtpInputForm();
+            PreviewOTPaperInputForm previewOtpInputForm = new PreviewOTPaperInputForm();
 
             previewOtpInputForm.MdiParent = this;
 
@@ -176,6 +176,18 @@ namespace EmployeeManagementSystem
 
             sectionAcknowledgeForm.Dock = DockStyle.Fill;
 
+        }
+
+        private void 预定加班总经理批准ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //创建总经理确认窗体
+            CEOAcknowledgeForm cEOAcknowledgeForm = new CEOAcknowledgeForm();
+
+            cEOAcknowledgeForm.MdiParent = this;
+
+            cEOAcknowledgeForm.Show();
+
+            cEOAcknowledgeForm.Dock = DockStyle.Fill;
         }
     }
 }

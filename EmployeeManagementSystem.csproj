@@ -75,6 +75,12 @@
     <Compile Include="AttendanceCalenderForm.Designer.cs">
       <DependentUpon>AttendanceCalenderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CEOAcknowledgeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CEOAcknowledgeForm.Designer.cs">
+      <DependentUpon>CEOAcknowledgeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +112,11 @@
     <Compile Include="OverTimeCauseForm.Designer.cs">
       <DependentUpon>OverTimeCauseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreviewOtpInputForm.cs">
+    <Compile Include="PreviewOTPaperInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreviewOtpInputForm.Designer.cs">
-      <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
+    <Compile Include="PreviewOTPaperInputForm.Designer.cs">
+      <DependentUpon>PreviewOTPaperInputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryInWholePreviewOTForm.cs">
       <SubType>Form</SubType>
@@ -194,6 +200,9 @@
     <EmbeddedResource Include="AttendanceCalenderForm.resx">
       <DependentUpon>AttendanceCalenderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CEOAcknowledgeForm.resx">
+      <DependentUpon>CEOAcknowledgeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeGroupForm.resx">
       <DependentUpon>EmployeeGroupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,8 +218,8 @@
     <EmbeddedResource Include="OverTimeCauseForm.resx">
       <DependentUpon>OverTimeCauseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewOtpInputForm.resx">
-      <DependentUpon>PreviewOtpInputForm.cs</DependentUpon>
+    <EmbeddedResource Include="PreviewOTPaperInputForm.resx">
+      <DependentUpon>PreviewOTPaperInputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryInWholePreviewOTForm.resx">
       <DependentUpon>QueryInWholePreviewOTForm.cs</DependentUpon>
@@ -257,7 +266,6 @@
     <EmbeddedResource Include="UpholdAttendanceForm.resx">
       <DependentUpon>UpholdAttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

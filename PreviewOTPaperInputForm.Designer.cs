@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem
 {
-    partial class PreviewOtpInputForm
+    partial class PreviewOTPaperInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -401,7 +401,7 @@
             this.lv_previewOT.GridLines = true;
             this.lv_previewOT.Location = new System.Drawing.Point(12, 485);
             this.lv_previewOT.Name = "lv_previewOT";
-            this.lv_previewOT.Size = new System.Drawing.Size(676, 204);
+            this.lv_previewOT.Size = new System.Drawing.Size(676, 71);
             this.lv_previewOT.TabIndex = 26;
             this.lv_previewOT.UseCompatibleStateImageBehavior = false;
             this.lv_previewOT.View = System.Windows.Forms.View.Details;
@@ -539,7 +539,7 @@
             this.dtp_LookupOTHistory.TabIndex = 35;
             this.dtp_LookupOTHistory.CloseUp += new System.EventHandler(this.dtp_LookupOTHistory_CloseUp);
             // 
-            // PreviewOtpInputForm
+            // PreviewOTPaperInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -579,7 +579,7 @@
             this.Controls.Add(this.dtp_OTDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "PreviewOtpInputForm";
+            this.Name = "PreviewOTPaperInputForm";
             this.Text = "预计加班单录入";
             this.Load += new System.EventHandler(this.PreviewOtpInputForm_Load);
             this.toolStrip1.ResumeLayout(false);
