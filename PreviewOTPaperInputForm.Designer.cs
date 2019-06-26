@@ -36,7 +36,7 @@
             this.tsl_nextEmployee = new System.Windows.Forms.ToolStripLabel();
             this.tsl_EndEmployee = new System.Windows.Forms.ToolStripLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtp_OTDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_OTDatePreview = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_EmployeeNumber = new System.Windows.Forms.TextBox();
@@ -147,12 +147,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "加班日期";
             // 
-            // dtp_OTDate
+            // dtp_OTDatePreview
             // 
-            this.dtp_OTDate.Location = new System.Drawing.Point(437, 173);
-            this.dtp_OTDate.Name = "dtp_OTDate";
-            this.dtp_OTDate.Size = new System.Drawing.Size(251, 21);
-            this.dtp_OTDate.TabIndex = 2;
+            this.dtp_OTDatePreview.Location = new System.Drawing.Point(437, 173);
+            this.dtp_OTDatePreview.Name = "dtp_OTDatePreview";
+            this.dtp_OTDatePreview.Size = new System.Drawing.Size(251, 21);
+            this.dtp_OTDatePreview.TabIndex = 2;
             // 
             // label2
             // 
@@ -576,7 +576,7 @@
             this.Controls.Add(this.tb_EmployeeNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dtp_OTDate);
+            this.Controls.Add(this.dtp_OTDatePreview);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "PreviewOTPaperInputForm";
@@ -599,7 +599,6 @@
         private System.Windows.Forms.ToolStripLabel tsl_nextEmployee;
         private System.Windows.Forms.ToolStripLabel tsl_EndEmployee;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtp_OTDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_EmployeeNumber;
@@ -622,7 +621,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView listView_Group;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ListView lv_previewOT;
         private System.Windows.Forms.CheckBox checkBox_previewOTWholeMember;
         private System.Windows.Forms.CheckBox checkBox_WholeGroupMember;
         private System.Windows.Forms.CheckBox checkBox_Manually;
@@ -645,5 +643,7 @@
         private System.Windows.Forms.Label label_totalCount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dtp_LookupOTHistory;
+        public System.Windows.Forms.DateTimePicker dtp_OTDatePreview;
+        public System.Windows.Forms.ListView lv_previewOT;
     }
 }
