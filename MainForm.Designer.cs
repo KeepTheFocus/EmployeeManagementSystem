@@ -58,6 +58,8 @@
             this.实际加班部门批准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加班后加班ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.预定加班总经理批准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.报表管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工资报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,7 +182,8 @@
             this.考勤管理ToolStripMenuItem,
             this.薪资计算ToolStripMenuItem,
             this.加班管理ToolStripMenuItem,
-            this.加班确认ToolStripMenuItem});
+            this.加班确认ToolStripMenuItem,
+            this.报表管理ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1204, 25);
@@ -276,6 +279,21 @@
             this.预定加班总经理批准ToolStripMenuItem.Text = "预定加班总经理批准";
             this.预定加班总经理批准ToolStripMenuItem.Click += new System.EventHandler(this.预定加班总经理批准ToolStripMenuItem_Click);
             // 
+            // 报表管理ToolStripMenuItem
+            // 
+            this.报表管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.工资报表ToolStripMenuItem});
+            this.报表管理ToolStripMenuItem.Name = "报表管理ToolStripMenuItem";
+            this.报表管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.报表管理ToolStripMenuItem.Text = "报表管理";
+            // 
+            // 工资报表ToolStripMenuItem
+            // 
+            this.工资报表ToolStripMenuItem.Name = "工资报表ToolStripMenuItem";
+            this.工资报表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.工资报表ToolStripMenuItem.Text = "工资报表";
+            this.工资报表ToolStripMenuItem.Click += new System.EventHandler(this.工资报表ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -326,6 +344,8 @@
         private System.Windows.Forms.ToolStripMenuItem 实际加班部门批准ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 加班后加班ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 预定加班总经理批准ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 报表管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 工资报表ToolStripMenuItem;
     }
 }
 

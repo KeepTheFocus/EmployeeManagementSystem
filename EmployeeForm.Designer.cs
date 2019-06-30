@@ -229,6 +229,9 @@
             this.listView_employee.TabIndex = 35;
             this.listView_employee.UseCompatibleStateImageBehavior = false;
             this.listView_employee.View = System.Windows.Forms.View.Details;
+            this.listView_employee.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listView_employee_ItemCheck);
+            this.listView_employee.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView_employee_ItemChecked);
+            this.listView_employee.SelectedIndexChanged += new System.EventHandler(this.listView_employee_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -426,7 +429,6 @@
             this.rb_female.Name = "rb_female";
             this.rb_female.Size = new System.Drawing.Size(35, 16);
             this.rb_female.TabIndex = 18;
-            this.rb_female.TabStop = true;
             this.rb_female.Text = "女";
             this.rb_female.UseVisualStyleBackColor = true;
             // 
@@ -437,7 +439,6 @@
             this.rb_male.Name = "rb_male";
             this.rb_male.Size = new System.Drawing.Size(35, 16);
             this.rb_male.TabIndex = 2;
-            this.rb_male.TabStop = true;
             this.rb_male.Text = "男";
             this.rb_male.UseVisualStyleBackColor = true;
             // 

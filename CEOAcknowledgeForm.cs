@@ -31,14 +31,61 @@ namespace EmployeeManagementSystem
         //窗体加载过程中执行的  函数
         private void CEOAcknowledgeForm_Load(object sender, EventArgs e)
         {
+            //给部门下拉框设置数据源
+            cb_SectionName.DataSource = SelectSection();
+            //给部门下拉框设置要展示出来的字段
+            cb_SectionName.DisplayMember = "SectionName";
+
             UpdateOTlistview();
         }
+
+
+
+
+
+
+        //返回数据表中设置的 部门名称
+        public DataTable SelectSection()
+        {
+
+            //创建数据库连接
+            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
+            //打开连接
+            connection.Open();
+
+            //创建sql语句    选中预计加班列表中指定日期的所有加班部门
+            string strSql = "select distinct sectionName from PreviewOverTime where OTDate='" + dtp_date.Text + "'";
+            //创建一个SqlCommand类的实例
+            SqlCommand command = new SqlCommand(strSql, connection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            //创建数据表
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+            //关闭连接
+            connection.Close();
+            //释放所有资源
+            command.Dispose();
+            //返回数据表
+            return table;
+
+        }
+
 
         //切换日历中的日期时  加班列表中的内容也要随着变化
         private void dtp_date_ValueChanged(object sender, EventArgs e)
         {
             //清空之前列表中所有的项
             lv_OTEmployee.Items.Clear();
+
+            //给部门下拉框设置数据源
+            cb_SectionName.DataSource = SelectSection();
+            //给部门下拉框设置要展示出来的字段
+            cb_SectionName.DisplayMember = "SectionName";
+            //使下拉框的文本框中的内容为清空状态
+            cb_SectionName.Text = "";
             //从数据表中查找所有的数据 并显示在listview中
             using (SqlConnection sqlConnection = new SqlConnection())
             {
@@ -111,7 +158,7 @@ namespace EmployeeManagementSystem
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnection.Open();
-                string StringZero = "update PreviewOverTime set  CEOReviewState='" + StringPassResult + "',NGCause='" +cb_RefuseCause.Text + "' where OTDate='" + dtp_date.Text + "' ";
+                string StringZero = "update PreviewOverTime set  CEOReviewState='" + StringPassResult + "',NGCause='" + cb_RefuseCause.Text + "' where OTDate='" + dtp_date.Text + "' ";
                 SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                 if (sqlCommandZero.ExecuteNonQuery() > 0)
                 {
@@ -119,7 +166,7 @@ namespace EmployeeManagementSystem
                 }
 
 
-                string StringFirst = "select * from PreviewOverTime where OTDate='" +dtp_date.Text+ "'";
+                string StringFirst = "select * from PreviewOverTime where OTDate='" + dtp_date.Text + "'";
                 SqlCommand sqlCommandFirst = new SqlCommand(StringFirst, sqlConnection);
                 //
                 SqlDataReader sqlDataReaderFirst = sqlCommandFirst.ExecuteReader();
@@ -161,7 +208,7 @@ namespace EmployeeManagementSystem
             //将审核状态从未审核 变成拒绝（NG） 并赋值给数据表中的审核状态的字段
             //将不通过审核原因下拉框的值取出来 并赋值给数据表中的拒绝原因的状态
             //打开数据库的实例
-            for (int i = 0; i <lv_OTEmployee.SelectedItems.Count; i++)
+            for (int i = 0; i < lv_OTEmployee.SelectedItems.Count; i++)
             {
                 using (SqlConnection sqlConnection = new SqlConnection())
                 {
@@ -169,7 +216,7 @@ namespace EmployeeManagementSystem
                     //打开数据库的连接
                     sqlConnection.Open();
                     //创建要执行的sql语句
-                    string StringZero = "update PreviewOverTime set CEOReviewState='" + StringPassResult+ "',CEONGCause='" + cb_RefuseCause.Text+ "' where OTDate='" +dtp_date.Text+ "' and EmployeeNumber='" + lv_OTEmployee.SelectedItems[i].SubItems[1].Text + "'";
+                    string StringZero = "update PreviewOverTime set CEOReviewState='" + StringPassResult + "',CEONGCause='" + cb_RefuseCause.Text + "' where OTDate='" + dtp_date.Text + "' and EmployeeNumber='" + lv_OTEmployee.SelectedItems[i].SubItems[1].Text + "'";
                     SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                     //创建数据读取器的实例
                     SqlDataReader dataReaderZero = sqlCommandZero.ExecuteReader();
@@ -203,7 +250,7 @@ namespace EmployeeManagementSystem
                 }
             }
             //显示加班申请通过的人数
-            label_TotalEmployee.Text =lv_OTEmployee.SelectedItems.Count.ToString();
+            label_TotalEmployee.Text = lv_OTEmployee.SelectedItems.Count.ToString();
 
             UpdateOTlistview();
         }
@@ -235,7 +282,7 @@ namespace EmployeeManagementSystem
                     //打开数据库的连接
                     sqlConnection.Open();
                     //创建要执行的sql语句
-                    string StringZero = "update PreviewOverTime set CEOReviewState='" +StringRefuseResult+ "',CEONGCause='" +cb_RefuseCause.Text+ "' where OTDate='" +dtp_date.Text + "' and EmployeeNumber='" + lv_OTEmployee.SelectedItems[i].SubItems[1].Text + "'";
+                    string StringZero = "update PreviewOverTime set CEOReviewState='" + StringRefuseResult + "',CEONGCause='" + cb_RefuseCause.Text + "' where OTDate='" + dtp_date.Text + "' and EmployeeNumber='" + lv_OTEmployee.SelectedItems[i].SubItems[1].Text + "'";
                     SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                     //创建数据读取器的实例
                     SqlDataReader dataReaderZero = sqlCommandZero.ExecuteReader();
@@ -276,7 +323,7 @@ namespace EmployeeManagementSystem
 
 
             //获取需要加班的总人数
-          label_TotalEmployee.Text = (lv_OTEmployee.Items.Count - lv_OTEmployee.SelectedItems.Count).ToString();
+            label_TotalEmployee.Text = (lv_OTEmployee.Items.Count - lv_OTEmployee.SelectedItems.Count).ToString();
 
             UpdateOTlistview();
 
@@ -292,12 +339,12 @@ namespace EmployeeManagementSystem
         private void UpdateOTlistview()
         {
             lv_OTEmployee.Items.Clear();//清空列表上一次存在的所有数据
-           
+
             using (SqlConnection sqlConnection = new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnection.Open();//打开数据库额连接
-                string stringZero = "select * from PreviewOverTime where OTDate='" +dtp_date.Text+ "' ";//创建要执行的语句
+                string stringZero = "select * from PreviewOverTime where OTDate='" + dtp_date.Text + "' ";//创建要执行的语句
                 SqlCommand sqlCommandZero = new SqlCommand(stringZero, sqlConnection);
                 //创建数据读取器的实例
                 SqlDataReader sqlDataReaderZero = sqlCommandZero.ExecuteReader();
@@ -320,7 +367,7 @@ namespace EmployeeManagementSystem
 
 
                     viewItem.SubItems.Add(sqlDataReaderZero["CEOReviewState"].ToString());
-                  
+
                     viewItem.SubItems.Add(sqlDataReaderZero["CEONGCause"].ToString());
                     //判断item中的审核状态是否为 未审核。
                     if (sqlDataReaderZero["ReviewState"].ToString() != "未审核")
@@ -329,7 +376,7 @@ namespace EmployeeManagementSystem
                         viewItem.Selected = true;
                     }
 
-                  lv_OTEmployee.Items.Add(viewItem);//将新建的条目添加进列表条目的容器中
+                    lv_OTEmployee.Items.Add(viewItem);//将新建的条目添加进列表条目的容器中
                 }
                 //弹出消息框 显示已经被审核或被拒绝的item
                 MessageBox.Show("被审核的数目为" + lv_OTEmployee.SelectedItems.Count);
@@ -348,10 +395,73 @@ namespace EmployeeManagementSystem
                 sqlConnection.Close();//关闭数据库
             }
             //获取需要加班的总人数
-           label_TotalEmployee.Text = lv_OTEmployee.Items.Count.ToString();
+            label_TotalEmployee.Text = lv_OTEmployee.Items.Count.ToString();
             //判断。如果当前列表的审核状态不再是未审核时。那么直接禁用列表 
 
         }
 
+        private void cb_SectionName_TextChanged(object sender, EventArgs e)
+        {
+            //当部门下拉框中最顶上的文本框中的Text发生改变时 触发的事件
+
+            //清除列表中所有的条目
+            lv_OTEmployee.Items.Clear();
+
+            //打开数据库
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = UtilitySql.SetConnectionString();
+                connection.Open();
+
+                string sqlquery = "select * from previewovertime where (otdate='" + dtp_date.Text + "' and sectionname='" + cb_SectionName.Text + "') ";
+
+                SqlCommand sqlcommand = new SqlCommand(sqlquery, connection);
+                SqlDataReader datareader = sqlcommand.ExecuteReader();
+
+                while (datareader.Read())
+                {
+
+                    ListViewItem viewitem = new ListViewItem();
+
+                    viewitem.SubItems.Add(datareader["EmployeeNumber"].ToString());
+                    viewitem.SubItems.Add(datareader["EmployeeName"].ToString());
+                    viewitem.SubItems.Add(datareader["SectionName"].ToString());
+                    viewitem.SubItems.Add(datareader["OTDate"].ToString());
+                    viewitem.SubItems.Add(datareader["OTType"].ToString());
+
+                    viewitem.SubItems.Add(datareader["OTLength"].ToString());
+                    viewitem.SubItems.Add(datareader["OTStart"].ToString());
+                    viewitem.SubItems.Add(datareader["OTStop"].ToString());
+                    viewitem.SubItems.Add(datareader["ReviewState"].ToString());
+                    viewitem.SubItems.Add(datareader["OTCause"].ToString());
+
+                    viewitem.SubItems.Add(datareader["NGCause"].ToString());
+                    viewitem.SubItems.Add(datareader["CurrentMonthTotal"].ToString());
+                    viewitem.SubItems.Add(datareader["Comment"].ToString());
+                    viewitem.SubItems.Add(datareader["CEOReviewState"].ToString());
+                    viewitem.SubItems.Add(datareader["CEONGCause"].ToString());
+                    lv_OTEmployee.Items.Add(viewitem);
+                }
+
+                datareader.Close();
+
+                connection.Close();
+
+                //定义一个sql语句
+                //用来查找当前指定日期中指定部门的所有加班人员
+                //清空列表中之前显示的所有条目
+
+                //创建新的条目 然后将从数据库中检索到的数据填充进条目中
+
+                //将刚刚创建好的条目 添加进列表的条目容器中来
+
+            }
+
+            //显示该部门的加班人数
+            label_TotalEmployee.Text = lv_OTEmployee.Items.Count.ToString();
+
+
+
+        }
     }
 }

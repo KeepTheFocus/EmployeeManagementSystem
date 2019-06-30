@@ -59,6 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.SuspendLayout();
             // 
             // label1
@@ -94,10 +95,7 @@
             this.cb_SectionName.Name = "cb_SectionName";
             this.cb_SectionName.Size = new System.Drawing.Size(121, 20);
             this.cb_SectionName.TabIndex = 3;
-            this.cb_SectionName.SelectedIndexChanged += new System.EventHandler(this.cb_SectionName_SelectedIndexChanged);
-            this.cb_SectionName.LocationChanged += new System.EventHandler(this.cb_SectionName_LocationChanged);
             this.cb_SectionName.TextChanged += new System.EventHandler(this.cb_SectionName_TextChanged);
-            this.cb_SectionName.VisibleChanged += new System.EventHandler(this.cb_SectionName_VisibleChanged);
             // 
             // label3
             // 
@@ -364,5 +362,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.ColumnHeader columnHeader25;
         private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }

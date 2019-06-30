@@ -189,5 +189,13 @@ namespace EmployeeManagementSystem
 
             cEOAcknowledgeForm.Dock = DockStyle.Fill;
         }
+
+        private void 工资报表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalaryReportForm salaryReportForm = new SalaryReportForm();
+            salaryReportForm.MdiParent = this;
+            salaryReportForm.Show();
+            salaryReportForm.Dock = DockStyle.Fill;
+        }
     }
 }

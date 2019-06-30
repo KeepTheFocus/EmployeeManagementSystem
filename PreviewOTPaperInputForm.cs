@@ -18,7 +18,15 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
-        public string getLookUpDate { get {return   lv_previewOT.Items[0].SubItems[4].Text.ToString(); }}
+
+        public string getLookUpDate
+        {
+            get
+            {
+                //返回当前列表中的加班日期
+                return   lv_previewOT.Items[0].SubItems[4].Text.ToString();
+            }
+        }
 
 
 
@@ -452,30 +460,7 @@ namespace EmployeeManagementSystem
                           }
                            sqlConnection.Close();  //关闭数据的连接
                 }
-
-
-
-
-                    // ////判断是否选中了条目
-                    //if (lv_previewOT.FocusedItem != null)
-                    //{
-                  
-
-                  
-
-                    //    // //    //重新对列表中的索引进行排序赋值
-                    //    for (; a < lv_previewOT.Items.Count; a++)
-                    //    {
-                    //        lv_previewOT.Items[a].Text = (a + 1).ToString();
-                    //    }
-                    //    // //    //刷新当前加班表中的人数
-                    //    label_totalCount.Text = lv_previewOT.Items.Count.ToString();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("请在预计加班列表中选择要删除的员工");
-                    //}
-
+                    
             }
             else
             {

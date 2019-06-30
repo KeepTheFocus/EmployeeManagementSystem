@@ -34,6 +34,7 @@
             this.cb_SectionName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lv_OTEmployee = new System.Windows.Forms.ListView();
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +61,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -97,6 +97,7 @@
             this.cb_SectionName.Name = "cb_SectionName";
             this.cb_SectionName.Size = new System.Drawing.Size(121, 20);
             this.cb_SectionName.TabIndex = 3;
+            this.cb_SectionName.TextChanged += new System.EventHandler(this.cb_SectionName_TextChanged);
             // 
             // label3
             // 
@@ -129,13 +130,17 @@
             this.columnHeader15});
             this.lv_OTEmployee.FullRowSelect = true;
             this.lv_OTEmployee.GridLines = true;
-            this.lv_OTEmployee.Location = new System.Drawing.Point(15, 90);
+            this.lv_OTEmployee.Location = new System.Drawing.Point(3, 109);
             this.lv_OTEmployee.Name = "lv_OTEmployee";
-            this.lv_OTEmployee.Size = new System.Drawing.Size(1096, 274);
+            this.lv_OTEmployee.Size = new System.Drawing.Size(1245, 274);
             this.lv_OTEmployee.TabIndex = 5;
             this.lv_OTEmployee.UseCompatibleStateImageBehavior = false;
             this.lv_OTEmployee.View = System.Windows.Forms.View.Details;
             this.lv_OTEmployee.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lv_OTEmployee_ItemChecked);
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "";
             // 
             // columnHeader1
             // 
@@ -308,15 +313,11 @@
             this.label10.Text = "0";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "";
-            // 
             // CEOAcknowledgeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 533);
+            this.ClientSize = new System.Drawing.Size(1240, 745);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);

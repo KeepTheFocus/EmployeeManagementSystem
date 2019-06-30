@@ -18,17 +18,8 @@ namespace EmployeeManagementSystem
             InitializeComponent();
         }
 
-
-
-
-
-
-
-
-
-
         //获取刷新后的日期
-        string NewestDate;
+        
         string PassResult = "OK";
         string RefuseResult = "NG";
 
@@ -37,12 +28,12 @@ namespace EmployeeManagementSystem
         private void UpdateOTlistview()
         {
             lv_OTStaff.Items.Clear();//清空列表上一次存在的所有数据
-            NewestDate = dtp_date.Text;
+            
             using (SqlConnection sqlConnection = new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnection.Open();//打开数据库额连接
-                string stringZero = "select * from PreviewOverTime where OTDate='" + NewestDate + "' ";//创建要执行的语句
+                string stringZero = "select * from PreviewOverTime where OTDate='" + dtp_date.Text + "' ";//创建要执行的语句
                 SqlCommand sqlCommandZero = new SqlCommand(stringZero, sqlConnection);
                 //创建数据读取器的实例
                 SqlDataReader sqlDataReaderZero = sqlCommandZero.ExecuteReader();
@@ -62,23 +53,25 @@ namespace EmployeeManagementSystem
                     viewItem.SubItems.Add(sqlDataReaderZero["NGCause"].ToString());
                     viewItem.SubItems.Add(sqlDataReaderZero["CurrentMonthTotal"].ToString());
                     viewItem.SubItems.Add(sqlDataReaderZero["Comment"].ToString());
-                    //判断item中的审核状态是否为 未审核。
-                    //if (sqlDataReaderZero["ReviewState"].ToString() != "未审核")
-                    //{
-                    //    //如果不是未审核状态 那么将其选中
-                    //    viewItem.Selected = true;
-                    //}
+                    
 
                     lv_OTStaff.Items.Add(viewItem);//将新建的条目添加进列表条目的容器中
+
+                    if (sqlDataReaderZero["ReviewState"].ToString() !="未审核")
+                    {
+                        viewItem.Selected = true;
+                    }
                 }
-                //弹出消息框 显示已经被审核或被拒绝的item
+
+          
+                //弹出消息框 显示已经被审核的item
                 MessageBox.Show("已审核的数目为" + lv_OTStaff.SelectedItems.Count);
 
                 //使用foreach循环 将每个被选中状态的item的背景颜色变成蓝色
                 foreach (ListViewItem item in lv_OTStaff.SelectedItems)
                 {
-                    item.BackColor = Color.AliceBlue;
-                    item.ForeColor = Color.Green;
+                    item.BackColor = Color.Yellow;//设置条目文字的背景颜色
+                    item.ForeColor = Color.Red;//设置条目文字的前景颜色
                 }
 
 
@@ -89,8 +82,6 @@ namespace EmployeeManagementSystem
             }
             //获取需要加班的总人数
             label_EmployeeTotal.Text = lv_OTStaff.Items.Count.ToString();
-            //判断。如果当前列表的审核状态不再是未审核时。那么直接禁用列表 
-
         }
 
         //窗体加载时调用的函数
@@ -102,7 +93,7 @@ namespace EmployeeManagementSystem
 
             //调用刷新列表的函数
 
-            //UpdateOTlistview();
+            UpdateOTlistview();
 
         }
 
@@ -111,22 +102,22 @@ namespace EmployeeManagementSystem
         private void dtp_date_ValueChanged(object sender, EventArgs e)
         {
             lv_OTStaff.Items.Clear();//清空列表中上一次的所有条目
+        
+          
 
-           // cb_SectionName.Items.Clear();
-            NewestDate = dtp_date.Text;
-            // MessageBox.Show(NewestDate);
-            //清空上一日期加班人员的部门名称缓存
-            cb_SectionName.Text = "";
             //给下拉框设置数据源
             cb_SectionName.DataSource = SelectSection();
             //给下拉框设置要显示的数据
             cb_SectionName.DisplayMember = "SectionName";
+            //清空上一日期加班人员的部门下拉选择框的名称缓存
+            cb_SectionName.Text = "";
+
             using (SqlConnection sqlConnection = new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnection.Open();
                 //
-                string stringzero = "select * from PreviewOverTime where OTDate='" + NewestDate + "'";
+                string stringzero = "select * from PreviewOverTime where OTDate='" + dtp_date.Text + "'";
                 SqlCommand sqlCommandZero = new SqlCommand(stringzero, sqlConnection);
                 //
                 SqlDataReader sqlDataReaderZero = sqlCommandZero.ExecuteReader();
@@ -148,20 +139,23 @@ namespace EmployeeManagementSystem
                     item.SubItems.Add(sqlDataReaderZero["CurrentMonthTotal"].ToString());
                     item.SubItems.Add(sqlDataReaderZero["Comment"].ToString());
 
-                    //if (sqlDataReaderZero["ReviewState"].ToString() != "未审核")
-                    //{
-                    //    item.Selected = true;
-                    //}
+                    
 
                     lv_OTStaff.Items.Add(item);
+
+                    //如果条目中的审核状态已经不是“未审核” 那么就将该条目选中
+                    if (sqlDataReaderZero["ReviewState"].ToString() != "未审核")
+                    {
+                        item.Selected = true;
+                    }
                 }
-                //
-                //MessageBox.Show("被审核的数目为" + lv_OTStaff.SelectedItems.Count);
-                //foreach (ListViewItem item in lv_OTStaff.SelectedItems)
-                //{
-                //    item.BackColor = Color.AliceBlue;
-                //    item.ForeColor = Color.Green;
-                //}
+                
+                MessageBox.Show("被审核的数目为" + lv_OTStaff.SelectedItems.Count);
+                foreach (ListViewItem item in lv_OTStaff.SelectedItems)
+                {
+                    item.BackColor = Color.Yellow;
+                    item.ForeColor = Color.Red;
+                }
 
 
                 sqlDataReaderZero.Close();//关闭数据读取器的实例
@@ -177,10 +171,10 @@ namespace EmployeeManagementSystem
         private void btn_CheckAllAndOK_Click(object sender, EventArgs e)
         {
             //如果没有选中，那么使它全部选中
-
+            //当列表中被选中的条目的数量 小于列表中的条目总的数量的时候
             if (lv_OTStaff.SelectedItems.Count < lv_OTStaff.Items.Count)
             {
-
+                //利用for循环使列表中每个条目都被选中
                 for (int i = 0; i < lv_OTStaff.Items.Count; i++)
                 {
                     lv_OTStaff.Items[i].Checked = true;
@@ -189,16 +183,16 @@ namespace EmployeeManagementSystem
             }
 
             //显示选中的条目的个数
-            MessageBox.Show(lv_OTStaff.CheckedItems.Count.ToString());
+            MessageBox.Show("已经选中了"+lv_OTStaff.CheckedItems.Count.ToString()+"个条目");
 
-            //将列表中每个员工的审核状态的字段值更新成OK
+           
             lv_OTStaff.Items.Clear();
-
+            //将列表中每个员工的审核状态的字段值更新成OK
             using (SqlConnection sqlConnection = new SqlConnection())
             {
                 sqlConnection.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnection.Open();
-                string StringZero = "update PreviewOverTime set  ReviewState='" + PassResult + "',NGCause='" + cb_NGCause.Text + "' where OTDate='" + NewestDate + "' ";
+                string StringZero = "update PreviewOverTime set  ReviewState='" + PassResult + "',NGCause='" + cb_NGCause.Text + "' where OTDate='" + dtp_date.Text + "' ";
                 SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                 if (sqlCommandZero.ExecuteNonQuery() > 0)
                 {
@@ -206,7 +200,7 @@ namespace EmployeeManagementSystem
                 }
 
 
-                string StringFirst = "select * from PreviewOverTime where OTDate='" + NewestDate + "'";
+                string StringFirst = "select * from PreviewOverTime where OTDate='" +dtp_date.Text+ "'";
                 SqlCommand sqlCommandFirst = new SqlCommand(StringFirst, sqlConnection);
                 //
                 SqlDataReader sqlDataReaderFirst = sqlCommandFirst.ExecuteReader();
@@ -256,7 +250,7 @@ namespace EmployeeManagementSystem
                     //打开数据库的连接
                     sqlConnection.Open();
                     //创建要执行的sql语句
-                    string StringZero = "update PreviewOverTime set ReviewState='" + RefuseResult + "',NGCause='" + cb_NGCause.Text + "' where OTDate='" + NewestDate + "' and EmployeeNumber='" + lv_OTStaff.SelectedItems[i].SubItems[1].Text + "'";
+                    string StringZero = "update PreviewOverTime set ReviewState='" + RefuseResult + "',NGCause='" + cb_NGCause.Text + "' where (OTDate='" + dtp_date.Text + "' and EmployeeNumber='" + lv_OTStaff.SelectedItems[i].SubItems[1].Text + "')";
                     SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                     //创建数据读取器的实例
                     SqlDataReader dataReaderZero = sqlCommandZero.ExecuteReader();
@@ -302,7 +296,7 @@ namespace EmployeeManagementSystem
 
 
 
-        //设置单选框与条目之前的关联
+        //设置单选框与条目之间的关联
         private void lv_OTStaff_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             e.Item.Selected = e.Item.Checked;//当勾上单选框时意味着当前条目被选中
@@ -324,7 +318,7 @@ namespace EmployeeManagementSystem
                     //打开数据库的连接
                     sqlConnection.Open();
                     //创建要执行的sql语句
-                    string StringZero = "update PreviewOverTime set ReviewState='" + PassResult + "',NGCause='" + cb_NGCause.Text + "' where OTDate='" + NewestDate + "' and EmployeeNumber='" + lv_OTStaff.SelectedItems[i].SubItems[1].Text + "'";
+                    string StringZero = "update PreviewOverTime set ReviewState='" + PassResult + "',NGCause='" + cb_NGCause.Text + "' where (OTDate='" + dtp_date.Text + "' and EmployeeNumber='" + lv_OTStaff.SelectedItems[i].SubItems[1].Text + "')";
                     SqlCommand sqlCommandZero = new SqlCommand(StringZero, sqlConnection);
                     //创建数据读取器的实例
                     SqlDataReader dataReaderZero = sqlCommandZero.ExecuteReader();
@@ -390,24 +384,14 @@ namespace EmployeeManagementSystem
 
         }
 
-        private void cb_SectionName_VisibleChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void cb_SectionName_LocationChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        string string2 = "未审核";
+     
         //当部门下拉框中最顶上的文本框中的Text发生改变时 触发的事件
         private void cb_SectionName_TextChanged(object sender, EventArgs e)
         {
-
+            //清除列表中所有的条目
             lv_OTStaff.Items.Clear();
-            //获取combox中Text的值
-            //MessageBox.Show(cb_SectionName.Text);
+         
             //打开数据库
             using (SqlConnection connection = new SqlConnection())
             {
@@ -439,6 +423,7 @@ namespace EmployeeManagementSystem
                     viewitem.SubItems.Add(datareader["NGCause"].ToString());
                     viewitem.SubItems.Add(datareader["CurrentMonthTotal"].ToString());
                     viewitem.SubItems.Add(datareader["Comment"].ToString());
+                    
 
 
                     lv_OTStaff.Items.Add(viewitem);
@@ -463,12 +448,6 @@ namespace EmployeeManagementSystem
 
 
         }
-
-        private void cb_SectionName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }
 

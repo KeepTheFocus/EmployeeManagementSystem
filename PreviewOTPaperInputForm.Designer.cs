@@ -31,10 +31,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsl_lookup = new System.Windows.Forms.ToolStripLabel();
             this.tsl_remove = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_FirstEmployee = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_previousEmployee = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_nextEmployee = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_EndEmployee = new System.Windows.Forms.ToolStripLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_OTDatePreview = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,6 +78,7 @@
             this.label_totalCount = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dtp_LookupOTHistory = new System.Windows.Forms.DateTimePicker();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,11 +86,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsl_lookup,
-            this.tsl_remove,
-            this.tsl_FirstEmployee,
-            this.tsl_previousEmployee,
-            this.tsl_nextEmployee,
-            this.tsl_EndEmployee});
+            this.tsl_remove});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(785, 25);
@@ -113,30 +106,6 @@
             this.tsl_remove.Size = new System.Drawing.Size(32, 22);
             this.tsl_remove.Text = "删除";
             this.tsl_remove.Click += new System.EventHandler(this.tsl_remove_Click);
-            // 
-            // tsl_FirstEmployee
-            // 
-            this.tsl_FirstEmployee.Name = "tsl_FirstEmployee";
-            this.tsl_FirstEmployee.Size = new System.Drawing.Size(128, 22);
-            this.tsl_FirstEmployee.Text = "加班表中的第一个员工";
-            // 
-            // tsl_previousEmployee
-            // 
-            this.tsl_previousEmployee.Name = "tsl_previousEmployee";
-            this.tsl_previousEmployee.Size = new System.Drawing.Size(120, 22);
-            this.tsl_previousEmployee.Text = "加班表中上一个员工";
-            // 
-            // tsl_nextEmployee
-            // 
-            this.tsl_nextEmployee.Name = "tsl_nextEmployee";
-            this.tsl_nextEmployee.Size = new System.Drawing.Size(116, 22);
-            this.tsl_nextEmployee.Text = "加班表中下一个员工";
-            // 
-            // tsl_EndEmployee
-            // 
-            this.tsl_EndEmployee.Name = "tsl_EndEmployee";
-            this.tsl_EndEmployee.Size = new System.Drawing.Size(128, 22);
-            this.tsl_EndEmployee.Text = "加班表中最后一个员工";
             // 
             // label1
             // 
@@ -594,10 +563,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel tsl_lookup;
         private System.Windows.Forms.ToolStripLabel tsl_remove;
-        private System.Windows.Forms.ToolStripLabel tsl_FirstEmployee;
-        private System.Windows.Forms.ToolStripLabel tsl_previousEmployee;
-        private System.Windows.Forms.ToolStripLabel tsl_nextEmployee;
-        private System.Windows.Forms.ToolStripLabel tsl_EndEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -645,5 +610,6 @@
         private System.Windows.Forms.DateTimePicker dtp_LookupOTHistory;
         public System.Windows.Forms.DateTimePicker dtp_OTDatePreview;
         public System.Windows.Forms.ListView lv_previewOT;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }

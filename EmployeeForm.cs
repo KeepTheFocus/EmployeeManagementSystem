@@ -26,95 +26,133 @@ namespace EmployeeManagementSystem
                 MessageBox.Show("请核实输入的工号或身份证号");
             }
             else
-            { //保存员工编号
-                string strEmployeeNumber = tb_EmployeeNumber.Text,
-                //保存员工姓名
-                 strEmployeeName = tb_EmployeeName.Text,
-                //保存员工性别
-                 strSex = string.Empty;
-
-                if (rb_male.Checked)
+            {
+                //判断是否将所有的必须要求输入的字段输入到文本框中了
+                if (tb_EmployeeName.Text!=null&dtp_BirthDate.Text!=null&cb_Nation.Text!=null
+                    &cb_Academic.Text!=null&cb_SectionName.Text!=null&cb_DutyName.Text!=null
+                    &tb_HomeAddress.Text!=null|(rb_female.Checked!=false)|rb_male.Checked!=false)
                 {
-                    strSex = "男";
+                    
+                    //保存员工编号
+                    string strEmployeeNumber = tb_EmployeeNumber.Text,
+                     //保存员工姓名
+                     strEmployeeName = tb_EmployeeName.Text,
+                     //保存员工性别
+                     strSex = string.Empty;
+
+                    if (rb_male.Checked)
+                    {
+                        strSex = "男";
+                    }
+                    else if (rb_female.Checked)
+                    {
+                        strSex = "女";
+                    }else
+
+                    {
+                        strSex = string.Empty;
+                    }
+
+                    
+
+                    //创建一个数据库连接实例
+                    using (SqlConnection sqlConnectionDR = new SqlConnection())
+                    {
+                        sqlConnectionDR.ConnectionString = UtilitySql.SetConnectionString();
+                        //开启连接
+                        sqlConnectionDR.Open();
+                        //创建要执行的sql语句
+                        string strSqlDr = "select *from EmployeeFiles where EmployeeNumber='" + tb_EmployeeNumber.Text + "'";
+                        //创建要SqlCommand实例
+                        SqlCommand sqlCommand = new SqlCommand(strSqlDr, sqlConnectionDR);
+                        SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                        if (sqlDataReader.HasRows)
+                        {
+                            sqlDataReader.Close();
+
+                            if (strSex==string.Empty)
+                            {
+                                MessageBox.Show("请选择性别");
+                            }
+                            else
+                            {
+                                //先判断文本框中的内容 是否存在于数据表中
+                                //如果存在 则调用Update语句进行更新
+                                //如果返回值大于零 说明数据表中已经存在你要保存的数据
+
+                                //创建要执行的sql语句
+                                string strSqlUpdate = "update EmployeeFiles set EmployeeName='" + tb_EmployeeName.Text + "',Sex='" + strSex + "',IndentityCardNumber='" + tb_IdentityCardNumber.Text + "',DateOfBirth='" + DateTime.Parse(dtp_BirthDate.Text) + "',Nation='" + cb_Nation.SelectedItem.ToString() + "',Academic='" + cb_Academic.SelectedItem.ToString() + "',SectionName='" + cb_SectionName.Text + "',DutyName='" + cb_DutyName.Text + "',HomeAddress='" + tb_HomeAddress.Text + "'where EmployeeNumber='" + tb_EmployeeNumber.Text + "'";
+
+
+                                //创建SqlCommand实例
+                                SqlCommand sqlCommandUR = new SqlCommand(strSqlUpdate, sqlConnectionDR);
+
+                                if (sqlCommandUR.ExecuteNonQuery() > 0)
+                                {
+                                    MessageBox.Show("员工信息更新成功");
+                                    //调用清空文本框TextBOX的函数
+                                    ClearTextBox();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("员工信息更新失败");
+                                }
+                            }
+
+
+
+                            //关闭数据读取器对象
+                            sqlDataReader.Close();
+
+                        }
+                        else
+                        {
+                            if (strSex==string.Empty)
+                            {
+                                MessageBox.Show("请选择性别");
+                            }
+                            else
+                            {
+                                //关闭数据读取器对象
+                                sqlDataReader.Close();
+                                //如果不存在  则调用Insert语句进行插入
+                                //创建sql插入语句
+                                string strSqlInsert = "insert into EmployeeFiles values" +
+                             "('" + tb_EmployeeNumber.Text + "','" + tb_EmployeeName.Text + "'," +
+                             "'" + strSex + "','" + tb_IdentityCardNumber.Text + "'," +
+                             "'" + DateTime.Parse(dtp_BirthDate.Text) + "','" + cb_Nation.SelectedItem.ToString() + "'," +
+                             "'" + cb_Academic.SelectedItem.ToString() + "','" + cb_SectionName.Text + "'," +
+                             "'" + cb_DutyName.Text + "','" + tb_HomeAddress.Text + "')";
+                                //创建sqlcommand命令对象
+                                SqlCommand sqlCommandIT = new SqlCommand(strSqlInsert, sqlConnectionDR);
+
+                                if (sqlCommandIT.ExecuteNonQuery() > 0)
+                                {
+                                    MessageBox.Show("信息保存成功");
+                                    //调用清空文本框TextBOX的函数
+                                    ClearTextBox();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("信息保存失败");
+                                }
+                            }
+                        
+                        }
+                        //关闭连接
+                        sqlConnectionDR.Close();
+                        //调用刷新Listview的函数
+                        UpdateListview();
+                       
+                    }
                 }
                 else
                 {
-                    strSex = "女";
+                    MessageBox.Show("请将信息填写完整后再保存");
                 }
-               
-
-
-                //创建一个数据库连接实例
-                using (SqlConnection sqlConnectionDR=new SqlConnection())
-                {
-                    sqlConnectionDR.ConnectionString = UtilitySql.SetConnectionString();
-                    //开启连接
-                    sqlConnectionDR.Open();
-                    //创建要执行的sql语句
-                    string strSqlDr = "select *from EmployeeFiles where EmployeeNumber='"+tb_EmployeeNumber.Text+"'";
-                    //创建要SqlCommand实例
-                    SqlCommand sqlCommand = new SqlCommand(strSqlDr,sqlConnectionDR);
-                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                    if (sqlDataReader.HasRows)
-                    {
-                        sqlDataReader.Close();
-
-                        //先判断文本框中的内容 是否存在于数据表中
-                        //如果存在 则调用Update语句进行更新
-                        //如果返回值大于零 说明数据表中已经存在你要保存的数据
-
-                        //创建要执行的sql语句
-                        string strSqlUpdate = "update EmployeeFiles set EmployeeName='"+tb_EmployeeName.Text+"',Sex='"+strSex+"',IndentityCardNumber='"+tb_IdentityCardNumber.Text+"',DateOfBirth='"+ DateTime.Parse(dtp_BirthDate.Text) +"',Nation='"+cb_Nation.SelectedItem.ToString()+"',Academic='"+cb_Academic.SelectedItem.ToString()+"',SectionName='"+cb_SectionName.Text+"',DutyName='"+cb_DutyName.Text+"',HomeAddress='"+tb_HomeAddress.Text+"'where EmployeeNumber='"+tb_EmployeeNumber.Text+"'";
-                   
-
-                        //创建SqlCommand实例
-                        SqlCommand sqlCommandUR = new SqlCommand(strSqlUpdate,sqlConnectionDR);
-                        
-                        if (sqlCommandUR.ExecuteNonQuery()>0)
-                        {
-                            MessageBox.Show("员工信息更新成功");
-                        }
-                        else
-                        {
-                            MessageBox.Show("员工信息更新失败");
-                        }
-
-                        //关闭数据读取器对象
-                        sqlDataReader.Close();
-
-                    }
-                    else
-                    {
-
-                        //关闭数据读取器对象
-                        sqlDataReader.Close();
-                        //如果不存在  则调用Insert语句进行插入
-                        //创建sql插入语句
-                        string strSqlInsert ="insert into EmployeeFiles values" +
-                     "('" +tb_EmployeeNumber.Text+ "','" +tb_EmployeeName.Text + "'," +
-                     "'" + strSex + "','" +tb_IdentityCardNumber.Text + "'," +
-                     "'" +DateTime.Parse(dtp_BirthDate.Text) + "','" +cb_Nation.SelectedItem.ToString() + "'," +
-                     "'" +cb_Academic.SelectedItem.ToString() + "','" + cb_SectionName.Text + "'," +
-                     "'" +cb_DutyName.Text + "','" +tb_HomeAddress.Text+ "')";
-                        //创建sqlcommand命令对象
-                        SqlCommand sqlCommandIT = new SqlCommand(strSqlInsert,sqlConnectionDR);
-
-                        if (sqlCommandIT.ExecuteNonQuery()>0)
-                        {
-                            MessageBox.Show("信息保存成功");
-                        }
-                        else
-                        {
-                            MessageBox.Show("信息保存失败");
-                        }
-                    }
-                    //关闭连接
-                    sqlConnectionDR.Close();
-                    //调用刷新Listview的函数
-                    UpdateListview();
-                    //调用清空文本框TextBOX的函数
-                    ClearTextBox();
-                }
+                
+                
+                
             }
         }
 
@@ -286,22 +324,31 @@ namespace EmployeeManagementSystem
             //创建修改窗体的  实例
             //  AlterEmployeeForm aef = new AlterEmployeeForm();
             //获取当前被选中项的 索引
-            int a = listView_employee.FocusedItem.Index;
-
-            for (int i = 0; i < 10; i++)
+            //先判断是否有选中要修改的员工
+            if (listView_employee.SelectedItems.Count>0)
             {
-                str[i] = listView_employee.Items[a].SubItems[i].Text;
+                int a = listView_employee.FocusedItem.Index;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    str[i] = listView_employee.Items[a].SubItems[i].Text;
+                }
+
+                tb_EmployeeNumber.Text = str[0];
+                tb_EmployeeName.Text = str[1];
+                tb_IdentityCardNumber.Text = str[3];
+                dtp_BirthDate.Text = str[4];
+                cb_Nation.Text = str[5];
+                cb_Academic.Text = str[6];
+                cb_SectionName.Text = str[7];
+                cb_DutyName.Text = str[8];
+                tb_HomeAddress.Text = str[9];
+            }
+            else
+            {
+                MessageBox.Show("请选中要修改的员工");
             }
 
-            tb_EmployeeNumber.Text = str[0];
-            tb_EmployeeName.Text = str[1];
-            tb_IdentityCardNumber.Text = str[3];
-            dtp_BirthDate.Text = str[4];
-            cb_Nation.Text = str[5];
-            cb_Academic.Text = str[6];
-            cb_SectionName.Text = str[7];
-            cb_DutyName.Text = str[8];
-            tb_HomeAddress.Text = str[9];
             //aef.Show();
         }
         //将数据表中的所有数据导出到Excel文件中
@@ -380,6 +427,25 @@ namespace EmployeeManagementSystem
         {
             //退出当前窗体
             Close();
+        }
+
+        private void listView_employee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        //给列表中的条目设置打钩事件
+        private void listView_employee_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            //当条目前面的框被勾上时 以为者当前条目被选上了
+            //e.Item.Selected = e.Item.Checked;
+        }
+
+        private void listView_employee_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //当条目前面的框被勾上时 以为者当前条目被选上了
+           
+            
         }
     }
 }

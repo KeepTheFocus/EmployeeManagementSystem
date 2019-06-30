@@ -25,9 +25,9 @@ namespace EmployeeManagementSystem
         {
             //获取输入的用户名
             string name = textBox1.Text,
-            //获取输入的密码
-             password = textBox2.Text;
-            //创建SqlConnection的实例
+                 //获取输入的密码
+                 password = textBox2.Text;
+                //创建SqlConnection的实例
             using (SqlConnection cn = new SqlConnection())
             {
                 //创建数据库连接字符串
@@ -44,7 +44,7 @@ namespace EmployeeManagementSystem
                 //如果不存在查询结果 则弹出消息框提示 输入的用户不存在
                 if (!sdr.HasRows)
                 {
-                    MessageBox.Show("该用户不存在，请核对后再输入");
+                    MessageBox.Show("该用户不存在或密码有误,请核对后再输入");
                 }
                 else
                 {
