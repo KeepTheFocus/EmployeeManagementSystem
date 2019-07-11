@@ -145,66 +145,81 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "员工工号";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "员工姓名";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "部门";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "加班日期";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "加班类型";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "加班工时";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "加班开始时间";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 97;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "加班结束时间";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 98;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "审核状态";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "加班原因";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "拒绝原因";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader12
             // 
             this.columnHeader12.Text = "本月已加班时长";
+            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader12.Width = 101;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "备注";
+            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "总经理审核状态";
+            this.columnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader14.Width = 104;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "总经理拒绝原因";
+            this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader15.Width = 96;
             // 
             // btn_AllPass

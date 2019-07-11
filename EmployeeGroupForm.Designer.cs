@@ -136,11 +136,13 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "工号";
-            this.columnHeader2.Width = 99;
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 79;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "姓名";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 168;
             // 
             // cb_All
@@ -195,11 +197,13 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "姓名";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 53;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "部门";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 

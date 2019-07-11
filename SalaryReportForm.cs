@@ -22,8 +22,19 @@ namespace EmployeeManagementSystem
 
         private void dtp_YearMonth_ValueChanged(object sender, EventArgs e)
         {
+            //清空之前报表控件中的内容 
+
             //获取日历框中的值并显示出来
             //MessageBox.Show(dtp_YearMonth.Text);
+            //如果部门下拉框中文本框部门的值不为空
+
+            //用消息框显示当前的月份和部门信息
+            //MessageBox.Show(dtp_YearMonth.Text+combox_SectionName.Text);
+
+
+            
+
+
         }
 
         private void SalaryReportForm_Load(object sender, EventArgs e)
@@ -35,6 +46,7 @@ namespace EmployeeManagementSystem
             combox_SectionName.DisplayMember = "SectionName";
             combox_SectionName.Text = "";
             this.reportViewer1.RefreshReport();
+            
         }
 
 

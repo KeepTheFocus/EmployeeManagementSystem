@@ -59,7 +59,10 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.dtp_YearMonth = new System.Windows.Forms.DateTimePicker();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
+            this.btn_RetrieveFromAtt2000 = new System.Windows.Forms.Button();
+            this.checkBox_Manually = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 201);
+            this.label3.Location = new System.Drawing.Point(25, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 2;
@@ -91,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 243);
+            this.label4.Location = new System.Drawing.Point(25, 287);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 12);
             this.label4.TabIndex = 3;
@@ -109,7 +112,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(381, 105);
+            this.label6.Location = new System.Drawing.Point(381, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 5;
@@ -118,7 +121,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(381, 154);
+            this.label7.Location = new System.Drawing.Point(381, 193);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 12);
             this.label7.TabIndex = 6;
@@ -127,7 +130,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(362, 199);
+            this.label8.Location = new System.Drawing.Point(357, 227);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 12);
             this.label8.TabIndex = 7;
@@ -137,29 +140,29 @@
             // 
             this.tb_Number.Location = new System.Drawing.Point(89, 56);
             this.tb_Number.Name = "tb_Number";
-            this.tb_Number.Size = new System.Drawing.Size(100, 21);
+            this.tb_Number.Size = new System.Drawing.Size(200, 21);
             this.tb_Number.TabIndex = 0;
             this.tb_Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Number_KeyDown);
             // 
             // tb_AttendanceHour
             // 
-            this.tb_AttendanceHour.Location = new System.Drawing.Point(89, 151);
+            this.tb_AttendanceHour.Location = new System.Drawing.Point(89, 184);
             this.tb_AttendanceHour.Name = "tb_AttendanceHour";
-            this.tb_AttendanceHour.Size = new System.Drawing.Size(100, 21);
+            this.tb_AttendanceHour.Size = new System.Drawing.Size(200, 21);
             this.tb_AttendanceHour.TabIndex = 3;
             // 
             // tb_AbsenceHour
             // 
-            this.tb_AbsenceHour.Location = new System.Drawing.Point(89, 199);
+            this.tb_AbsenceHour.Location = new System.Drawing.Point(89, 227);
             this.tb_AbsenceHour.Name = "tb_AbsenceHour";
-            this.tb_AbsenceHour.Size = new System.Drawing.Size(100, 21);
+            this.tb_AbsenceHour.Size = new System.Drawing.Size(200, 21);
             this.tb_AbsenceHour.TabIndex = 4;
             // 
             // tb_LeaveHour
             // 
-            this.tb_LeaveHour.Location = new System.Drawing.Point(89, 240);
+            this.tb_LeaveHour.Location = new System.Drawing.Point(89, 284);
             this.tb_LeaveHour.Name = "tb_LeaveHour";
-            this.tb_LeaveHour.Size = new System.Drawing.Size(100, 21);
+            this.tb_LeaveHour.Size = new System.Drawing.Size(200, 21);
             this.tb_LeaveHour.TabIndex = 5;
             // 
             // tb_Name
@@ -167,33 +170,33 @@
             this.tb_Name.Location = new System.Drawing.Point(470, 56);
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.ReadOnly = true;
-            this.tb_Name.Size = new System.Drawing.Size(100, 21);
+            this.tb_Name.Size = new System.Drawing.Size(170, 21);
             this.tb_Name.TabIndex = 1;
             // 
             // tb_normal
             // 
-            this.tb_normal.Location = new System.Drawing.Point(470, 101);
+            this.tb_normal.Location = new System.Drawing.Point(470, 139);
             this.tb_normal.Name = "tb_normal";
-            this.tb_normal.Size = new System.Drawing.Size(100, 21);
+            this.tb_normal.Size = new System.Drawing.Size(170, 21);
             this.tb_normal.TabIndex = 6;
             // 
             // tb_Week
             // 
-            this.tb_Week.Location = new System.Drawing.Point(470, 142);
+            this.tb_Week.Location = new System.Drawing.Point(470, 190);
             this.tb_Week.Name = "tb_Week";
-            this.tb_Week.Size = new System.Drawing.Size(100, 21);
+            this.tb_Week.Size = new System.Drawing.Size(170, 21);
             this.tb_Week.TabIndex = 7;
             // 
             // tb_Festival
             // 
-            this.tb_Festival.Location = new System.Drawing.Point(470, 196);
+            this.tb_Festival.Location = new System.Drawing.Point(470, 227);
             this.tb_Festival.Name = "tb_Festival";
-            this.tb_Festival.Size = new System.Drawing.Size(100, 21);
+            this.tb_Festival.Size = new System.Drawing.Size(170, 21);
             this.tb_Festival.TabIndex = 8;
             // 
             // btn_Alter
             // 
-            this.btn_Alter.Location = new System.Drawing.Point(947, 108);
+            this.btn_Alter.Location = new System.Drawing.Point(759, 122);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(128, 23);
             this.btn_Alter.TabIndex = 10;
@@ -203,7 +206,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(947, 54);
+            this.btn_Save.Location = new System.Drawing.Point(759, 59);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(128, 23);
             this.btn_Save.TabIndex = 9;
@@ -213,7 +216,7 @@
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(947, 173);
+            this.btn_Delete.Location = new System.Drawing.Point(759, 179);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(128, 23);
             this.btn_Delete.TabIndex = 11;
@@ -235,9 +238,9 @@
             this.columnHeader8});
             this.listview_AttendanceReport.FullRowSelect = true;
             this.listview_AttendanceReport.GridLines = true;
-            this.listview_AttendanceReport.Location = new System.Drawing.Point(222, 280);
+            this.listview_AttendanceReport.Location = new System.Drawing.Point(27, 332);
             this.listview_AttendanceReport.Name = "listview_AttendanceReport";
-            this.listview_AttendanceReport.Size = new System.Drawing.Size(668, 97);
+            this.listview_AttendanceReport.Size = new System.Drawing.Size(668, 271);
             this.listview_AttendanceReport.TabIndex = 20;
             this.listview_AttendanceReport.UseCompatibleStateImageBehavior = false;
             this.listview_AttendanceReport.View = System.Windows.Forms.View.Details;
@@ -284,7 +287,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 159);
+            this.label9.Location = new System.Drawing.Point(25, 184);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 12);
             this.label9.TabIndex = 21;
@@ -293,25 +296,61 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 108);
+            this.label10.Location = new System.Drawing.Point(25, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 22;
             this.label10.Text = "年月编号";
             // 
+            // dtp_YearMonth
+            // 
+            this.dtp_YearMonth.CustomFormat = "yyyyMM";
+            this.dtp_YearMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_YearMonth.Location = new System.Drawing.Point(89, 105);
+            this.dtp_YearMonth.Name = "dtp_YearMonth";
+            this.dtp_YearMonth.Size = new System.Drawing.Size(200, 21);
+            this.dtp_YearMonth.TabIndex = 23;
+            this.dtp_YearMonth.ValueChanged += new System.EventHandler(this.dtp_YearMonth_ValueChanged);
+            // 
             // tb_YearMonth
             // 
-            this.tb_YearMonth.Location = new System.Drawing.Point(89, 108);
+            this.tb_YearMonth.Location = new System.Drawing.Point(89, 142);
             this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(100, 21);
-            this.tb_YearMonth.TabIndex = 2;
+            this.tb_YearMonth.ReadOnly = true;
+            this.tb_YearMonth.Size = new System.Drawing.Size(200, 21);
+            this.tb_YearMonth.TabIndex = 24;
+            // 
+            // btn_RetrieveFromAtt2000
+            // 
+            this.btn_RetrieveFromAtt2000.Location = new System.Drawing.Point(759, 252);
+            this.btn_RetrieveFromAtt2000.Name = "btn_RetrieveFromAtt2000";
+            this.btn_RetrieveFromAtt2000.Size = new System.Drawing.Size(189, 53);
+            this.btn_RetrieveFromAtt2000.TabIndex = 25;
+            this.btn_RetrieveFromAtt2000.Text = "从att2000数据库中读取数据";
+            this.btn_RetrieveFromAtt2000.UseVisualStyleBackColor = true;
+            this.btn_RetrieveFromAtt2000.Click += new System.EventHandler(this.btn_RetrieveFromAtt2000_Click);
+            // 
+            // checkBox_Manually
+            // 
+            this.checkBox_Manually.AutoSize = true;
+            this.checkBox_Manually.Location = new System.Drawing.Point(759, 347);
+            this.checkBox_Manually.Name = "checkBox_Manually";
+            this.checkBox_Manually.Size = new System.Drawing.Size(120, 16);
+            this.checkBox_Manually.TabIndex = 26;
+            this.checkBox_Manually.Text = "手动录入考勤数据";
+            this.checkBox_Manually.UseVisualStyleBackColor = true;
+            this.checkBox_Manually.CheckedChanged += new System.EventHandler(this.checkBox_Manually_CheckedChanged);
+            this.checkBox_Manually.CheckStateChanged += new System.EventHandler(this.checkBox_Manually_CheckStateChanged);
             // 
             // UpholdAttendanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
+            this.Controls.Add(this.checkBox_Manually);
+            this.Controls.Add(this.btn_RetrieveFromAtt2000);
             this.Controls.Add(this.tb_YearMonth);
+            this.Controls.Add(this.dtp_YearMonth);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listview_AttendanceReport);
@@ -375,6 +414,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtp_YearMonth;
         private System.Windows.Forms.TextBox tb_YearMonth;
+        private System.Windows.Forms.Button btn_RetrieveFromAtt2000;
+        private System.Windows.Forms.CheckBox checkBox_Manually;
     }
 }

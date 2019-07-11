@@ -23,6 +23,7 @@ namespace EmployeeManagementSystem
         //当窗体加载时 执行的函数
         private void UpholdAttendanceForm_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(dtp_YearMonth.Text);
             //创建数据库连接的实例
            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
@@ -94,7 +95,7 @@ namespace EmployeeManagementSystem
             //获取所有文本框中已输入的值
             string Number = tb_Number.Text,
              Name = tb_Name.Text,
-             YearMonth=tb_YearMonth.Text,
+             YearMonth=dtp_YearMonth.Text,
              Attendance = tb_AttendanceHour.Text,
              Absence = tb_AbsenceHour.Text,
              Leave = tb_LeaveHour.Text,
@@ -113,7 +114,7 @@ namespace EmployeeManagementSystem
                 //打开连接
                 sqlConnectionDR.Open();
                 //创建要执行的sql命令语句
-                string strSQL = "select * from AttendanceReport where YearMonth='"+tb_YearMonth.Text+"'";
+                string strSQL = "select * from AttendanceReport where YearMonth='"+dtp_YearMonth.Text+"'";
                 //创建SqlCommand类的实例
                 SqlCommand sqlCommandDR = new SqlCommand(strSQL,sqlConnectionDR);
                 //创建数据读取器类的实例
@@ -127,7 +128,7 @@ namespace EmployeeManagementSystem
                     //那么执行Update语句
 
                     //创建要执行的sqlUpdate语句
-                    string strUpdate = " update AttendanceReport set EmployeeNumber = '" + tb_Number.Text + "',EmployeeName= '" +tb_Name.Text+ "', AttendanceHour = '" +tb_AttendanceHour.Text+ "', AbsenceHour = '" +tb_AbsenceHour.Text+ "', LeaveHour = '" +tb_LeaveHour.Text+ "', NormalOvertimeHour = '" +tb_normal.Text+ "', WeekOvertimeHour = '" +tb_Week.Text+ "', FestivalOvertimeHour = '" +tb_Festival.Text+ "' where YearMonth = '" +tb_YearMonth.Text+ "'";
+                    string strUpdate = " update AttendanceReport set EmployeeNumber = '" + tb_Number.Text + "',EmployeeName= '" +tb_Name.Text+ "', AttendanceHour = '" +tb_AttendanceHour.Text+ "', AbsenceHour = '" +tb_AbsenceHour.Text+ "', LeaveHour = '" +tb_LeaveHour.Text+ "', NormalOvertimeHour = '" +tb_normal.Text+ "', WeekOvertimeHour = '" +tb_Week.Text+ "', FestivalOvertimeHour = '" +tb_Festival.Text+ "' where YearMonth = '" +dtp_YearMonth.Text+ "'";
                     //创建SqlCommand命令的实例
                     SqlCommand sqlCommandUE = new SqlCommand(strUpdate, sqlConnectionDR);
                     //如果被SqlCommand命令影响的行数 大于零的话 则弹出消息记录更新成功
@@ -167,8 +168,8 @@ namespace EmployeeManagementSystem
 
             }
 
-
-    }
+            ClearTextBox();
+        }
 
         //定义一个长度为8的数组用来保存  要传递进来的字符串
         public string[] str = new string[9];
@@ -176,25 +177,40 @@ namespace EmployeeManagementSystem
         //给修改按钮 添加点击事件
         private void btn_Alter_Click(object sender, EventArgs e)
         {
-            //获取当前被选中项的 索引
-            int a = listview_AttendanceReport.FocusedItem.Index;
-
-            for (int i = 0; i < 9; i++)
+            try
             {
-               //将列表中对应的第几行 第几列数据  所代表的文本值传入到数组对象中 
-                str[i] = listview_AttendanceReport.Items[a].SubItems[i].Text;
-            }
+                //获取当前被选中项的 索引
+                int a = listview_AttendanceReport.FocusedItem.Index;
 
-            //将数组中对应索引位置的值  赋值给文本框中
-            tb_Number.Text = str[0];
-            tb_Name.Text = str[1];
-            tb_YearMonth.Text = str[2];
-            tb_AttendanceHour.Text = str[3];
-           tb_AbsenceHour.Text = str[4];
-            tb_LeaveHour.Text = str[5];
-            tb_normal.Text = str[6];
-            tb_Week.Text= str[7];
-            tb_Festival.Text = str[8];
+                for (int i = 0; i < 9; i++)
+                {
+                    //将列表中对应的第几行 第几列数据  所代表的文本值传入到数组对象中 
+                    str[i] = listview_AttendanceReport.Items[a].SubItems[i].Text;
+                }
+
+                //将数组中对应索引位置的值  赋值给文本框中
+                tb_Number.Text = str[0];
+                tb_Name.Text = str[1];
+               
+                MessageBox.Show(str[2]);
+                MessageBox.Show(str[2].Substring(0, 4));
+                MessageBox.Show(str[2].Substring(4));
+       
+                // dtp_YearMonth.Text=dtp_YearMonth.Value.ToString(str[2]);
+                //tb_YearMonth.Text = str[2];
+                //dtp_YearMonth.Value = Convert.ToDateTime(str[2]);
+                tb_AttendanceHour.Text = str[3];
+                tb_AbsenceHour.Text = str[4];
+                tb_LeaveHour.Text = str[5];
+                tb_normal.Text = str[6];
+                tb_Week.Text = str[7];
+                tb_Festival.Text = str[8];
+            }
+            catch (Exception  ba )
+            {
+                MessageBox.Show(ba.Message);
+            }
+        
         }
 
         //给删除按钮 添加点击事件
@@ -282,13 +298,50 @@ namespace EmployeeManagementSystem
         {
             tb_Number.Text = "";
             tb_Name.Text = "";
-            tb_YearMonth.Text = "";
+           // tb_YearMonth.Text = "";
             tb_AttendanceHour.Text = "";
             tb_AbsenceHour.Text = "";
             tb_LeaveHour.Text = "";
             tb_normal.Text = "";
             tb_Week.Text = "";
             tb_Festival.Text = "";
+        }
+
+        //当日历中的年月发生变动时 文本框中的年月也要随之改变
+        private void dtp_YearMonth_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //给从att2000数据库中提取数据设置 点击事件
+        private void btn_RetrieveFromAtt2000_Click(object sender, EventArgs e)
+        {
+            checkBox_Manually.CheckState = CheckState.Unchecked;
+            //让出勤、工昨日加班 节假日加班 法定节假日加班 文本框变成只读状态
+            tb_AttendanceHour.ReadOnly = true;
+            tb_normal.ReadOnly = true;
+            tb_Week.ReadOnly = true;
+            tb_Festival.ReadOnly = true;
+
+            //获取当前的系统月份 如果是8月，那么就从数据库中读取出7月份的考勤数据  
+        }
+
+        private void checkBox_Manually_CheckStateChanged(object sender, EventArgs e)
+        {
+               
+        }
+
+        private void checkBox_Manually_CheckedChanged(object sender, EventArgs e)
+        {
+            //当手动录入考勤数据被激活时
+            if ((sender as CheckBox).Checked)
+            {
+                //激活出勤 工作日加班 节假日加班 法定节假日加班
+                tb_AttendanceHour.ReadOnly = false;
+                tb_normal.ReadOnly = false;
+                tb_Week.ReadOnly = false;
+                tb_Festival.ReadOnly = false;
+            } 
         }
     }
 }

@@ -98,12 +98,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "职务代码";
-            this.columnHeader1.Width = 68;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "职务名称";
-            this.columnHeader2.Width = 316;
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 299;
             // 
             // DutyForm
             // 

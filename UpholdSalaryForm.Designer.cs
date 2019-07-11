@@ -73,6 +73,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tb_YearMonth = new System.Windows.Forms.TextBox();
+            this.dtp_YearMonth = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(319, 30);
+            this.label2.Location = new System.Drawing.Point(331, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -114,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(630, 104);
+            this.label5.Location = new System.Drawing.Point(675, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 4;
@@ -132,7 +133,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(307, 151);
+            this.label7.Location = new System.Drawing.Point(307, 146);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 12);
             this.label7.TabIndex = 6;
@@ -175,10 +176,10 @@
             // 
             // tb_Name
             // 
-            this.tb_Name.Location = new System.Drawing.Point(390, 24);
+            this.tb_Name.Location = new System.Drawing.Point(390, 30);
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.ReadOnly = true;
-            this.tb_Name.Size = new System.Drawing.Size(185, 21);
+            this.tb_Name.Size = new System.Drawing.Size(194, 21);
             this.tb_Name.TabIndex = 1;
             // 
             // tb_BasicPay
@@ -192,14 +193,14 @@
             // 
             this.tb_FullAttendance.Location = new System.Drawing.Point(390, 90);
             this.tb_FullAttendance.Name = "tb_FullAttendance";
-            this.tb_FullAttendance.Size = new System.Drawing.Size(185, 21);
+            this.tb_FullAttendance.Size = new System.Drawing.Size(194, 21);
             this.tb_FullAttendance.TabIndex = 4;
             // 
             // tb_DutyBonus
             // 
-            this.tb_DutyBonus.Location = new System.Drawing.Point(737, 99);
+            this.tb_DutyBonus.Location = new System.Drawing.Point(789, 142);
             this.tb_DutyBonus.Name = "tb_DutyBonus";
-            this.tb_DutyBonus.Size = new System.Drawing.Size(197, 21);
+            this.tb_DutyBonus.Size = new System.Drawing.Size(182, 21);
             this.tb_DutyBonus.TabIndex = 5;
             // 
             // tb_OutBonus
@@ -213,7 +214,7 @@
             // 
             this.tb_MealBonus.Location = new System.Drawing.Point(390, 143);
             this.tb_MealBonus.Name = "tb_MealBonus";
-            this.tb_MealBonus.Size = new System.Drawing.Size(185, 21);
+            this.tb_MealBonus.Size = new System.Drawing.Size(194, 21);
             this.tb_MealBonus.TabIndex = 7;
             // 
             // tb_NormalRate
@@ -293,10 +294,9 @@
             this.columnHeader10});
             this.listView_UpholdSalaryFiles.FullRowSelect = true;
             this.listView_UpholdSalaryFiles.GridLines = true;
-            this.listView_UpholdSalaryFiles.Location = new System.Drawing.Point(77, 336);
+            this.listView_UpholdSalaryFiles.Location = new System.Drawing.Point(35, 336);
             this.listView_UpholdSalaryFiles.Name = "listView_UpholdSalaryFiles";
-            this.listView_UpholdSalaryFiles.Scrollable = false;
-            this.listView_UpholdSalaryFiles.Size = new System.Drawing.Size(889, 205);
+            this.listView_UpholdSalaryFiles.Size = new System.Drawing.Size(931, 205);
             this.listView_UpholdSalaryFiles.TabIndex = 27;
             this.listView_UpholdSalaryFiles.UseCompatibleStateImageBehavior = false;
             this.listView_UpholdSalaryFiles.View = System.Windows.Forms.View.Details;
@@ -308,44 +308,54 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "员工姓名";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "年月编号";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "基本工资";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "全勤奖";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "职务津贴";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "住宿补贴";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "餐费补贴";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "工作日加班费率";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 98;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "节假日加班费率";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader9.Width = 98;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "法定节假日加班费率";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader10.Width = 145;
             // 
             // label12
@@ -372,7 +382,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(581, 99);
+            this.label14.Location = new System.Drawing.Point(599, 99);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(11, 12);
             this.label14.TabIndex = 30;
@@ -411,17 +421,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(654, 39);
+            this.label8.Location = new System.Drawing.Point(660, 85);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(107, 12);
             this.label8.TabIndex = 34;
-            this.label8.Text = "年月编号";
+            this.label8.Text = "年月编号(6位格式)";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(955, 39);
+            this.label18.Location = new System.Drawing.Point(972, 79);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(11, 12);
             this.label18.TabIndex = 35;
@@ -429,16 +439,28 @@
             // 
             // tb_YearMonth
             // 
-            this.tb_YearMonth.Location = new System.Drawing.Point(737, 30);
+            this.tb_YearMonth.Location = new System.Drawing.Point(789, 76);
             this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(197, 21);
+            this.tb_YearMonth.ReadOnly = true;
+            this.tb_YearMonth.Size = new System.Drawing.Size(177, 21);
             this.tb_YearMonth.TabIndex = 2;
+            // 
+            // dtp_YearMonth
+            // 
+            this.dtp_YearMonth.CustomFormat = "yyyyMM";
+            this.dtp_YearMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_YearMonth.Location = new System.Drawing.Point(677, 21);
+            this.dtp_YearMonth.Name = "dtp_YearMonth";
+            this.dtp_YearMonth.Size = new System.Drawing.Size(289, 21);
+            this.dtp_YearMonth.TabIndex = 36;
+            this.dtp_YearMonth.ValueChanged += new System.EventHandler(this.dtp_YearMonth_ValueChanged);
             // 
             // UpholdSalaryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 628);
+            this.Controls.Add(this.dtp_YearMonth);
             this.Controls.Add(this.tb_YearMonth);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label8);
@@ -448,7 +470,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.listView_UpholdSalaryFiles);
             this.Controls.Add(this.btn_Export);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Alter);
@@ -473,6 +494,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.listView_UpholdSalaryFiles);
             this.Name = "UpholdSalaryForm";
             this.Text = "维护薪资档案";
             this.Load += new System.EventHandler(this.UpholdSalaryForm_Load);
@@ -528,5 +550,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tb_YearMonth;
+        private System.Windows.Forms.DateTimePicker dtp_YearMonth;
     }
 }

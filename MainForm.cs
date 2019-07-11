@@ -197,5 +197,18 @@ namespace EmployeeManagementSystem
             salaryReportForm.Show();
             salaryReportForm.Dock = DockStyle.Fill;
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 班次时间段维护ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassTimeUpholdForm classTimeUpholdForm = new ClassTimeUpholdForm();
+            classTimeUpholdForm.MdiParent = this;
+            classTimeUpholdForm.Show();
+            classTimeUpholdForm.Dock = DockStyle.Fill;
+        }
     }
 }

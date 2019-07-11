@@ -99,11 +99,11 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "部门代码";
-            this.columnHeader1.Width = 282;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "部门名称";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 361;
             // 
             // SectionForm

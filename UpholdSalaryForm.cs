@@ -17,6 +17,10 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
+        //声明一个变量用来保存修改点击修改按钮之前的年月
+        string PrimitiveYearMonth=string.Empty;
+
+
 
         //当敲击了回车键 后要处理的事件
         private void tb_Number_KeyDown(object sender, KeyEventArgs e)
@@ -73,54 +77,69 @@ namespace EmployeeManagementSystem
              NormalRate = tb_NormalRate.Text,
              WeekRate = tb_WeekRate.Text,
             FestivalRate = tb_FestivalRate.Text;
+            //判断是第一次保存还是修改后保存
+            //如果primitive字符串等于null 说明是第一次保存
+            //如果primitive字符串不等于null 说明是修改后保存
 
-            //创建连接数据的实例
-            using (SqlConnection sqlConnectionDR=new SqlConnection())
+            //用消息框弹出修改前的年月编号
+            MessageBox.Show(PrimitiveYearMonth);
+
+
+            if (PrimitiveYearMonth==string.Empty)
             {
-                sqlConnectionDR.ConnectionString = UtilitySql.SetConnectionString();
-                //打开与数据库的连接
-                sqlConnectionDR.Open();
-                //创建要执行的SQL命令
-                string strSQLDR = "select * from UpholdSalaryFiles where YearMonth='"+YearMonth+"'";
-                //创建SqlCommand类的实例
-                SqlCommand sqlCommandDR = new SqlCommand(strSQLDR,sqlConnectionDR);
-                //创建数据读取器的实例
-                SqlDataReader sqlDataReader = sqlCommandDR.ExecuteReader();
-                //如果数据读取器能够读取到数据 
-                if (sqlDataReader.Read())
+                //如果primitive字符串等于null 说明是第一次保存执行insert插入操作
+                //打开数据库的连接
+                using (SqlConnection connection=new SqlConnection())
                 {
-                    //关闭数据读取器对象
-                    sqlDataReader.Close();
-                    //那就执行 更新操作
-                    //创建要执行的Update语句
-                    string strUpdate = " update UpholdSalaryFiles set EmployeeNumber = '" + Number + "', EmployeeName = '" + Name + "', BasicPay = '" + BasicPay + "', FullAttendanceBonus = '" + FullAttendance + "', DutyAllowance = '" + DutyBonus + "', StayOutSideAllowance = '" + OutBonus + "', MealAllowance = '" + MealBonus + "', NormalRate = '" + NormalRate + "', WeekRate = '" + WeekRate + "', FestivalRate = '" + FestivalRate + "' where YearMonth = '" + YearMonth + "'";
-                    //创建SqlCommand命令的实例
-                    SqlCommand sqlCommandUE = new SqlCommand(strUpdate,sqlConnectionDR);
-                    if (sqlCommandUE.ExecuteNonQuery()>0)
+                    connection.ConnectionString = UtilitySql.SetConnectionString();
+                    connection.Open();
+                    string SQLInsert = "insert into UpholdSalaryFiles values('" + Number + "','" + Name + "','" + YearMonth + "','" + BasicPay + "','" + FullAttendance + "','" + DutyBonus + "','" + OutBonus + "','" + MealBonus + "','" + NormalRate + "','" + WeekRate + "','" + FestivalRate + "')";
+                    SqlCommand command = new SqlCommand(SQLInsert, connection);
+                    
+                    if (command.ExecuteNonQuery()>0)
                     {
-                        MessageBox.Show("记录更新成功");
+                        MessageBox.Show("消息插入成功");
                     }
-                }
-                else
-                {
-                    //关闭数据读取器的实例
-                    sqlDataReader.Close();
-                    //那就执行 插入操作
-                    //创建要执行的Insert语句
-                    string strInsert = "insert into UpholdSalaryFiles values('" + Number + "','" + Name + "','" + YearMonth + "','" + BasicPay + "','" + FullAttendance + "','" + DutyBonus + "','" + OutBonus + "','" + MealBonus + "','" + NormalRate + "','" + WeekRate + "','" + FestivalRate + "')";
-                    //创建SqlCommand命令的实例
-                    SqlCommand sqlCommandIT = new SqlCommand(strInsert,sqlConnectionDR);
-                    if (sqlCommandIT.ExecuteNonQuery()>0)
+                    else
                     {
-                        MessageBox.Show("记录添加成功");
+                        MessageBox.Show("消息插入失败");
+                    }
 
-                    }
+                   
+
                 }
-                //关闭数据库连接
-                sqlConnectionDR.Close();
-                UpdateListview();
-                ClearTextBox();
+
+
             }
+            else
+            {
+                //如果primitive字符串不等于null 说明是修改后保存 执行update更新操作
+                //打开数据库连接
+                using (SqlConnection connection=new SqlConnection())
+                {
+                    connection.ConnectionString = UtilitySql.SetConnectionString();
+                    connection.Open();
+                    string SQLUpdate = "update UpholdSalaryFiles set EmployeeNumber='" + Number + "',EmployeeName='" + Name + "',YearMonth='" + YearMonth + "',BasicPay='" + BasicPay + "',FullAttendanceBonus='" + FullAttendance + "',DutyAllowance='" + DutyBonus + "',StayOutSideAllowance='" + OutBonus + "',MealAllowance='" + MealBonus + "',NormalRate='" + NormalRate + "',WeekRate='" + WeekRate + "',FestivalRate='" + FestivalRate + "' where YearMonth='"+PrimitiveYearMonth+"'";
+                    SqlCommand command = new SqlCommand(SQLUpdate, connection);
+                    
+                    if (command.ExecuteNonQuery()>0)
+                    {
+                        MessageBox.Show("消息更新成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("消息更新失败");
+                    }
+
+                    
+                }
+            }
+
+           
+            UpdateListview();
+            //清空所有文本框中的内容
+            ClearTextBox();
+            PrimitiveYearMonth = string.Empty;
         }
 
 
@@ -240,8 +259,10 @@ namespace EmployeeManagementSystem
             tb_OutBonus.Text = str[6];
             tb_MealBonus.Text = str[7];
             tb_NormalRate.Text = str[8];
-            tb_WeekRate.Text = str[9];
+            tb_WeekRate.Text = str[9]; 
             tb_FestivalRate.Text = str[10];
+            //将已经存在列表中的年月编号取出来赋值给变量 PrimitiveYearMonth
+            PrimitiveYearMonth = str[2];
 
         }
 
@@ -267,24 +288,32 @@ namespace EmployeeManagementSystem
                 cmd.CommandText = "select * from UpholdSalaryFiles where  EmployeeNumber ='" + StrEmployeeNumber + "' ";
                 //创建一个数据读取器
                 SqlDataReader sdr = cmd.ExecuteReader();
-
-                while (sdr.Read())
+                //如果薪资档案中有该名员工,那么执行读取数据的操作
+                if (sdr.HasRows)
                 {
-                    ListViewItem lvi = new ListViewItem();
-                    lvi.Text = sdr["EmployeeNumber"].ToString();
-                    lvi.SubItems.Add(sdr["EmployeeName"].ToString());
-                    lvi.SubItems.Add(sdr["YearMonth"].ToString());
-                    lvi.SubItems.Add(sdr["BasicPay"].ToString());
-                    lvi.SubItems.Add(sdr["FullAttendanceBonus"].ToString());
-                    lvi.SubItems.Add(sdr["DutyAllowance"].ToString());
-                    lvi.SubItems.Add(sdr["StayOutSideAllowance"].ToString());
-                    lvi.SubItems.Add(sdr["MealAllowance"].ToString());
-                    lvi.SubItems.Add(sdr["NormalRate"].ToString());
-                    lvi.SubItems.Add(sdr["WeekRate"].ToString());
-                    lvi.SubItems.Add(sdr["FestivalRate"].ToString());
-                    //将数据添加进listview控件中
-                    listView_UpholdSalaryFiles.Items.Add(lvi);
+                    while (sdr.Read())
+                    {
+                        ListViewItem lvi = new ListViewItem();
+                        lvi.Text = sdr["EmployeeNumber"].ToString();
+                        lvi.SubItems.Add(sdr["EmployeeName"].ToString());
+                        lvi.SubItems.Add(sdr["YearMonth"].ToString());
+                        lvi.SubItems.Add(sdr["BasicPay"].ToString());
+                        lvi.SubItems.Add(sdr["FullAttendanceBonus"].ToString());
+                        lvi.SubItems.Add(sdr["DutyAllowance"].ToString());
+                        lvi.SubItems.Add(sdr["StayOutSideAllowance"].ToString());
+                        lvi.SubItems.Add(sdr["MealAllowance"].ToString());
+                        lvi.SubItems.Add(sdr["NormalRate"].ToString());
+                        lvi.SubItems.Add(sdr["WeekRate"].ToString());
+                        lvi.SubItems.Add(sdr["FestivalRate"].ToString());
+                        //将数据添加进listview控件中
+                        listView_UpholdSalaryFiles.Items.Add(lvi);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("暂无任何薪资记录");
+                }
+               
                 //关闭流
                 connection.Close();
             }
@@ -308,6 +337,13 @@ namespace EmployeeManagementSystem
                 Export2Excel export2Excel = new Export2Excel();
                 export2Excel.Export(listView_UpholdSalaryFiles, dialog.FileName);
             }
+        }
+
+        //当日历上的年月发生变动时 文本框中的年月也要随之变化
+        private void dtp_YearMonth_ValueChanged(object sender, EventArgs e)
+        {
+            //将日历控件上的值赋值给年月文本框中 
+            tb_YearMonth.Text = dtp_YearMonth.Text;
         }
     }
 }

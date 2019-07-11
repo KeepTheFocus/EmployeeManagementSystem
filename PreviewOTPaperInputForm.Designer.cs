@@ -334,14 +334,17 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "工号";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "姓名";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "部门";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -387,41 +390,49 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "工号";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 56;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "姓名";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 53;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "部门";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 72;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "加班日期";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader9.Width = 74;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "加班类型";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader10.Width = 80;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "加班工时";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader11.Width = 79;
             // 
             // columnHeader12
             // 
             this.columnHeader12.Text = "加班开始时间";
+            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader12.Width = 99;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "加班结束时间";
+            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader13.Width = 167;
             // 
             // checkBox_previewOTWholeMember

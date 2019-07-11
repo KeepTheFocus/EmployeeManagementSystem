@@ -65,32 +65,39 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "姓名";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "部门";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "加班日期";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "加班类别";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "加班时长";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 88;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "加班开始时间";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 130;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "加班结束时间";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 171;
             // 
             // LookUpPreviewOTForm

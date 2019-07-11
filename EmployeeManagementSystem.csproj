@@ -100,11 +100,23 @@
     <Compile Include="CEOAcknowledgeForm.Designer.cs">
       <DependentUpon>CEOAcknowledgeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassTimeUpholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassTimeUpholdForm.Designer.cs">
+      <DependentUpon>ClassTimeUpholdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeGroupForm.Designer.cs">
       <DependentUpon>EmployeeGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="HarvestRhythmZeroDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -234,8 +246,14 @@
     <EmbeddedResource Include="CEOAcknowledgeForm.resx">
       <DependentUpon>CEOAcknowledgeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClassTimeUpholdForm.resx">
+      <DependentUpon>ClassTimeUpholdForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeGroupForm.resx">
       <DependentUpon>EmployeeGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportAttendanceReport2SqlForm.resx">
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>

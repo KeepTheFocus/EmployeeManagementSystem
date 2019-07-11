@@ -20,7 +20,7 @@ namespace EmployeeManagementSystem
                 sqlConnectionDecide.ConnectionString = UtilitySql.SetConnectionString();
                 sqlConnectionDecide.Open();
                 //创建要执行的SQL语句
-                string strSQLDecide = "select * from Calender where YearMonth='" + tb_YearMonth.Text + "'";
+                string strSQLDecide = "select * from Calender where YearMonth='" +tb_YearMonth.Text+ "'";
                 //创建SQLCommand实例
                 SqlCommand sqlCommandDecide = new SqlCommand(strSQLDecide, sqlConnectionDecide);
                 //创建SqlDataReader实例
@@ -28,7 +28,7 @@ namespace EmployeeManagementSystem
 
 
                 //获取三个文本框中输入的内容
-                string strYearMonth = tb_YearMonth.Text,
+                string strYearMonth =tb_YearMonth.Text,
                        strDay = tb_Day.Text,
                        strHour = tb_Hour.Text;
 
@@ -144,7 +144,7 @@ namespace EmployeeManagementSystem
                 str[i] = listView_Calender.Items[a].SubItems[i].Text;
             }
 
-            tb_YearMonth.Text = str[0];
+        tb_YearMonth.Text= str[0];
             tb_Day.Text = str[1];
             tb_Hour.Text = str[2];
 
@@ -163,6 +163,10 @@ namespace EmployeeManagementSystem
         //窗体加载的时候做的事情
         private void AttendanceCalenderForm_Load(object sender, EventArgs e)
         {
+            //将日历控件上显示的文本值赋值给自定义的年月文本框中
+            tb_YearMonth.Text = dtp_YearMonth.Text;
+
+            MessageBox.Show(dtp_YearMonth.Text);
             //创建数据库连接的实例
            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
@@ -217,7 +221,10 @@ namespace EmployeeManagementSystem
             return hourValue;
         }
 
-
-
+        private void dtp_YearMonth_ValueChanged(object sender, EventArgs e)
+        {
+            //获取日历控件上的值 并显示到下方的年月文本框中
+            tb_YearMonth.Text = dtp_YearMonth.Text;
+        }
     }
 }

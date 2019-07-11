@@ -98,3 +98,4 @@ D:\EmployeeManagementSystem\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.re
 D:\EmployeeManagementSystem\obj\Debug\RdlCompile.cache
 D:\EmployeeManagementSystem\obj\Debug\RdlCompile.compiled
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.CopyComplete
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ClassTimeUpholdForm.resources

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.tb_Hour = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_alter = new System.Windows.Forms.Button();
@@ -40,20 +39,15 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.tb_Day = new System.Windows.Forms.TextBox();
+            this.dtp_YearMonth = new System.Windows.Forms.DateTimePicker();
+            this.tb_YearMonth = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // tb_YearMonth
-            // 
-            this.tb_YearMonth.Location = new System.Drawing.Point(447, 103);
-            this.tb_YearMonth.Name = "tb_YearMonth";
-            this.tb_YearMonth.Size = new System.Drawing.Size(209, 21);
-            this.tb_YearMonth.TabIndex = 0;
             // 
             // tb_Hour
             // 
-            this.tb_Hour.Location = new System.Drawing.Point(447, 249);
+            this.tb_Hour.Location = new System.Drawing.Point(438, 249);
             this.tb_Hour.Name = "tb_Hour";
-            this.tb_Hour.Size = new System.Drawing.Size(209, 21);
+            this.tb_Hour.Size = new System.Drawing.Size(218, 21);
             this.tb_Hour.TabIndex = 2;
             // 
             // btn_save
@@ -134,17 +128,37 @@
             // 
             // tb_Day
             // 
-            this.tb_Day.Location = new System.Drawing.Point(447, 180);
+            this.tb_Day.Location = new System.Drawing.Point(438, 180);
             this.tb_Day.Name = "tb_Day";
-            this.tb_Day.Size = new System.Drawing.Size(209, 21);
+            this.tb_Day.Size = new System.Drawing.Size(218, 21);
             this.tb_Day.TabIndex = 1;
             this.tb_Day.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Day_KeyDown);
+            // 
+            // dtp_YearMonth
+            // 
+            this.dtp_YearMonth.CustomFormat = "yyyyMM";
+            this.dtp_YearMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_YearMonth.Location = new System.Drawing.Point(438, 97);
+            this.dtp_YearMonth.Name = "dtp_YearMonth";
+            this.dtp_YearMonth.Size = new System.Drawing.Size(218, 21);
+            this.dtp_YearMonth.TabIndex = 5;
+            this.dtp_YearMonth.ValueChanged += new System.EventHandler(this.dtp_YearMonth_ValueChanged);
+            // 
+            // tb_YearMonth
+            // 
+            this.tb_YearMonth.Location = new System.Drawing.Point(438, 139);
+            this.tb_YearMonth.Name = "tb_YearMonth";
+            this.tb_YearMonth.ReadOnly = true;
+            this.tb_YearMonth.Size = new System.Drawing.Size(218, 21);
+            this.tb_YearMonth.TabIndex = 6;
             // 
             // AttendanceCalenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 628);
+            this.Controls.Add(this.tb_YearMonth);
+            this.Controls.Add(this.dtp_YearMonth);
             this.Controls.Add(this.tb_Day);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listView_Calender);
@@ -153,7 +167,6 @@
             this.Controls.Add(this.btn_alter);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.tb_Hour);
-            this.Controls.Add(this.tb_YearMonth);
             this.Name = "AttendanceCalenderForm";
             this.Text = "考勤日历";
             this.Load += new System.EventHandler(this.AttendanceCalenderForm_Load);
@@ -163,8 +176,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tb_YearMonth;
         private System.Windows.Forms.TextBox tb_Hour;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_alter;
@@ -176,5 +187,7 @@
         private System.Windows.Forms.TextBox tb_Day;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.DateTimePicker dtp_YearMonth;
+        private System.Windows.Forms.TextBox tb_YearMonth;
     }
 }

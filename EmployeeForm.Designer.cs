@@ -112,9 +112,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 24);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1220, 666);
+            this.groupBox1.Size = new System.Drawing.Size(1220, 585);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
@@ -225,7 +225,7 @@
             this.listView_employee.GridLines = true;
             this.listView_employee.Location = new System.Drawing.Point(9, 249);
             this.listView_employee.Name = "listView_employee";
-            this.listView_employee.Size = new System.Drawing.Size(741, 150);
+            this.listView_employee.Size = new System.Drawing.Size(741, 310);
             this.listView_employee.TabIndex = 35;
             this.listView_employee.UseCompatibleStateImageBehavior = false;
             this.listView_employee.View = System.Windows.Forms.View.Details;
@@ -241,46 +241,55 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "员工姓名";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 94;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "性别";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 66;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "身份证号";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 114;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "出生日期";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 103;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "民族";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 68;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "学历";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 68;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "部门";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 70;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "职务";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader9.Width = 76;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "家庭住址";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader10.Width = 253;
             // 
             // cb_DutyName
@@ -417,6 +426,8 @@
             // 
             // dtp_BirthDate
             // 
+            this.dtp_BirthDate.CustomFormat = "yyyy/MM/dd";
+            this.dtp_BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_BirthDate.Location = new System.Drawing.Point(289, 51);
             this.dtp_BirthDate.Name = "dtp_BirthDate";
             this.dtp_BirthDate.Size = new System.Drawing.Size(121, 21);
@@ -523,7 +534,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 450);
+            this.ClientSize = new System.Drawing.Size(774, 595);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.HelpButton = true;

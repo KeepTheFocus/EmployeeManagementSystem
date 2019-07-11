@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Globalization;
 namespace EmployeeManagementSystem
 {
     public partial class EmployeeForm : Form
@@ -11,8 +12,6 @@ namespace EmployeeManagementSystem
         {
             InitializeComponent();
         }
-        
-       
 
       
         //保存输入的信息
@@ -183,7 +182,7 @@ namespace EmployeeManagementSystem
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
                 lvi.SubItems.Add(sdr["Sex"].ToString());
                 lvi.SubItems.Add(sdr["IndentityCardNumber"].ToString());
-                lvi.SubItems.Add(sdr["DateOfBirth"].ToString());
+                lvi.SubItems.Add(DateTime.Parse(sdr["DateOfBirth"].ToString()).ToString("yyyy年MM月dd日",DateTimeFormatInfo.InvariantInfo));
                 lvi.SubItems.Add(sdr["Nation"].ToString());
                 lvi.SubItems.Add(sdr["Academic"].ToString());
                 lvi.SubItems.Add(sdr["SectionName"].ToString());
@@ -303,7 +302,7 @@ namespace EmployeeManagementSystem
                 lvi.SubItems.Add(sdr["EmployeeName"].ToString());
                 lvi.SubItems.Add(sdr["Sex"].ToString());
                 lvi.SubItems.Add(sdr["IndentityCardNumber"].ToString());
-                lvi.SubItems.Add(sdr["DateOfBirth"].ToString());
+                lvi.SubItems.Add(DateTime.Parse(sdr["DateOfBirth"].ToString()).ToString("yyyy年MM月dd日",DateTimeFormatInfo.InvariantInfo) );
                 lvi.SubItems.Add(sdr["Nation"].ToString());
                 lvi.SubItems.Add(sdr["Academic"].ToString());
                 lvi.SubItems.Add(sdr["SectionName"].ToString());
@@ -396,7 +395,7 @@ namespace EmployeeManagementSystem
                         lvi.SubItems.Add(sdr["EmployeeName"].ToString());
                         lvi.SubItems.Add(sdr["Sex"].ToString());
                         lvi.SubItems.Add(sdr["IndentityCardNumber"].ToString());
-                        lvi.SubItems.Add(sdr["DateOfBirth"].ToString());
+                        lvi.SubItems.Add(DateTime.Parse(sdr["DateOfBirth"].ToString()).ToString("yyyy年MM月dd日",DateTimeFormatInfo.InvariantInfo));
                         lvi.SubItems.Add(sdr["Nation"].ToString());
                         lvi.SubItems.Add(sdr["Academic"].ToString());
                         lvi.SubItems.Add(sdr["SectionName"].ToString());

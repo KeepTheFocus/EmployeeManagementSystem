@@ -208,7 +208,7 @@ namespace EmployeeManagementSystem
                     while (sdrCalender.Read())
                     {
                         CRHour=sdrCalender.GetString(0);
-                        MessageBox.Show("yesCalender");
+                       // MessageBox.Show("yesCalender");
                     }
 
                     
@@ -240,7 +240,7 @@ namespace EmployeeManagementSystem
                         ARWeekedHour = sdrAttendanceReport.GetString(7);
                         //实际节假日加班小时
                         ARFestivaledHour = sdrAttendanceReport.GetString(8);
-                        MessageBox.Show("yesAttendanceReport");
+                        //MessageBox.Show("yesAttendanceReport");
                     }
                     //关闭数据读取器的实例
                     sdrAttendanceReport.Close();
@@ -253,173 +253,182 @@ namespace EmployeeManagementSystem
                     //创建数据读取器的实例
                     SqlDataReader sdrSalaryFiles = sqlCommandSalaryFile.ExecuteReader();
 
-                    while (sdrSalaryFiles.Read())
+                    if (sdrSalaryFiles.HasRows)
                     {
-                        //获取基本工资
-                        UhBasicPay = sdrSalaryFiles.GetString(3);
-                        //获取全勤奖
-                        UhFull = sdrSalaryFiles.GetString(4);
-                        //获取职务补贴
-                        UhDuty = sdrSalaryFiles.GetString(5);
-                        //获取外宿补贴
-                        UhOutside = sdrSalaryFiles.GetString(6);
-                        //获取餐费补贴
-                        UhMeal = sdrSalaryFiles.GetString(7);
-                        //获取数据库中存入的工作日加班费率
-                        UhNormalRate = sdrSalaryFiles.GetString(8);
-                        //获取数据库中存入的周末加班费率
-                        UhWeekRate = sdrSalaryFiles.GetString(9);
-                        //获取数据库中存入的节假日加班费率
-                        UhFestivalRate = sdrSalaryFiles.GetString(10);
-                        MessageBox.Show("yesUpholdSalaryFiles ");
-                    }
-
-                    //关闭数据读取器的实例
-                    sdrSalaryFiles.Close();
-                }
-
-
-                /* 
-                 * (1).如果本月实际出勤小时数==出勤日历中的小时数
-                 * 
-                那么应发工资==基本工资+全勤奖+职务补贴+外宿补贴
-                +餐食补贴+加班费
+                        while (sdrSalaryFiles.Read())
+                        {
+                            //获取基本工资
+                            UhBasicPay = sdrSalaryFiles.GetString(3);
+                            //获取全勤奖
+                            UhFull = sdrSalaryFiles.GetString(4);
+                            //获取职务补贴
+                            UhDuty = sdrSalaryFiles.GetString(5);
+                            //获取外宿补贴
+                            UhOutside = sdrSalaryFiles.GetString(6);
+                            //获取餐费补贴
+                            UhMeal = sdrSalaryFiles.GetString(7);
+                            //获取数据库中存入的工作日加班费率
+                            UhNormalRate = sdrSalaryFiles.GetString(8);
+                            //获取数据库中存入的周末加班费率
+                            UhWeekRate = sdrSalaryFiles.GetString(9);
+                            //获取数据库中存入的节假日加班费率
+                            UhFestivalRate = sdrSalaryFiles.GetString(10);
+                            //MessageBox.Show("yesUpholdSalaryFiles ");
+                        }
+                        //关闭数据读取器的实例
+                        sdrSalaryFiles.Close();
 
 
-                   (2).如果本月实际出勤小时<出勤日历中的小时数
+                        /* 
+                         * (1).如果本月实际出勤小时数==出勤日历中的小时数
+                         * 
+                        那么应发工资==基本工资+全勤奖+职务补贴+外宿补贴
+                        +餐食补贴+加班费
 
-                那么应发工资==每小时工作费率*实际出勤小时+职务补贴+外宿补贴
-                +餐食补贴+加班费
+
+                           (2).如果本月实际出勤小时<出勤日历中的小时数
+
+                        那么应发工资==每小时工作费率*实际出勤小时+职务补贴+外宿补贴
+                        +餐食补贴+加班费
 
 
-                  (3).如果本月出勤小时>出勤日历中的小时数
+                          (3).如果本月出勤小时>出勤日历中的小时数
 
-                  弹出消息框提示用户 “本月出勤小时数超出额定范围 请联系财务修正
-                  出勤详情”
-                   */
+                          弹出消息框提示用户 “本月出勤小时数超出额定范围 请联系财务修正
+                          出勤详情”
+                           */
 
-                //如果计算工资所必需的参数都存在 ，才开始执行计算工资的操作
-                if (ARAbsencedHour!=null&CRHour!=null&ARAttendancedHour!=null
-                    &ARNormaledHour!=null&ARWeekedHour!=null&ARFestivaledHour!=null
-                    &UhNormalRate!=null&UhWeekRate!=null&UhFestivalRate!=null
-                    &UhBasicPay!=null&UhFull!=null&UhDuty!=null&UhOutside!=null
-                    & UhMeal !=null) { 
-                    
-                
-                    int n = 0;
-                    //本月实际出勤小时    等于     出勤日历中的小时
-                    if (int.Parse(ARAttendancedHour) == int.Parse(CRHour))
-                    {
-                        n = 1;
-                    }            //本月实际出勤小时    小于     出勤日历中的小时
-                    else if (int.Parse(ARAttendancedHour) < int.Parse(CRHour))
-                    {
-                        n = 2;
-                    }           //本月实际出勤小时    大于     出勤日历中的小时
-                    else if (int.Parse(ARAttendancedHour) > int.Parse(CRHour))
-                    {
-                        n = 3;
-                    }
-
-                    switch (n)
-                    {
-                        case 1:
-
-                            //计算本月 正常工作日加班费
-                            ResultNormalSalay = Convert.ToDouble(UhNormalRate) * Convert.ToDouble(ARNormaledHour);
-                            //计算本月  周末加班费
-                            ResultWeekSalary = Convert.ToDouble(UhWeekRate) * Convert.ToDouble(ARWeekedHour);
-                            //计算本月  法定节假日加班费
-                            ResultFestivalSalary = Convert.ToDouble(UhFestivalRate) * Convert.ToDouble(ARFestivaledHour);
-                            //本月应发工资 
-                            ResultSumSalary = double.Parse(UhBasicPay) + double.Parse(UhFull) + double.Parse(UhDuty) + double.Parse(UhOutside)
-                                + double.Parse(UhMeal) + ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary;
-
-                            //本月应发的所有加班工资
-                            ResultOvertimePay = (ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary);
-
-                            StrResultOvertimePay = ResultOvertimePay.ToString();
-                            StrResultSumSalary = ResultSumSalary.ToString();
-
-                            MessageBox.Show("本月应发工资为" + StrResultSumSalary + "元！！！"
-                                + "本月加班费为" + StrResultOvertimePay + "元"
-                                + "本月工作日加班费" + ResultNormalSalay.ToString() + "元！"
-                                + "本月周末加班费" + ResultWeekSalary.ToString() + "元！"
-                                + "本月法定节假日加班费" + ResultFestivalSalary.ToString() + "元");
-
-                            //将值写入对应的数据库表中  SalaryCalculator
-                            string sqlInsertSC = "insert into SalaryCalculator values ('" + strEN + "','" + ARName + "','" + strYearMonth + "'," +
-                                "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "','"+DESectionName+"')";
-
-                            //创建SQLCommand命令的实例
-                            SqlCommand sqlCommand = new SqlCommand(sqlInsertSC, sqlConnection);
-                            if (sqlCommand.ExecuteNonQuery() > 0)
+                        //如果计算工资所必需的参数都存在 ，才开始执行计算工资的操作
+                        if (ARAbsencedHour != string.Empty & CRHour != string.Empty & ARAttendancedHour != string.Empty
+                            & ARNormaledHour != string.Empty & ARWeekedHour != string.Empty & ARFestivaledHour != string.Empty
+                            & UhNormalRate != string.Empty & UhWeekRate != string.Empty & UhFestivalRate != string.Empty
+                            & UhBasicPay != string.Empty & UhFull != string.Empty & UhDuty != string.Empty & UhOutside != string.Empty
+                            & UhMeal != string.Empty)
+                        {
+                            int n = 0;
+                            //本月实际出勤小时    等于     出勤日历中的小时
+                            if (int.Parse(ARAttendancedHour) == int.Parse(CRHour))
                             {
-                                MessageBox.Show("工资计算成功");
-                                //刷新窗体中的列表
-                                UpdateListview();
+                                n = 1;
+                            }            //本月实际出勤小时    小于     出勤日历中的小时
+                            else if (int.Parse(ARAttendancedHour) < int.Parse(CRHour))
+                            {
+                                n = 2;
+                            }           //本月实际出勤小时    大于     出勤日历中的小时
+                            else if (int.Parse(ARAttendancedHour) > int.Parse(CRHour))
+                            {
+                                n = 3;
                             }
 
-                            break;
-                        case 2:
-
-                            //由于没有全勤 所有取消全勤奖 即将全勤奖重置为零
-                            UhFull = 0.ToString();
-                            //计算本月 正常工作日加班费
-                            ResultNormalSalay = Convert.ToDouble(UhNormalRate) * Convert.ToDouble(ARNormaledHour);
-                            //计算本月  周末加班费
-                            ResultWeekSalary = Convert.ToDouble(UhWeekRate) * Convert.ToDouble(ARWeekedHour);
-                            //计算本月  法定节假日加班费
-                            ResultFestivalSalary = Convert.ToDouble(UhFestivalRate) * Convert.ToDouble(ARFestivaledHour);
-                            //本月应发工资 
-                            ResultSumSalary = double.Parse(UhBasicPay) + double.Parse(UhFull) + double.Parse(UhDuty) + double.Parse(UhOutside)
-                                + double.Parse(UhMeal) + ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary;
-
-                            //本月应发的所有加班工资
-                            ResultOvertimePay = (ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary);
-
-                            //将double类型的值 转换成string类型
-                            StrResultOvertimePay = ResultOvertimePay.ToString();
-                            StrResultSumSalary = ResultSumSalary.ToString();
-
-                            MessageBox.Show("本月由于没有满全勤 ,所以无全勤奖" +
-                                "本月应发工资为" + StrResultSumSalary + "元   "
-                                + "本月加班费为" + StrResultOvertimePay + "元  "
-                                + "本月工作日加班费" + ResultNormalSalay.ToString() + "元  "
-                                + "本月周末加班费" + ResultWeekSalary.ToString() + "元  "
-                                + "本月法定节假日加班费" + ResultFestivalSalary.ToString() + "元  ");
-
-
-
-
-                            //将值写入对应的数据库表中  SalaryCalculator
-                            string sqlInsertSCNOFull = "insert into SalaryCalculator values ('" + strEN + "','" + ARName + "','" + strYearMonth + "'," +
-                                "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "')";
-                            //创建Sqlcommand类的实例
-                            SqlCommand sqlCommandNOFull = new SqlCommand(sqlInsertSCNOFull, sqlConnection);
-                            if (sqlCommandNOFull.ExecuteNonQuery() > 0)
+                            switch (n)
                             {
-                                MessageBox.Show("工资计算成功");
+                                case 1:
 
-                                //刷新窗体中的列表
-                                UpdateListview();
+                                    //计算本月 正常工作日加班费
+                                    ResultNormalSalay = Convert.ToDouble(UhNormalRate) * Convert.ToDouble(ARNormaledHour);
+                                    //计算本月  周末加班费
+                                    ResultWeekSalary = Convert.ToDouble(UhWeekRate) * Convert.ToDouble(ARWeekedHour);
+                                    //计算本月  法定节假日加班费
+                                    ResultFestivalSalary = Convert.ToDouble(UhFestivalRate) * Convert.ToDouble(ARFestivaledHour);
+                                    //本月应发工资 
+                                    ResultSumSalary = double.Parse(UhBasicPay) + double.Parse(UhFull) + double.Parse(UhDuty) + double.Parse(UhOutside)
+                                        + double.Parse(UhMeal) + ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary;
+
+                                    //本月应发的所有加班工资
+                                    ResultOvertimePay = (ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary);
+
+                                    StrResultOvertimePay = ResultOvertimePay.ToString();
+                                    StrResultSumSalary = ResultSumSalary.ToString();
+
+                                    MessageBox.Show("本月应发工资为" + StrResultSumSalary + "元！！！"
+                                        + "本月加班费为" + StrResultOvertimePay + "元"
+                                        + "本月工作日加班费" + ResultNormalSalay.ToString() + "元！"
+                                        + "本月周末加班费" + ResultWeekSalary.ToString() + "元！"
+                                        + "本月法定节假日加班费" + ResultFestivalSalary.ToString() + "元");
+
+                                    //将值写入对应的数据库表中  SalaryCalculator
+                                    string sqlInsertSC = "insert into SalaryCalculator values ('" + strEN + "','" + ARName + "','" + strYearMonth + "'," +
+                                        "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "','" + DESectionName + "')";
+
+                                    //创建SQLCommand命令的实例
+                                    SqlCommand sqlCommand = new SqlCommand(sqlInsertSC, sqlConnection);
+                                    if (sqlCommand.ExecuteNonQuery() > 0)
+                                    {
+                                        MessageBox.Show("工资计算成功");
+                                        //刷新窗体中的列表
+                                        UpdateListview();
+                                    }
+
+                                    break;
+                                case 2:
+
+                                    //由于没有全勤 所有取消全勤奖 即将全勤奖重置为零
+                                    UhFull = 0.ToString();
+                                    //计算本月 正常工作日加班费
+                                    ResultNormalSalay = Convert.ToDouble(UhNormalRate) * Convert.ToDouble(ARNormaledHour);
+                                    //计算本月  周末加班费
+                                    ResultWeekSalary = Convert.ToDouble(UhWeekRate) * Convert.ToDouble(ARWeekedHour);
+                                    //计算本月  法定节假日加班费
+                                    ResultFestivalSalary = Convert.ToDouble(UhFestivalRate) * Convert.ToDouble(ARFestivaledHour);
+                                    //本月应发工资 
+                                    ResultSumSalary = double.Parse(UhBasicPay) + double.Parse(UhFull) + double.Parse(UhDuty) + double.Parse(UhOutside)
+                                        + double.Parse(UhMeal) + ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary;
+
+                                    //本月应发的所有加班工资
+                                    ResultOvertimePay = (ResultNormalSalay + ResultWeekSalary + ResultFestivalSalary);
+
+                                    //将double类型的值 转换成string类型
+                                    StrResultOvertimePay = ResultOvertimePay.ToString();
+                                    StrResultSumSalary = ResultSumSalary.ToString();
+
+                                    MessageBox.Show("本月由于没有满全勤 ,所以无全勤奖" +
+                                        "本月应发工资为" + StrResultSumSalary + "元   "
+                                        + "本月加班费为" + StrResultOvertimePay + "元  "
+                                        + "本月工作日加班费" + ResultNormalSalay.ToString() + "元  "
+                                        + "本月周末加班费" + ResultWeekSalary.ToString() + "元  "
+                                        + "本月法定节假日加班费" + ResultFestivalSalary.ToString() + "元  ");
+
+
+
+
+                                    //将值写入对应的数据库表中  SalaryCalculator
+                                    string sqlInsertSCNOFull = "insert into SalaryCalculator values ('" + strEN + "','" + ARName + "','" + strYearMonth + "'," +
+                                        "'" + UhBasicPay + "','" + UhFull + "','" + UhDuty + "','" + UhOutside + "','" + UhMeal + "','" + StrResultOvertimePay + "','" + StrResultSumSalary + "')";
+                                    //创建Sqlcommand类的实例
+                                    SqlCommand sqlCommandNOFull = new SqlCommand(sqlInsertSCNOFull, sqlConnection);
+                                    if (sqlCommandNOFull.ExecuteNonQuery() > 0)
+                                    {
+                                        MessageBox.Show("工资计算成功");
+
+                                        //刷新窗体中的列表
+                                        UpdateListview();
+                                    }
+                                    break;
+
+                                case 3:
+                                    MessageBox.Show("您本月实际出勤小时数超标 请联系财务计算薪资");
+                                    break;
+
+                                //default语句用来处理无效的选择
+                                default:
+                                    break;
                             }
-                            break;
 
-                        case 3:
-                            MessageBox.Show("您本月实际出勤小时数超标 请联系财务计算薪资");
-                            break;
-
-                        //default语句用来处理无效的选择
-                        default:
-                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("计算失败 请核实对应的表中的参数是否存在");
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("要计算工资的月份还有必要参数没有进行录入");
+                        //关闭数据读取器的实例
+                        sdrSalaryFiles.Close();
+                    }
+                   
+                }
 
-                }
-                else
-                {
-                    MessageBox.Show("计算失败 请核实对应的表中的参数是否存在");
-                }
                 //关闭数据库的连接
                 sqlConnection.Close();
             }
