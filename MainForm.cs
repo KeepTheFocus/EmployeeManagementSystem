@@ -18,6 +18,9 @@ namespace EmployeeManagementSystem
             InitializeComponent();
         }
 
+        Color[] colors = { Color.Red,Color.Green,Color.Blue,Color.Black,Color.Purple,Color.Cyan,Color.OrangeRed,Color.Yellow};
+        Random random = new Random();
+
         //新建入职 职员信息
         private void btn_AddEmployee(object sender, EventArgs e)
         {
@@ -200,7 +203,7 @@ namespace EmployeeManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void 班次时间段维护ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,6 +212,34 @@ namespace EmployeeManagementSystem
             classTimeUpholdForm.MdiParent = this;
             classTimeUpholdForm.Show();
             classTimeUpholdForm.Dock = DockStyle.Fill;
+        }
+
+        private void 职员排班ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeArrangementForm employeeArrangementForm = new EmployeeArrangementForm();
+            employeeArrangementForm.MdiParent = this;
+            employeeArrangementForm.Show();
+            employeeArrangementForm.Dock = DockStyle.Fill;
+        }
+
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+           
+        //}
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            label2.Text = " " + DateTime.Now.ToString("F");
+        }
+
+        private void 查询考勤信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchAttendanceForm attendanceForm = new SearchAttendanceForm();
+            attendanceForm.MdiParent = this;
+            attendanceForm.Show();
+            attendanceForm.Dock = DockStyle.Fill;
+
+
         }
     }
 }

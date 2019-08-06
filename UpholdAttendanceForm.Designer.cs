@@ -196,9 +196,9 @@
             // 
             // btn_Alter
             // 
-            this.btn_Alter.Location = new System.Drawing.Point(759, 122);
+            this.btn_Alter.Location = new System.Drawing.Point(759, 105);
             this.btn_Alter.Name = "btn_Alter";
-            this.btn_Alter.Size = new System.Drawing.Size(128, 23);
+            this.btn_Alter.Size = new System.Drawing.Size(189, 58);
             this.btn_Alter.TabIndex = 10;
             this.btn_Alter.Text = "修   改";
             this.btn_Alter.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(759, 59);
+            this.btn_Save.Location = new System.Drawing.Point(759, 34);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(128, 23);
+            this.btn_Save.Size = new System.Drawing.Size(189, 48);
             this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "保   存";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
             // 
             this.btn_Delete.Location = new System.Drawing.Point(759, 179);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(128, 23);
+            this.btn_Delete.Size = new System.Drawing.Size(189, 60);
             this.btn_Delete.TabIndex = 11;
             this.btn_Delete.Text = "删   除";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -324,7 +324,7 @@
             // 
             this.btn_RetrieveFromAtt2000.Location = new System.Drawing.Point(759, 252);
             this.btn_RetrieveFromAtt2000.Name = "btn_RetrieveFromAtt2000";
-            this.btn_RetrieveFromAtt2000.Size = new System.Drawing.Size(189, 53);
+            this.btn_RetrieveFromAtt2000.Size = new System.Drawing.Size(189, 63);
             this.btn_RetrieveFromAtt2000.TabIndex = 25;
             this.btn_RetrieveFromAtt2000.Text = "从att2000数据库中读取数据";
             this.btn_RetrieveFromAtt2000.UseVisualStyleBackColor = true;
@@ -333,7 +333,7 @@
             // checkBox_Manually
             // 
             this.checkBox_Manually.AutoSize = true;
-            this.checkBox_Manually.Location = new System.Drawing.Point(759, 347);
+            this.checkBox_Manually.Location = new System.Drawing.Point(759, 350);
             this.checkBox_Manually.Name = "checkBox_Manually";
             this.checkBox_Manually.Size = new System.Drawing.Size(120, 16);
             this.checkBox_Manually.TabIndex = 26;
@@ -346,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 628);
+            this.ClientSize = new System.Drawing.Size(1204, 749);
             this.Controls.Add(this.checkBox_Manually);
             this.Controls.Add(this.btn_RetrieveFromAtt2000);
             this.Controls.Add(this.tb_YearMonth);

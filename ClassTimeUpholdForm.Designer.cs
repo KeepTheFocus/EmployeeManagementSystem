@@ -225,6 +225,7 @@
             this.btn_DeleteClass.TabIndex = 3;
             this.btn_DeleteClass.Text = "删除";
             this.btn_DeleteClass.UseVisualStyleBackColor = true;
+            this.btn_DeleteClass.Click += new System.EventHandler(this.btn_DeleteClass_Click);
             // 
             // label1
             // 

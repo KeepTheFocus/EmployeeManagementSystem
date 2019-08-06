@@ -356,7 +356,7 @@
             // 
             this.columnHeader10.Text = "法定节假日加班费率";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader10.Width = 145;
+            this.columnHeader10.Width = 251;
             // 
             // label12
             // 

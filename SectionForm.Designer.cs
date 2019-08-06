@@ -104,7 +104,7 @@
             // 
             this.columnHeader2.Text = "部门名称";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 361;
+            this.columnHeader2.Width = 462;
             // 
             // SectionForm
             // 

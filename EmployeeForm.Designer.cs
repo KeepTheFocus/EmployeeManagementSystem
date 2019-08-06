@@ -299,6 +299,7 @@
             this.cb_DutyName.Name = "cb_DutyName";
             this.cb_DutyName.Size = new System.Drawing.Size(121, 20);
             this.cb_DutyName.TabIndex = 8;
+           // this.cb_DutyName.SelectedIndexChanged += new System.EventHandler(this.cb_DutyName_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -491,6 +492,8 @@
             this.cb_SectionName.Name = "cb_SectionName";
             this.cb_SectionName.Size = new System.Drawing.Size(121, 20);
             this.cb_SectionName.TabIndex = 7;
+            this.cb_SectionName.SelectedIndexChanged += new System.EventHandler(this.cb_SectionName_SelectedIndexChanged);
+            this.cb_SectionName.SelectedValueChanged += new System.EventHandler(this.cb_SectionName_SelectedValueChanged);
             // 
             // label7
             // 

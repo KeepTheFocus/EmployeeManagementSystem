@@ -48,7 +48,7 @@ namespace EmployeeManagementSystem
                 }
                 else
                 {
-                    MessageBox.Show("登录成功");
+                   // MessageBox.Show("登录成功");
                     DialogResult = DialogResult.OK;
 
                     //关闭登录窗口

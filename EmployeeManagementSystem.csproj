@@ -112,11 +112,11 @@
     <Compile Include="EmployeeGroupForm.Designer.cs">
       <DependentUpon>EmployeeGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="EmployeeArrangementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EmployeeArrangementForm.Designer.cs">
+      <DependentUpon>EmployeeArrangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HarvestRhythmZeroDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,6 +213,12 @@
     <Compile Include="SalaryReportForm.Designer.cs">
       <DependentUpon>SalaryReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAttendanceForm.Designer.cs">
+      <DependentUpon>SearchAttendanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SectionAcknowledgeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,8 +258,8 @@
     <EmbeddedResource Include="EmployeeGroupForm.resx">
       <DependentUpon>EmployeeGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeArrangementForm.resx">
+      <DependentUpon>EmployeeArrangementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportAttendanceReport2SqlForm.resx">
       <DependentUpon>ImportAttendanceReport2SqlForm.cs</DependentUpon>
@@ -306,6 +312,9 @@
     </Compile>
     <EmbeddedResource Include="SalaryReportForm.resx">
       <DependentUpon>SalaryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchAttendanceForm.resx">
+      <DependentUpon>SearchAttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SectionAcknowledgeForm.resx">
       <DependentUpon>SectionAcknowledgeForm.cs</DependentUpon>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace EmployeeManagementSystem
 {
@@ -313,6 +314,12 @@ namespace EmployeeManagementSystem
 
         }
 
+
+
+        string FirstTouchMachine = string.Empty,//用来保存第一次打卡时间
+               LastTouchMachine = string.Empty;//用来保存最后一次打卡时间
+
+         
         //给从att2000数据库中提取数据设置 点击事件
         private void btn_RetrieveFromAtt2000_Click(object sender, EventArgs e)
         {
@@ -324,6 +331,60 @@ namespace EmployeeManagementSystem
             tb_Festival.ReadOnly = true;
 
             //获取当前的系统月份 如果是8月，那么就从数据库中读取出7月份的考勤数据  
+            MessageBox.Show(DateTime.Now.Month.ToString());
+            using (SqlConnection connection=new SqlConnection())
+            {
+                connection.ConnectionString = UtilitySql.SetRemoteConnectionString();
+                connection.Open();
+
+                //取出当天的第一次打卡时间
+                string sql = "select top 1 checktime from checkinout where (checktime between '2019-07-01' and '2019-07-16' and (userid=5784))";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+              
+                while (reader.Read())
+                {
+                    
+                    //读取出当天所有的打卡时间。时间精确到分钟
+                    MessageBox.Show("第一次打卡时间为"+DateTime.Parse(reader[0].ToString()) .ToString("g"));
+                    
+
+                }
+
+
+                reader.Close();
+
+
+                string sql2 = "select top 1 checktime from checkinout where (checktime between '2019-07-01' and '2019-07-16' and (userid=5784)) order by checktime desc";
+
+
+                SqlCommand command2 = new SqlCommand(sql2, connection);
+
+                SqlDataReader reader2 = command2.ExecuteReader();
+
+
+                while (reader2.Read())
+                {
+
+                    //读取出当天所有的打卡时间。时间精确到分钟
+                    MessageBox.Show("最后一次打卡时间为"+DateTime.Parse(reader2[0].ToString()).ToString("g"));
+
+
+                }
+
+
+                reader2.Close();
+                //循环判断当月的每周的五个工作日的
+                //第一次打卡时间是否落在在08：00之前
+                //第二次打卡时间是否落在11：50之后
+                //第三次打卡时间是否落在12：50之前
+                //第四次打卡时间是否落在17：20之后
+
+
+            }
         }
 
         private void checkBox_Manually_CheckStateChanged(object sender, EventArgs e)

@@ -47,16 +47,16 @@ namespace EmployeeManagementSystem
                 {
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.SubItems.Add(sqlDataReader["TimePeriodName"].ToString());
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["FirstPeriodSartTime"].ToString()).ToString("H:mm",DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["FirstPeriodStopTime"].ToString()).ToString("H:mm",DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignInStartTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignInStopTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SecondPeriodStartTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SecondPeriodStopTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["FirstPeriodSartTime"].ToString()).ToString("HH:mm",DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["FirstPeriodStopTime"].ToString()).ToString("HH:mm",DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignInStartTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignInStopTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SecondPeriodStartTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SecondPeriodStopTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
 
 
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignOffStartTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignOffStopTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignOffStartTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["SignOffStopTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
                     listViewItem.SubItems.Add(sqlDataReader["ShowColour"].ToString()  );
                     listViewItem.SubItems.Add(sqlDataReader["WriteDownWorkDay"].ToString());
 
@@ -65,8 +65,8 @@ namespace EmployeeManagementSystem
 
 
                     
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["OverTimeStartTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo));
-                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["OverTimeStopTime"].ToString()).ToString("H:mm", DateTimeFormatInfo.InvariantInfo) );
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["OverTimeStartTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo));
+                    listViewItem.SubItems.Add(DateTime.Parse(sqlDataReader["OverTimeStopTime"].ToString()).ToString("HH:mm", DateTimeFormatInfo.InvariantInfo) );
 
 
                     lv_ClassTimeUphold.Items.Add(listViewItem);
@@ -409,6 +409,38 @@ namespace EmployeeManagementSystem
                 MessageBox.Show(a.Message);
             }
 
+        }
+
+        //给删除按钮设置 点击事件
+        private void btn_DeleteClass_Click(object sender, EventArgs e)
+        {
+            //取出当前持有焦点的条目的索引 并将其赋值给int类型的变量
+            int a = lv_ClassTimeUphold.FocusedItem.Index;
+            MessageBox.Show(a.ToString());
+            MessageBox.Show(lv_ClassTimeUphold.Items[a].SubItems[1].Text);
+            //删除该条目在数据表中的数据
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = UtilitySql.SetConnectionString();
+                connection.Open();
+
+                //创建要执行的命令语句
+                string sql = string.Format("delete from UpholdClassTimePeriod where TimePeriodName='{0}'", lv_ClassTimeUphold.Items[a].SubItems[1].Text);
+              
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                if (command.ExecuteNonQuery()>0)
+                {
+                    MessageBox.Show(lv_ClassTimeUphold.Items[a].SubItems[1].Text+"已经删除成功");
+                }
+
+            }
+
+
+
+
+            //删除该条目在列表中的显示
+            lv_ClassTimeUphold.Items.RemoveAt(a);
         }
     }
 }

@@ -89,7 +89,6 @@
             this.listView_Duty.GridLines = true;
             this.listView_Duty.Location = new System.Drawing.Point(221, 246);
             this.listView_Duty.Name = "listView_Duty";
-            this.listView_Duty.Scrollable = false;
             this.listView_Duty.Size = new System.Drawing.Size(363, 242);
             this.listView_Duty.TabIndex = 6;
             this.listView_Duty.UseCompatibleStateImageBehavior = false;

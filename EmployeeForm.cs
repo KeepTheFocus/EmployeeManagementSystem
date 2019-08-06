@@ -223,7 +223,7 @@ namespace EmployeeManagementSystem
             connection.Open();
 
             //创建sql语句
-            string strSql = "select * from Section";
+            string strSql = "select SectionName  from Section";
             //创建一个SqlCommand类的实例
             SqlCommand command = new SqlCommand(strSql, connection);
 
@@ -246,46 +246,64 @@ namespace EmployeeManagementSystem
         public DataTable SelectDuty()
         {
 
-            //创建数据库连接
-            SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
+           
+                //创建数据库连接
+                SqlConnection connection = new SqlConnection(UtilitySql.SetConnectionString());
 
-            //创建sql语句
-            string strSql = "select * from Duty";
 
-            SqlCommand command = new SqlCommand(strSql, connection);
-            //创建数据适配器 的实例
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            //打开连接
-            connection.Open();
-            //创建数据表
-            DataTable table = new DataTable();
 
-            adapter.Fill(table);
+                //创建sql语句
+                string strSql = "select DutyName from Duty where SectionName='" + cb_SectionName.Text + "'";
 
-            //关闭连接
-            connection.Close();
-            //释放所有资源
-            command.Dispose();
-            //返回数据表
-            return table;
+                SqlCommand command = new SqlCommand(strSql, connection);
+                //创建数据适配器 的实例
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                //打开连接
+                connection.Open();
+                //创建数据表
+                DataTable table = new DataTable();
+
+                adapter.Fill(table);
+
+                //关闭连接
+                connection.Close();
+                //释放所有资源
+                command.Dispose();
+                //返回数据表
+                return table;
+
+
+
+            
+            
+         
 
         }
 
         //窗体加载 函数
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+          
             //给部门下拉框 设置数据源
-            cb_SectionName.DataSource = SelectSection();
+           cb_SectionName.DataSource = SelectSection();
             //选定表中的哪一列作为  下拉框中显示的字段
-            cb_SectionName.DisplayMember = "SectionName";
+           cb_SectionName.DisplayMember = "SectionName";
+
+            //使部门下拉框中的文本框部分默认显示空字符串
+            cb_SectionName.Text = "";
+            //使职务下拉框中的文本框部分默认显示空字符串
+            cb_DutyName.Text = "";
+
+
+
             //给职务下拉框 设置数据源
-            cb_DutyName.DataSource = SelectDuty();
+            //  cb_DutyName.DataSource = SelectDuty();
             //选定表中的哪一列作为  下拉框中显示的字段
-            cb_DutyName.DisplayMember = "DutyName";
+            // cb_DutyName.DisplayMember = "DutyName";
 
             //将数据库中所有的字段显示到  窗体的listview控件中
             //创建数据库连接的实例
-         SqlConnection   connection = new SqlConnection(UtilitySql.SetConnectionString());
+            SqlConnection   connection = new SqlConnection(UtilitySql.SetConnectionString());
             //打开数据库
             connection.Open();
             //创建数据库命令的实例
@@ -445,6 +463,29 @@ namespace EmployeeManagementSystem
             //当条目前面的框被勾上时 以为者当前条目被选上了
            
             
+        }
+
+
+        //部门下拉框设置事件
+        private void cb_SectionName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        //职位下拉框设置事件
+        //private void cb_DutyName_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void cb_SectionName_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(cb_SectionName.Text);
+            
+            //给职务下拉框 设置数据源
+             cb_DutyName.DataSource = SelectDuty();
+            //选定表中的哪一列作为  下拉框中显示的字段
+            cb_DutyName.DisplayMember = "DutyName";
+
         }
     }
 }

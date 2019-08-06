@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem
 {
-    partial class Form1
+    partial class EmployeeArrangementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,11 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker_FirstDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker_LastDate = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker_LastDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_FirstDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -104,14 +104,28 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
+            // dataGridView1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "从";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(25, 69);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(744, 410);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // dateTimePicker_LastDate
+            // 
+            this.dateTimePicker_LastDate.Location = new System.Drawing.Point(289, 14);
+            this.dateTimePicker_LastDate.Name = "dateTimePicker_LastDate";
+            this.dateTimePicker_LastDate.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker_LastDate.TabIndex = 3;
+            // 
+            // dateTimePicker_FirstDate
+            // 
+            this.dateTimePicker_FirstDate.Location = new System.Drawing.Point(46, 14);
+            this.dateTimePicker_FirstDate.Name = "dateTimePicker_FirstDate";
+            this.dateTimePicker_FirstDate.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker_FirstDate.TabIndex = 2;
             // 
             // label2
             // 
@@ -122,37 +136,23 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "到";
             // 
-            // dateTimePicker_FirstDate
+            // label1
             // 
-            this.dateTimePicker_FirstDate.Location = new System.Drawing.Point(46, 14);
-            this.dateTimePicker_FirstDate.Name = "dateTimePicker_FirstDate";
-            this.dateTimePicker_FirstDate.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker_FirstDate.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "从";
             // 
-            // dateTimePicker_LastDate
-            // 
-            this.dateTimePicker_LastDate.Location = new System.Drawing.Point(289, 14);
-            this.dateTimePicker_LastDate.Name = "dateTimePicker_LastDate";
-            this.dateTimePicker_LastDate.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker_LastDate.TabIndex = 3;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 69);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(744, 410);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // Form1
+            // EmployeeArrangementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 761);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "EmployeeArrangementForm";
+            this.Text = "人员排班";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();

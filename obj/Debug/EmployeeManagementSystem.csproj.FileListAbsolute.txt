@@ -99,3 +99,5 @@ D:\EmployeeManagementSystem\obj\Debug\RdlCompile.cache
 D:\EmployeeManagementSystem\obj\Debug\RdlCompile.compiled
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.CopyComplete
 D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.ClassTimeUpholdForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.EmployeeArrangementForm.resources
+D:\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.SearchAttendanceForm.resources
